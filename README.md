@@ -2,9 +2,9 @@
 
 **Pontificia Universidad Javeriana · 2026-II · Docente: Pedro Ardila**
 
-> **Estudiante:** [escribe aquí tu nombre completo]
-> **Nombre del proyecto:** [escribe aquí el nombre de tu herramienta]
-> **Fecha de inicio:** [AAAA-MM-DD]
+> **Estudiante:** Melanie Bulla & Valeria Suarez 
+> **Nombre del proyecto:** Conoce tus derechos 
+> **Fecha de inicio:** 2026-08-18
 
 ---
 
@@ -18,10 +18,11 @@ Bienvenido/a a tu repositorio de proyecto. **Este archivo es tu tablero de mando
 
 ## 📋 Parte 1 — Descripción del proyecto
 
-> Completa cada sección con 3–10 frases. Sé concreto/a: esta descripción es la que tu IA usará como contexto y la que el docente usará para realimentarte.
+**Conoce tus derechos** es una herramienta de inteligencia artificial la cual esta diseñada para ayudar a las personas a conocer y comprender sus derechos en especial cuando estos están siendo vulnerados. El usuario podrá escribir una pregunta o su situación y esta herramienta identificara los posibles derechos relacionados con ella. La IA explicara la información de manera clara, indicando las normas que respaldan su situación. Esta herramienta estará basada en fuentes jurídicas colombianas publicas y fácilmente verificables. Su finalidad es facilitar el acceso a la información jurídica y promover el conocimiento de sus derechos. No reemplaza la asesoría legal ni la consulta con un abogado. 
+
 
 ### 1.1 El problema jurídico
-¿Qué problema **real del derecho colombiano** resuelve tu herramienta? ¿Quién lo sufre hoy y cómo lo resuelve sin tu herramienta?
+Colombia cuenta con problemáticas de desconocimiento y dificultad de acceso a la información sobre los derechos que tienen las personas, específicamente cuando se enfrentan a situaciones jurídicas cotidianas. Muchos colombianos no saben identificar que derechos están relacionados en su situación, qué norma los protege o dónde pueden encontrar información confiable. Actualmente, quienes tienen estas dudas suelen buscar información por internet, consultar diferentes fuentes o acudir directamente a un abogado, lo que, puede terminar con un resultado confuso o poco accesible. **Conoce tus derechos** busca facilitar estos acercamientos jurídicos mediante una inteligencia artificial que permita a las personas explicar su situación en un lenguaje sencillo y conocer los posibles derechos relacionados con ello. Esta herramienta no busca reemplazar un abogado, sino ayudar a las personas a comprender sus derechos y consultar información jurídica de manera mas sencilla. 
 
 ### 1.2 Usuarios
 ¿Quién va a usarla? Describe a tu usuario ideal en una frase (ej. *"un arrendatario bogotano que le subieron el canon de arrendamiento más del límite legal"*). Recuerda que al final necesitas **al menos un usuario real** que la pruebe.
