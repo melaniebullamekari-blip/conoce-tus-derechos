@@ -37,9 +37,8 @@ Colombia cuenta con problemáticas de desconocimiento y dificultad de acceso a l
 
 ### 1.4 Marco jurídico y fuentes
 ¿Qué normas alimentan tu herramienta? Lista tu corpus normativo (leyes, decretos, sentencias — debe ser **pequeño y público**):
-- [ ] Norma/sentencia 1: [nombre + enlace]
-- [ ] Norma/sentencia 2: [nombre + enlace]
-
+- [ ] Constitución Política de Colombia de 1991 https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=4125
+- [ ] Ley 1712 de 2014  — Transparencia y Derecho de Acceso a la Información Pública https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=56882
 ### 1.5 Nombre y lema
 Un nombre corto para tu herramienta y una frase que explique qué hace (la usarás en la demo del día de presentaciones).
 
