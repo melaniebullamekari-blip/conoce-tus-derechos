@@ -41,6 +41,7 @@ Colombia cuenta con problemáticas de desconocimiento y dificultad de acceso a l
 - [ ] Ley 1712 de 2014  — Transparencia y Derecho de Acceso a la Información Pública https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=56882
 ### 1.5 Nombre y lema
 **CONOCE TUS DERECHOS** 
+
 ★Si tus derechos te han vulnerado, nosotros te ayudamos a identificarlos★
 ---
 
