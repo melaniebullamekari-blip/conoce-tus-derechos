@@ -25,13 +25,13 @@ Bienvenido/a a tu repositorio de proyecto. **Este archivo es tu tablero de mando
 Colombia cuenta con problemáticas de desconocimiento y dificultad de acceso a la información sobre los derechos que tienen las personas, específicamente cuando se enfrentan a situaciones jurídicas cotidianas. Muchos colombianos no saben identificar que derechos están relacionados en su situación, qué norma los protege o dónde pueden encontrar información confiable. Actualmente, quienes tienen estas dudas suelen buscar información por internet, consultar diferentes fuentes o acudir directamente a un abogado, lo que, puede terminar con un resultado confuso o poco accesible. **Conoce tus derechos** busca facilitar estos acercamientos jurídicos mediante una inteligencia artificial que permita a las personas explicar su situación en un lenguaje sencillo y conocer los posibles derechos relacionados con ello. Esta herramienta no busca reemplazar un abogado, sino ayudar a las personas a comprender sus derechos y consultar información jurídica de manera mas sencilla. 
 
 ### 1.2 Usuarios
-¿Quién va a usarla? Describe a tu usuario ideal en una frase (ej. *"un arrendatario bogotano que le subieron el canon de arrendamiento más del límite legal"*). Recuerda que al final necesitas **al menos un usuario real** que la pruebe.
+**Conoce tus Derechos** está dirigido a personas en Colombia que tienen dudas sobre sus derechos y no cuentan con conocimientos jurídicos suficientes para identificar qué normas se relacionan con esta situación. El usuario ideal son los Colombianos que enfrentan una situación cotidiana en la que cree que sus derechos pueden estar siendo vulnerados, pero no sabe cuáles son ni qué norma los protege. Al finalizar el proyecto, al menos una persona que no haga parte de la clase probará la herramienta y permitirá ebvaluar si sus respuestas son claras y útiles. 
 
 ### 1.3 Qué hace y qué NO hace (alcance)
 | ✅ Sí hace | ❌ No hace |
 | --- | --- |
-| [funcionalidad 1] | [fuera de alcance 1] |
-| [funcionalidad 2] | [fuera de alcance 2] |
+| Permite al usuario describir una situación y hacer preguntas sobre sus derechos.] | No reemplaza la asesoría de un abogado. |
+| Indica las normas o fuentes jurídicas que respaldan las respuestas. | No inventa leyes, artículos ni información jurídica cuando no tiene una fuente suficiente.|
 
 *Consejo de abogado: un alcance pequeño y perfecto vale más que uno grande y roto.*
 
