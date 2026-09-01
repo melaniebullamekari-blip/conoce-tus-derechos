@@ -30,7 +30,7 @@ Colombia cuenta con problemáticas de desconocimiento y dificultad de acceso a l
 ### 1.3 Qué hace y qué NO hace (alcance)
 | ✅ Sí hace | ❌ No hace |
 | --- | --- |
-| Permite al usuario describir una situación y hacer preguntas sobre sus derechos.] | No reemplaza la asesoría de un abogado. |
+| Permite al usuario describir una situación y hacer preguntas sobre sus derechos.| No reemplaza la asesoría de un abogado. |
 | Indica las normas o fuentes jurídicas que respaldan las respuestas. | No inventa leyes, artículos ni información jurídica cuando no tiene una fuente suficiente.|
 
 *Consejo de abogado: un alcance pequeño y perfecto vale más que uno grande y roto.*
