@@ -42,7 +42,7 @@ Colombia cuenta con problemáticas de desconocimiento y dificultad de acceso a l
 ### 1.5 Nombre y lema
 <h1>Conoce tus Derechos</h1>
 
-★Si tus derechos te han vulnerado, nosotros te ayudamos a identificarlos★
+★Si tus derechos te han vulnerado,nosotros te ayudamos a identificarlos★
 ---
 
 ## 🗺️ Parte 2 — Plan de desarrollo
