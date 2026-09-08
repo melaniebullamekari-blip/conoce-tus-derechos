@@ -59,9 +59,10 @@ Marca cada hito cuando lo termines. Los hitos siguen las sesiones del curso.
 ### Bitácora de avance semanal
 | Semana | Qué hice | Enlace/captura | Dudas para la clase |
 | --- | --- | --- | --- |
-| 1 |Definimos el problema jurídico, los usuarios, el alcance y las fuentes de Conoce tus Derechos. | |¿El problema esta bien redactado y cumple con una función de ayuda con la ley?|
-| 2 | | | |
-| 3 | | | |
+| 1 |Definimos el problema jurídico, los usuarios, el alcance y las fuentes de Conoce tus Derechos. |README.md |¿El problema esta bien redactado y cumple con una función de ayuda con la ley?|
+| 2 |Construimos las primeras instrucciones del asistente y comenzamos el desarrollo en antigravity. |<img width="744" height="160" alt="Screenshot 2026-09-08 at 10 59 40 AM" src="https://github.com/user-attachments/assets/708f3ad7-bb85-4def-9513-ced0f702e109" />
+ |¿Como podemos mejorar las instrucciones para que la IA nos de respuestas mas especificas? |
+| 3 |Conectamos y preparamos las fuentes jurídicas y realizamos pruebas de las respuestas de la herramienta. | | |
 | 4 | | | |
 | 5 | | | |
 
