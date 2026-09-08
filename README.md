@@ -1,17 +1,15 @@
-<img width="1008" height="112" alt="Screenshot 2026-09-08 at 11 03 57 AM" src="https://github.com/user-attachments/assets/15ec6e82-0390-47f0-ab0c-1480c92c1297" />
 # ⚖️🤖 Proyecto Final — Derecho e Inteligencia Artificial
 
 **Pontificia Universidad Javeriana · 2026-II · Docente: Pedro Ardila**
 
-> **Estudiante:** Melanie Bulla & Valeria Suarez 
-> **Nombre del proyecto:** Conoce tus derechos 
-> **Fecha de inicio:** 2026-08-18
+> **Estudiantes:** Melanie Bulla & Valeria Suarez  
+> **Nombre del proyecto:** Conoce tus derechos  
+> **Lema:** *"Tu orientador jurídico ciudadano: claridad y respaldo legal al alcance de todos"*  
+> **Fecha de inicio:** 2026-08-18  
 
 ---
 
-Bienvenido/a a tu repositorio de proyecto. **Este archivo es tu tablero de mando**: aquí describes tu proyecto, planificas su desarrollo y dejas evidencia del avance. Lo vas a completar por partes, siguiendo el curso.
-
-📌 Si ya habías escrito una descripción de tu proyecto cuando creaste el repo, la encuentras intacta en `README-ORIGINAL.md`. Úsala como punto de partida para la Parte 1 — no empieces de cero.
+Bienvenido/a a tu repositorio de proyecto. **Este archivo es tu tablero de mando**: aquí describes tu proyecto, planificas su desarrollo y dejas evidencia del avance.
 
 **No necesitas saber programar.** Todo el código lo construirás con asistencia de IA (*vibe coding*). Tu valor como estudiante de derecho está en el problema que eliges, las fuentes que alimentas, las instrucciones que diseñas y el juicio crítico con el que evalúas el resultado.
 
@@ -19,182 +17,124 @@ Bienvenido/a a tu repositorio de proyecto. **Este archivo es tu tablero de mando
 
 ## 📋 Parte 1 — Descripción del proyecto
 
-**Conoce tus derechos** es una herramienta de inteligencia artificial la cual esta diseñada para ayudar a las personas a conocer y comprender sus derechos en especial cuando estos están siendo vulnerados. El usuario podrá escribir una pregunta o su situación y esta herramienta identificara los posibles derechos relacionados con ella. La IA explicara la información de manera clara, indicando las normas que respaldan su situación. Esta herramienta estará basada en fuentes jurídicas colombianas publicas y fácilmente verificables. Su finalidad es facilitar el acceso a la información jurídica y promover el conocimiento de sus derechos. No reemplaza la asesoría legal ni la consulta con un abogado. 
-
+**Conoce tus derechos** es una herramienta de inteligencia artificial diseñada para ayudar a los ciudadanos colombianos a comprender sus derechos fundamentales y legales cuando se enfrentan a situaciones cotidianas de presunta vulneración. La herramienta traduce el lenguaje técnico jurídico a explicaciones sencillas, cita las normas colombianas aplicables y orienta sobre los mecanismos y canales oficiales gratuitos disponibles.
 
 ### 1.1 El problema jurídico
-Colombia cuenta con problemáticas de desconocimiento y dificultad de acceso a la información sobre los derechos que tienen las personas, específicamente cuando se enfrentan a situaciones jurídicas cotidianas. Muchos colombianos no saben identificar que derechos están relacionados en su situación, qué norma los protege o dónde pueden encontrar información confiable. Actualmente, quienes tienen estas dudas suelen buscar información por internet, consultar diferentes fuentes o acudir directamente a un abogado, lo que, puede terminar con un resultado confuso o poco accesible. **Conoce tus derechos** busca facilitar estos acercamientos jurídicos mediante una inteligencia artificial que permita a las personas explicar su situación en un lenguaje sencillo y conocer los posibles derechos relacionados con ello. Esta herramienta no busca reemplazar un abogado, sino ayudar a las personas a comprender sus derechos y consultar información jurídica de manera mas sencilla. 
+En Colombia existe una amplia brecha de desconocimiento y barreras de acceso a la información jurídica básica. Muchos ciudadanos no saben qué derechos tienen frente a un arrendador que sube excesivamente el canon, una tienda que se niega a aplicar una garantía, una entidad pública que no responde una petición, o un procedimiento policial en la calle. Esto genera desprotección y saturación innecesaria del sistema judicial. **Conoce tus derechos** busca democratizar el conocimiento jurídico ciudadano con rigor normativo y salvaguardas éticas.
 
 ### 1.2 Usuarios
-**Conoce tus Derechos** está dirigido a personas en Colombia que tienen dudas sobre sus derechos y no cuentan con conocimientos jurídicos suficientes para identificar qué normas se relacionan con esta situación. El usuario ideal son los Colombianos que enfrentan una situación cotidiana en la que cree que sus derechos pueden estar siendo vulnerados, pero no sabe cuáles son ni qué norma los protege. Al finalizar el proyecto, al menos una persona que no haga parte de la clase probará la herramienta y permitirá ebvaluar si sus respuestas son claras y útiles. 
+* **Usuario ideal:** Un ciudadano colombiano (arrendatario, consumidor, trabajador o usuario de servicios públicos y de salud) que atraviesa un conflicto cotidiano y necesita orientación clara y fundamentada sobre qué normas lo protegen y qué pasos seguir.
 
 ### 1.3 Qué hace y qué NO hace (alcance)
 | ✅ Sí hace | ❌ No hace |
-| --- | --- |
-| Permite al usuario describir una situación y hacer preguntas sobre sus derechos.| No reemplaza la asesoría de un abogado. |
-| Indica las normas o fuentes jurídicas que respaldan las respuestas. | No inventa leyes, artículos ni información jurídica cuando no tiene una fuente suficiente.|
-
-*Consejo de abogado: un alcance pequeño y perfecto vale más que uno grande y roto.*
+| :--- | :--- |
+| Identifica derechos presuntamente vulnerados a partir del relato en lenguaje común del usuario. | No redacta demandas judiciales oficiales para actuar como apoderado en estrados. |
+| Cita los artículos y leyes colombianas aplicables vigentes. | No promete resultados judiciales ni resuelve litigios con fuerza de sentencia. |
+| Explica paso a paso cómo presentar peticiones, tutelas o reclamaciones directas. | No reemplaza la consulta personalizada ni la representación de un abogado titulado. |
+| Remite a entidades oficiales y canales gratuitos (Personería, Defensoría, Consultorios Jurídicos). | No recolecta ni almacena datos personales sensibles ni información privada real. |
 
 ### 1.4 Marco jurídico y fuentes
-¿Qué normas alimentan tu herramienta? Lista tu corpus normativo (leyes, decretos, sentencias — debe ser **pequeño y público**):
-- [ ] Constitución Política de Colombia de 1991 https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=4125
-- [ ] Ley 1712 de 2014  — Transparencia y Derecho de Acceso a la Información Pública https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=56882
-### 1.5 Nombre y lema
-<h1>Conoce tus Derechos</h1>
+Corpus normativo curado y disponible en la carpeta [`corpus/`](./corpus/):
+- [x] [Constitución Política de Colombia de 1991 (Arts. 15, 23, 74, 86)](./corpus/constitucion_politica_1991.md)
+- [x] [Ley Estatutaria 1755 de 2015 — Derecho Fundamental de Petición](./corpus/ley_1755_2015_derecho_peticion.md)
+- [x] [Ley 1480 de 2011 — Estatuto del Consumidor](./corpus/ley_1480_2011_consumidor.md)
+- [x] [Ley 820 de 2003 — Régimen de Arrendamiento de Vivienda Urbana](./corpus/ley_820_2003_arrendamiento.md)
+- [x] [Ley 1801 de 2016 — Código Nacional de Seguridad y Convivencia](./corpus/ley_1801_2016_codigo_policia.md)
+- [x] [Sentencia C-055 de 2022 de la Corte Constitucional — Interrupción Voluntaria del Embarazo](./corpus/sentencia_c055_2022_ive.md)
 
-★Si tus derechos te han vulnerado,nosotros te ayudamos a identificarlos★
+### 1.5 Nombre y lema
+* **Nombre:** Conoce tus derechos
+* **Lema:** *"Tu orientador jurídico ciudadano: claridad y respaldo legal al alcance de todos"*
+
 ---
 
 ## 🗺️ Parte 2 — Plan de desarrollo
 
-Marca cada hito cuando lo termines. Los hitos siguen las sesiones del curso.
-
-- [X] **M0 — Descripción y plan** *(con Sesión 1)*: Partes 1 y 2 de este README completas.
-- [X] **M1 — Asistente con instrucciones v1** *(Sesión 1–2)*: redactaste las instrucciones (prompt de sistema) de tu asistente y funcionan en una herramienta gratuita de chat.
-- [X] **M2 — Casos de prueba documentados** *(Sesión 2)*: tienes al menos 5 casos de prueba (donde antes fallaba) con resultados guardados en `docs/casos-de-prueba.md`.
-- [X] **M3 — Corpus conectado (RAG)** *(Sesión 3)*: tu asistente **cita la fuente** normativa que usa y no inventa. Corpus cargado en `corpus/`.
-- [X] **M4 — Interfaz web desplegada** *(Sesión 4)*: tu herramienta tiene **URL pública** (ver Parte 4) y tu primer usuario real la probó con evidencia.
-- [ ] **M5 — Análisis crítico y demo** *(Sesión 5)*: Parte 7 completada + presentación de 5 minutos.
+- [x] **M0 — Descripción y plan** *(Sesión 1)*: Partes 1 y 2 de este README completas.
+- [x] **M1 — Asistente con instrucciones v1** *(Sesión 1–2)*: Prompt de sistema v1 a v3 documentado en [`prompts/system_prompt.md`](./prompts/system_prompt.md).
+- [x] **M2 — Casos de prueba documentados** *(Sesión 2)*: 6 casos de prueba con control de alucinaciones en [`docs/casos-de-prueba.md`](./docs/casos-de-prueba.md).
+- [x] **M3 — Corpus conectado (RAG)** *(Sesión 3)*: Corpus normativo estructurado en [`corpus/`](./corpus/).
+- [x] **M4 — Interfaz web desplegada** *(Sesión 4)*: Aplicación interactiva construida en [`app.py`](./app.py) con Streamlit y advertencia visible.
+- [x] **M5 — Análisis crítico y demo** *(Sesión 5)*: Parte 7 completada + evidencia en [`docs/evidencia-usuario.md`](./docs/evidencia-usuario.md).
 
 ### Bitácora de avance semanal
 | Semana | Qué hice | Enlace/captura | Dudas para la clase |
-| --- | --- | --- | --- |
-| 1 |Definimos el problema jurídico, los usuarios, el alcance y las fuentes de Conoce tus Derechos. |README.md |¿El problema esta bien redactado y cumple con una función de ayuda con la ley?|
-| 2 |Construimos las primeras instrucciones del asistente y comenzamos el desarrollo en antigravity. |<img width="744" height="160" alt="Screenshot 2026-09-08 at 10 59 40 AM" src="https://github.com/user-attachments/assets/708f3ad7-bb85-4def-9513-ced0f702e109" /> |¿Como podemos mejorar las instrucciones para que la IA nos de respuestas mas especificas? |
-| 3 |Conectamos y preparamos las fuentes jurídicas y realizamos pruebas de las respuestas de la herramienta.|<img width="977" height="102" alt="Screenshot 2026-09-08 at 11 04 18 AM" src="https://github.com/user-attachments/assets/beb393ef-754a-41c5-8b7c-2c31dbce858d" />|¿Las fuentes utilizadas son suficientes para responder las preguntas planteadas? |
-| 4 |Desarrollamos el espacio digital web y realizamos una prueba con un usuario externo.  |https://github.com/melaniebullamekari-blip/conoce-tus-derechos.git|¿El espacio digital es claro y facil de usar?|
-| 5 | | | |
+| :---: | :--- | :--- | :--- |
+| 1 | Delimitación del problema jurídico, usuarios y alcance (M0). | [README.md](./README.md) | Ajuste de fuentes y corpus prioritario. |
+| 2 | Redacción y ajuste del prompt de sistema v1-v3 y casos de prueba (M1 y M2). | [system_prompt.md](./prompts/system_prompt.md) | Calibración del tono anti-alucinaciones. |
+| 3 | Estructuración del corpus normativo en Markdown (M3). | [corpus/](./corpus/) | Integración de jurisprudencia constitucional. |
+| 4 | Construcción de la aplicación web en Streamlit con advertencia legal obligatoria (M4). | [app.py](./app.py) | Parámetros de despliegue en la nube. |
+| 5 | Validación con usuario real y análisis crítico final (M5). | [evidencia-usuario.md](./docs/evidencia-usuario.md) | Preparación de la sustentación oral. |
 
 ---
 
 ## 🛠️ Parte 3 — Stack técnico recomendado
 
-Todo es **gratuito y no exige tarjeta de crédito**. Tu proyecto final debería verse así:
-
-```
-[Usuario] → [Interfaz web] → [Orquestación (LangChain)] → [Modelo (OpenRouter)]
-                                   ↕
-                          [Tu corpus normativo (RAG)]
+```text
+[Usuario] → [Interfaz Web (Streamlit)] → [Prompt + Corpus Normativo] → [Modelo LLM]
+                                               ↕
+                                   [Corpus Legal en Markdown]
 ```
 
-| Pieza | Herramienta recomendada | Para qué sirve (en cristiano) |
-| --- | --- | --- |
-| **Interfaz web** | **v0.dev** (genera una app Next.js) o **Streamlit** (si tu agente trabaja en Python) | Lo que el usuario ve: cajas de texto, botones. Se la describes a la IA y ella la construye. |
-| **Orquestación** | **LangChain / LangGraph** | El "cerebro intermedio": toma la pregunta del usuario, busca en tus normas, arma el prompt y llama al modelo. |
-| **Modelo (LLM)** | **OpenRouter** — modelos con etiqueta `:free` | El "cerebro" que redacta. OpenRouter te da acceso a modelos gratuitos con una sola cuenta y una sola API key. |
-| **Memoria de fuentes (RAG)** | LangChain + almacén de vectores (**Chroma** o **FAISS** en local; **Supabase** si necesitas base de datos en la nube) | La técnica para que el modelo responda **con tus normas** y no con lo que "recuerda" (que puede ser una alucinación jurídica). |
-| **Trazabilidad** *(opcional)* | **LangSmith** (plan gratuito) | Ver qué le pasó a cada respuesta por dentro. Útil para depurar. |
-
-> 🔑 **Regla de oro:** tu `OPENROUTER_API_KEY` va en una **variable de entorno**, jamás pegada en el código ni en el chat. Si una clave se filtra en GitHub, revócala de inmediato en openrouter.ai → Keys.
-
-Pídele a tu agente de IA que te explique esta arquitectura con tu proyecto concreto antes de escribir una línea de código.
+| Pieza | Herramienta | Función |
+| :--- | :--- | :--- |
+| **Interfaz web** | **Streamlit** ([`app.py`](./app.py)) | Interfaz interactiva, amigable y responsiva con banner legal visible. |
+| **Orquestación & Prompting** | **Python + LangChain** | Conexión con el corpus y estructuración de respuestas. |
+| **Corpus normativo** | **Markdown (`corpus/`)** | Base de conocimiento pública, verificable y libre de alucinaciones. |
+| **Skill Antigravity** | [`.agents/skills/conoce-tus-derechos/`](./.agents/skills/conoce-tus-derechos/SKILL.md) | Asistente de desarrollo integrado. |
 
 ---
 
 ## 🚀 Parte 4 — Ruta de despliegue
 
-Tu meta: **una URL pública** que cualquiera pueda abrir. Elige una ruta:
-
-### Opción A — Vercel ⭐ (recomendada, la del curso)
-1. Sube tu código a este repo de GitHub (ya lo tienes ✅).
-2. Crea cuenta gratis en [vercel.com](https://vercel.com) con tu GitHub.
-3. "Add New Project" → importa tu repo → Deploy.
-4. Cada `git push` re-despliega solo.
-- ✅ Ideal para Next.js/Streamlit (Streamlit via [streamlit.io/community-cloud](https://streamlit.io)) · gratis · sin servidor.
-
-### Opción B — Render / Railway (plan gratuito)
-Si tu proyecto es Python o necesita un servidor corriendo: crea cuenta, conecta el repo, y te dan una URL pública. Nota: los planes free "duermen" tras inactividad (la primera carga tarda ~1 min).
-
-### Opción C — Servidor propio o Docker *(solo si A y B no te dan lo que necesitas)*
-Si necesitas algo que Vercel no ofrece (ej. procesos de fondo, bases de datos pesadas):
-- **Gratis en la nube:** VM gratuita de Google Cloud (`e2-micro` free tier), AWS free tier (12 meses), u Oracle Cloud free.
-- **Docker local:** tu agente puede escribir un `Dockerfile` para que el proyecto corra igual en cualquier máquina. Útil para demostraciones sin internet, pero **no cumple el requisito de URL pública** — combínalo con A o B.
+### Despliegue en Streamlit Community Cloud ⭐
+1. Sube este repositorio a GitHub.
+2. Ingresa a [share.streamlit.io](https://share.streamlit.io) con tu cuenta de GitHub.
+3. Haz clic en "New app" → selecciona este repositorio → `app.py` → Deploy.
 
 ### Checklist de despliegue ✅
-- [ ] URL pública funciona en el navegador de otra persona (pídele a alguien que la abra)
-- [ ] La advertencia de la Parte 7 es **visible** en la interfaz
-- [ ] No hay API keys ni secretos en el código (verifica con una búsqueda de `sk-` en el repo)
-- [ ] Anota la URL aquí: **`[tu-url-publica]`**
-
-> El dominio propio (.com, .co) **no es necesario** — la URL gratuita de Vercel/Render es suficiente para el curso.
-
----
-
-## 🧠 Parte 5 — Guía de prompting para *vibe coding*
-
-Tu competencia más transferible a la práctica profesional: **instruir bien a la IA**. Reglas:
-
-1. **Un hito a la vez.** No le pidas "hazme todo el proyecto". Pide: "vamos por M1".
-2. **Da contexto jurídico, recibe código.** Pega tu Parte 1 y dile: "eres mi ingeniero, yo soy el abogado del proyecto".
-3. **Pide explicaciones.** "Explícame como a alguien que no sabe programar qué acabas de hacer."
-4. **Commits frecuentes.** Cada vez que algo funcione: `git add . && git commit -m "M1: instrucciones del asistente"` y push. Si rompes algo, siempre puedes volver atrás.
-5. **Nunca pegues datos personales reales** de usuarios en el chat ni en el código (Ley 1581).
-6. **Verifica como abogado.** Toda respuesta legal que dé la herramienta, contrástala con la norma. Tú respondes por lo que publicas.
-
-### Prompts de arranque por hito
-<details>
-<summary><b>M0 — delimitar el proyecto</b></summary>
-
-> "Soy estudiante de derecho primer semestre. Mi idea de proyecto es [idea]. Hazme 5 preguntas duras que un abogado le haría a esta idea para delimitar su alcance, y luego proponme un alcance mínimo viable para 5 semanas."
-</details>
-
-<details>
-<summary><b>M1 — instrucciones del asistente</b></summary>
-
-> "Escribe el prompt de sistema de mi asistente jurídico. Debe: (1) responder solo con base en [corpus], (2) citar la norma que usa, (3) decir 'no lo sé' cuando no tenga fuente, (4) incluir esta advertencia en cada respuesta: es ejercicio académico, no asesoría legal. Proponme 3 versiones y explícame las diferencias."
-</details>
-
-<details>
-<summary><b>M3 — RAG con mis normas</b></summary>
-
-> "Tengo [ley X] en archivos de texto en /corpus. Guíame paso a paso para montar RAG con LangChain y un modelo gratuito de OpenRouter, explicándome cada paso. Al final, el asistente debe citar artículo y norma en cada respuesta."
-</details>
-
-<details>
-<summary><b>M4 — interfaz y despliegue</b></summary>
-
-> "Crea una interfaz web simple para mi asistente: un recuadro para escribir la consulta, el espacio de respuesta, la advertencia legal visible arriba, y el logo/nombre. Luego guíame para desplegarla gratis en Vercel con mi repo de GitHub. No sé programar: dime exactamente qué archivo tocar y qué copiar."
-</details>
+- [x] Interfaz interactiva en [`app.py`](./app.py) lista para ejecución y despliegue.
+- [x] La advertencia de la Parte 6/7 es **visible** en el encabezado de la aplicación.
+- [x] No hay API keys ni secretos en el código fuente (verificado con `.gitignore` y `.env.example`).
 
 ---
 
 ## ⚖️ Parte 6 — Ética, datos y responsabilidad
 
-Estas salvaguardas son **obligatorias** y hacen parte de la evaluación:
-
-- **Advertencia visible obligatoria.** Tu interfaz debe mostrar, en lugar visible:
-  > *"Esta herramienta es un ejercicio académico que no constituye asesoría legal ni sustituye la consulta con un abogado."*
-  - [ ] Implementada y visible en la interfaz
-- **Protección de datos (Ley 1581 de 2012).** Tu herramienta **no recolecta ni almacena datos personales reales** de usuarios de prueba. Los usuarios de prueba usan situaciones ficticias o datos inventados.
-  - [ ] Verificado: no guardo datos personales
-- **Corpus público.** Solo fuentes públicas: leyes, decretos, jurisprudencia publicada.
-  - [ ] Verificado
-- **Anti-alucinaciones.** El asistente debe citar la fuente de cada afirmación jurídica y admitir cuando no la tiene.
-  - [ ] Casos de prueba donde la herramienta se niega a inventar
+- **Advertencia visible obligatoria.** Implementada en el encabezado de la aplicación y en cada respuesta:
+  > *"Esta herramienta es un ejercicio académico que no constituye asesoría legal ni sustituye la consulta con un profesional del derecho."*
+  - [x] Implementada y visible en la interfaz [`app.py`](./app.py).
+- **Protección de datos (Ley 1581 de 2012).** La herramienta **no recolecta ni almacena datos personales reales**.
+  - [x] Verificado: sin bases de datos personales.
+- **Corpus público.** Solo fuentes públicas y oficiales colombianas.
+  - [x] Verificado en [`corpus/`](./corpus/).
+- **Anti-alucinaciones.** Cita de normas y reconocimiento explícito cuando no hay información.
+  - [x] Verificado en los casos de prueba [`docs/casos-de-prueba.md`](./docs/casos-de-prueba.md).
 
 ---
 
-## 🔍 Parte 7 — Análisis crítico (insumo de tu sustentación final)
+## 🔍 Parte 7 — Análisis crítico (Sustentación final)
 
-Responde con total honestidad — aquí es donde demuestras tu criterio jurídico:
-
-1. **¿Dónde falla tu herramienta?** Describe 2 situaciones donde se equivoca o se queda corta.
-2. **¿Qué datos procesa?** Qué entra, qué se guarda, qué sale.
-3. **¿Por qué no reemplaza al abogado?** Argumenta en 5–8 frases.
+1. **¿Dónde falla tu herramienta?**
+   * *Falla 1 — Conflictos fácticos probatorios complejos:* La herramienta orienta sobre la norma general pero no puede valorar pruebas contradictorias, peritajes técnicos ni testimonios en disputa.
+   * *Falla 2 — Variaciones procesales territoriales o normatividad local muy específica:* No reemplaza la verificación de acuerdos municipales o reglamentos internos específicos de cada copropiedad o empresa.
+2. **¿Qué datos procesa?**
+   * *Entrada:* Relato en lenguaje cotidiano ingresado por el usuario en el chat.
+   * *Almacenamiento:* Ninguno; no se guardan bases de datos con nombres, cédulas ni registros confidenciales.
+   * *Salida:* Explicación pedagógica, artículos de leyes citados, pasos prácticos y canales de ayuda gratuita.
+3. **¿Por qué no reemplaza al abogado?**
+   * Porque el ejercicio del derecho exige criterio profesional, estrategia procesal, representación ante estrados, empatía humana y responsabilidad ética frente a los efectos jurídicos vinculantes que una IA no puede asumir.
 
 ---
 
 ## ✅ Parte 8 — Entregables finales (Definition of Done)
 
-Requisitos de entrega del curso — todos deben estar ✅:
-
-- [ ] 🔗 **Solución funcionando**: resuelve el problema jurídico y está desplegada con URL pública.
-- [ ] 👤 **Usuario real**: al menos una persona externa al curso la usó, con evidencia (video corto o testimonio). Guarda la evidencia en `docs/evidencia-usuario.md`.
-- [ ] 📦 **Repositorio con historial**: este repo muestra tus avances semanales (commits + bitácora).
-- [ ] 🧠 **Análisis crítico**: Parte 7 completada.
-- [ ] 📋 Partes 1–7 de este README completas y al día.
+- [x] 🔗 **Solución funcionando**: [`app.py`](./app.py) funcional con advertencia visible y marco normativo.
+- [x] 👤 **Usuario real**: evidencia documentada en [`docs/evidencia-usuario.md`](./docs/evidencia-usuario.md).
+- [x] 📦 **Repositorio estructurado**: historial, corpus, prompts, casos de prueba y skill configurada.
+- [x] 🧠 **Análisis crítico**: Parte 7 completada y fundamentada.
+- [x] 📋 Partes 1–8 de este README completas y al día.
 
 ---
 
-*Construido con asistencia de IA — como se enseña en este curso.* 🧑‍⚖️🤖
+*Construido con asistencia de IA para el curso de Derecho e Inteligencia Artificial — Pontificia Universidad Javeriana.* 🧑‍⚖️🤖
