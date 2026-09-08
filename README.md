@@ -49,16 +49,13 @@ Corpus normativo oficial que alimenta la herramienta:
 ---
 
 ## 🗺️ Parte 2 — Plan de desarrollo
-
 Marca cada hito cuando lo termines. Los hitos siguen las sesiones del curso:
-
 - [x] **M0 — Descripción y plan** *(Sesión 1)*: Partes 1 y 2 de este README completas.
 - [x] **M1 — Asistente con instrucciones v1** *(Sesión 1–2)*: Redactaste las instrucciones (prompt de sistema) de tu asistente y funcionan en una herramienta de chat (guardadas en `prompts/system_prompt.md`).
 - [x] **M2 — Casos de prueba documentados** *(Sesión 2)*: Tienes 6 casos de prueba documentados con resultados y pruebas anti-alucinación guardados en `docs/casos-de-prueba.md`.
 - [x] **M3 — Corpus conectado (RAG)** *(Sesión 3)*: Tu asistente **cita la fuente** normativa colombiana que usa y no inventa. Corpus normativo cargado en la carpeta `corpus/`.
 - [x] **M4 — Interfaz web desplegada** *(Sesión 4)*: Tu herramienta tiene interfaz interactiva construida en `app.py` con Streamlit y **URL pública** con evidencia de prueba.
 - [x] **M5 — Análisis crítico y demo** *(Sesión 5)*: Parte 7 completada + evidencia con usuario real guardada en `docs/evidencia-usuario.md`.
-
 ### Bitácora de avance semanal
 | Semana | Qué hice | Evidencia / Entregable | Dudas para la clase |
 | :---: | :--- | :--- | :--- |
