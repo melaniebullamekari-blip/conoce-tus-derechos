@@ -34,13 +34,13 @@ En Colombia existe una amplia brecha de desconocimiento y barreras de acceso a l
 | Remite a entidades oficiales y canales gratuitos (Personería, Defensoría, Consultorios Jurídicos). | No recolecta ni almacena datos personales sensibles ni información privada real. |
 
 ### 1.4 Marco jurídico y fuentes
-Corpus normativo curado y disponible en la carpeta [`corpus/`](./corpus/):
-- [x] [Constitución Política de Colombia de 1991 (Arts. 15, 23, 74, 86)](./corpus/constitucion_politica_1991.md)
-- [x] [Ley Estatutaria 1755 de 2015 — Derecho Fundamental de Petición](./corpus/ley_1755_2015_derecho_peticion.md)
-- [x] [Ley 1480 de 2011 — Estatuto del Consumidor](./corpus/ley_1480_2011_consumidor.md)
-- [x] [Ley 820 de 2003 — Régimen de Arrendamiento de Vivienda Urbana](./corpus/ley_820_2003_arrendamiento.md)
-- [x] [Ley 1801 de 2016 — Código Nacional de Seguridad y Convivencia](./corpus/ley_1801_2016_codigo_policia.md)
-- [x] [Sentencia C-055 de 2022 de la Corte Constitucional — Interrupción Voluntaria del Embarazo](./corpus/sentencia_c055_2022_ive.md)
+Corpus normativo oficial que alimenta la herramienta:
+- [x] **Constitución Política de Colombia de 1991:** Artículos 15 (Intimidad), 23 (Petición), 74 (Documentos Públicos) y 86 (Acción de Tutela).
+- [x] **Ley Estatutaria 1755 de 2015:** Regulación del Derecho Fundamental de Petición (términos de 10, 15 y 30 días, silencio positivo y sanciones).
+- [x] **Ley 1480 de 2011 (Estatuto del Consumidor):** Garantía legal de bienes (Arts. 7 y 11), Derecho de retracto (Art. 47) y Reversión del pago (Art. 51).
+- [x] **Ley 820 de 2003 (Arrendamiento Urbano):** Incremento máximo anual según IPC (Art. 20), terminación de contrato y prohibición de depósitos (Art. 18).
+- [x] **Ley 1801 de 2016 (Código de Convivencia y Policía):** Derecho ciudadano a grabar procedimientos públicos (Art. 21) y límites al registro a personas (Art. 159).
+- [x] **Sentencia C-055 de 2022 de la Corte Constitucional:** Interrupción Voluntaria del Embarazo libre hasta la semana 24 y Resolución 051 de 2023 del Ministerio de Salud.
 
 ### 1.5 Nombre y lema
 * **Nombre:** Conoce tus derechos
@@ -50,21 +50,23 @@ Corpus normativo curado y disponible en la carpeta [`corpus/`](./corpus/):
 
 ## 🗺️ Parte 2 — Plan de desarrollo
 
+Marca cada hito cuando lo termines. Los hitos siguen las sesiones del curso:
+
 - [x] **M0 — Descripción y plan** *(Sesión 1)*: Partes 1 y 2 de este README completas.
-- [x] **M1 — Asistente con instrucciones v1** *(Sesión 1–2)*: Prompt de sistema v1 a v3 documentado en [`prompts/system_prompt.md`](./prompts/system_prompt.md).
-- [x] **M2 — Casos de prueba documentados** *(Sesión 2)*: 6 casos de prueba con control de alucinaciones en [`docs/casos-de-prueba.md`](./docs/casos-de-prueba.md).
-- [x] **M3 — Corpus conectado (RAG)** *(Sesión 3)*: Corpus normativo estructurado en [`corpus/`](./corpus/).
-- [x] **M4 — Interfaz web desplegada** *(Sesión 4)*: Aplicación interactiva construida en [`app.py`](./app.py) con Streamlit y advertencia visible.
-- [x] **M5 — Análisis crítico y demo** *(Sesión 5)*: Parte 7 completada + evidencia en [`docs/evidencia-usuario.md`](./docs/evidencia-usuario.md).
+- [x] **M1 — Asistente con instrucciones v1** *(Sesión 1–2)*: Redactaste las instrucciones (prompt de sistema) de tu asistente y funcionan en una herramienta de chat (guardadas en `prompts/system_prompt.md`).
+- [x] **M2 — Casos de prueba documentados** *(Sesión 2)*: Tienes 6 casos de prueba documentados con resultados y pruebas anti-alucinación guardados en `docs/casos-de-prueba.md`.
+- [x] **M3 — Corpus conectado (RAG)** *(Sesión 3)*: Tu asistente **cita la fuente** normativa colombiana que usa y no inventa. Corpus normativo cargado en la carpeta `corpus/`.
+- [x] **M4 — Interfaz web desplegada** *(Sesión 4)*: Tu herramienta tiene interfaz interactiva construida en `app.py` con Streamlit y **URL pública** con evidencia de prueba.
+- [x] **M5 — Análisis crítico y demo** *(Sesión 5)*: Parte 7 completada + evidencia con usuario real guardada en `docs/evidencia-usuario.md`.
 
 ### Bitácora de avance semanal
-| Semana | Qué hice | Enlace/captura | Dudas para la clase |
+| Semana | Qué hice | Evidencia / Entregable | Dudas para la clase |
 | :---: | :--- | :--- | :--- |
-| 1 | Delimitación del problema jurídico, usuarios y alcance (M0). | [README.md](./README.md) | Ajuste de fuentes y corpus prioritario. |
-| 2 | Redacción y ajuste del prompt de sistema v1-v3 y casos de prueba (M1 y M2). | [system_prompt.md](./prompts/system_prompt.md) | Calibración del tono anti-alucinaciones. |
-| 3 | Estructuración del corpus normativo en Markdown (M3). | [corpus/](./corpus/) | Integración de jurisprudencia constitucional. |
-| 4 | Construcción de la aplicación web en Streamlit con advertencia legal obligatoria (M4). | [app.py](./app.py) | Parámetros de despliegue en la nube. |
-| 5 | Validación con usuario real y análisis crítico final (M5). | [evidencia-usuario.md](./docs/evidencia-usuario.md) | Preparación de la sustentación oral. |
+| **1** | Definición del problema jurídico, usuarios, delimitación de alcance y lema (Hito M0). | README.md (Parte 1 y 2) | Delimitación del corpus normativo básico. |
+| **2** | Diseño del prompt de sistema (v1 a v3) y estructuración de 6 casos de prueba (Hitos M1 y M2). | Archivos `prompts/system_prompt.md` y `docs/casos-de-prueba.md` | Calibración de instrucciones anti-alucinaciones. |
+| **3** | Recopilación y estructuración del corpus legal en Markdown con normas colombianas (Hito M3). | Carpeta `corpus/` con leyes y sentencias | Citas normativas exactas por artículos. |
+| **4** | Desarrollo de la interfaz web en Streamlit (`app.py`) con banner visible obligatorio (Hito M4). | Archivo `app.py` desplegado en Streamlit Cloud | Parámetros de personalización visual. |
+| **5** | Prueba con usuario real externo, recolección de testimonios y análisis crítico final (Hito M5). | Archivo `docs/evidencia-usuario.md` y Parte 7 del README | Preparación de la sustentación oral de 5 minutos. |
 
 ---
 
