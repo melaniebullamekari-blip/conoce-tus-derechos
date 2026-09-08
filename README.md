@@ -1,3 +1,4 @@
+<img width="1008" height="112" alt="Screenshot 2026-09-08 at 11 03 57 AM" src="https://github.com/user-attachments/assets/15ec6e82-0390-47f0-ab0c-1480c92c1297" />
 # ⚖️🤖 Proyecto Final — Derecho e Inteligencia Artificial
 
 **Pontificia Universidad Javeriana · 2026-II · Docente: Pedro Ardila**
@@ -62,8 +63,9 @@ Marca cada hito cuando lo termines. Los hitos siguen las sesiones del curso.
 | 1 |Definimos el problema jurídico, los usuarios, el alcance y las fuentes de Conoce tus Derechos. |README.md |¿El problema esta bien redactado y cumple con una función de ayuda con la ley?|
 | 2 |Construimos las primeras instrucciones del asistente y comenzamos el desarrollo en antigravity. |<img width="744" height="160" alt="Screenshot 2026-09-08 at 10 59 40 AM" src="https://github.com/user-attachments/assets/708f3ad7-bb85-4def-9513-ced0f702e109" />
  |¿Como podemos mejorar las instrucciones para que la IA nos de respuestas mas especificas? |
-| 3 |Conectamos y preparamos las fuentes jurídicas y realizamos pruebas de las respuestas de la herramienta. | | |
-| 4 | | | |
+| 3 |Conectamos y preparamos las fuentes jurídicas y realizamos pruebas de las respuestas de la herramienta. |<img width="977" height="102" alt="Screenshot 2026-09-08 at 11 04 18 AM" src="https://github.com/user-attachments/assets/beb393ef-754a-41c5-8b7c-2c31dbce858d" />
+ |¿Las fuentes utilizadas son suficientes para responder las preguntas planteadas? |
+| 4 |Desarrollamos el espacio digital web y realizamos una prueba con un usuario externo.  | | |
 | 5 | | | |
 
 ---
