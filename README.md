@@ -56,6 +56,7 @@ Marca cada hito cuando lo termines. Los hitos siguen las sesiones del curso:
 - [x] **M3 — Corpus conectado (RAG)** *(Sesión 3)*: Tu asistente **cita la fuente** normativa colombiana que usa y no inventa. Corpus normativo cargado en la carpeta `corpus/`.
 - [x] **M4 — Interfaz web desplegada** *(Sesión 4)*: Tu herramienta tiene interfaz interactiva construida en `app.py` con Streamlit y **URL pública** con evidencia de prueba.
 - [x] **M5 — Análisis crítico y demo** *(Sesión 5)*: Parte 7 completada + evidencia con usuario real guardada en `docs/evidencia-usuario.md`.
+
 ### Bitácora de avance semanal
 | Semana | Qué hice | Evidencia / Entregable | Dudas para la clase |
 | :---: | :--- | :--- | :--- |
