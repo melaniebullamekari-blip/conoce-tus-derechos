@@ -1,9 +1,9 @@
 # ⚖️🤖 Proyecto Final — Derecho e Inteligencia Artificial
 **Pontificia Universidad Javeriana · 2026-II · Docente: Pedro Ardila**
-> **Estudiantes:** Melanie Bulla & Valeria Suarez  
-> **Nombre del proyecto:** Conoce tus derechos  
-> **Lema:** *"Tu orientador jurídico ciudadano: claridad y respaldo legal al alcance de todos"*  
-> **Fecha de inicio:** 2026-08-18  
+* **Estudiantes:** Melanie Bulla & Valeria Suarez  
+* **Nombre del proyecto:** Conoce tus derechos  
+* **Lema:** *"Tu orientador jurídico ciudadano: claridad y respaldo legal al alcance de todos"*  
+* **Fecha de inicio:** 2026-08-18  
 ---
 Bienvenido/a a tu repositorio de proyecto. **Este archivo es tu tablero de mando**: aquí describes tu proyecto, planificas su desarrollo y dejas evidencia del avance.
 **No necesitas saber programar.** Todo el código lo construirás con asistencia de IA (*vibe coding*). Tu valor como estudiante de derecho está en el problema que eliges, las fuentes que alimentas, las instrucciones que diseñas y el juicio crítico con el que evalúas el resultado.
@@ -51,9 +51,8 @@ Marca cada hito cuando lo termines. Los hitos siguen las sesiones del curso:
 | **5** | Prueba con usuario real externo, recolección de testimonios y análisis crítico final (Hito M5). | Archivo [evidencia-usuario.md](./evidencia-usuario.md) y Parte 7 del README | Preparación de la sustentación oral de 5 minutos. |
 ---
 ## 🛠️ Parte 3 — Stack técnico recomendado
-> **Arquitectura del proyecto:**  
-> **Usuario** ➜ **Interfaz Web (Streamlit)** ➜ **Orquestación (Python)** ➜ **Modelo LLM**  
-> *(Conectado permanentemente a la base de normas colombianas en Markdown)*
+**Flujo de la arquitectura:**  
+Usuario ➜ Interfaz web (Streamlit) ➜ Orquestación (Python) ➜ Modelo de IA (Conectado a las normas colombianas en Markdown)
 | Pieza | Herramienta | Función |
 | :--- | :--- | :--- |
 | **Interfaz web** | **Streamlit** ([app.py](./app.py)) | Interfaz interactiva, amigable y responsiva con banner legal visible. |
@@ -72,8 +71,8 @@ Marca cada hito cuando lo termines. Los hitos siguen las sesiones del curso:
 - [x] No hay API keys ni secretos en el código fuente.
 ---
 ## ⚖️ Parte 6 — Ética, datos y responsabilidad
-- **Advertencia visible obligatoria.** Implementada en el encabezado de la aplicación y en cada respuesta:
-  > *"Esta herramienta es un ejercicio académico que no constituye asesoría legal ni sustituye la consulta con un profesional del derecho."*
+- **Advertencia visible obligatoria.** Implementada en el encabezado de la aplicación y en cada respuesta:  
+  *"Esta herramienta es un ejercicio académico que no constituye asesoría legal ni sustituye la consulta con un profesional del derecho."*
   - [x] Implementada y visible en la interfaz [app.py](./app.py).
 - **Protección de datos (Ley 1581 de 2012).** La herramienta **no recolecta ni almacena datos personales reales**.
   - [x] Verificado: sin bases de datos personales.
@@ -99,3 +98,4 @@ Marca cada hito cuando lo termines. Los hitos siguen las sesiones del curso:
 - [x] 📦 **Repositorio estructurado**: historial, corpus, prompts, casos de prueba y skill configurada.
 - [x] 🧠 **Análisis crítico**: Parte 7 completada y fundamentada.
 - [x] 📋 Partes 1–8 de este README completas y al día.
+---
