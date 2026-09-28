@@ -1,3 +1,10 @@
+# ⚖️🤖 Proyecto Final — Derecho e Inteligencia Artificial
+**Pontificia Universidad Javeriana · 2026-II · Docente: Pedro Ardila**
+> **Estudiantes:** Melanie Bulla & Valeria Suarez  
+> **Nombre del proyecto:** Conoce tus derechos  
+> **Lema:** *"Tu orientador jurídico ciudadano: claridad y respaldo legal al alcance de todos"*  
+> **Fecha de inicio:** 2026-08-18  
+---
 Bienvenido/a a tu repositorio de proyecto. **Este archivo es tu tablero de mando**: aquí describes tu proyecto, planificas su desarrollo y dejas evidencia del avance.
 **No necesitas saber programar.** Todo el código lo construirás con asistencia de IA (*vibe coding*). Tu valor como estudiante de derecho está en el problema que eliges, las fuentes que alimentas, las instrucciones que diseñas y el juicio crítico con el que evalúas el resultado.
 ---
