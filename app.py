@@ -2,7 +2,7 @@ import os
 import streamlit as st
 
 st.set_page_config(
-    page_title="Conoce tus Derechos — Asistente Jurídico",
+    page_title="Conoce tus Derechos — Asistente Jurídico Integral",
     page_icon="⚖️",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -32,19 +32,12 @@ st.markdown("""
         font-size: 0.95rem;
         font-weight: 500;
     }
-    .source-card {
-        background-color: #F3F4F6;
-        padding: 12px;
-        border-radius: 8px;
-        border: 1px solid #E5E7EB;
-        margin-top: 10px;
-    }
     </style>
 """, unsafe_allow_html=True)
 
 # ----------------- Advertencia Ética Visible Obligatoria -----------------
 st.markdown('<h1 class="main-title">⚖️ Conoce tus Derechos</h1>', unsafe_allow_html=True)
-st.markdown('<p class="sub-title">Tu orientador jurídico ciudadano: claridad y respaldo legal al alcance de todos (Colombia 🇨🇴)</p>', unsafe_allow_html=True)
+st.markdown('<p class="sub-title">Tu orientador jurídico ciudadano: claridad y respaldo legal integral (Colombia 🇨🇴)</p>', unsafe_allow_html=True)
 
 st.markdown("""
 <div class="legal-alert">
@@ -53,23 +46,28 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# ----------------- Barra Lateral (Configuración y Fuentes) -----------------
+# ----------------- Barra Lateral (Corpus Normativo Oficial) -----------------
 with st.sidebar:
-    st.header("📚 Marco Jurídico & Fuentes")
+    st.header("📚 Corpus Normativo Oficial (17 Fuentes)")
     st.markdown("""
-    Este asistente consulta normas oficiales colombianas:
-    - 🏛️ **Constitución de 1991** (Arts. 15, 23, 74, 86, 96)
-    - 📋 **Ley 1755 de 2015** (Derecho de Petición)
-    - 🛒 **Ley 1480 de 2011** (Estatuto del Consumidor)
-    - 🏠 **Ley 820 de 2003** (Arrendamiento Urbano)
-    - 👮 **Ley 1801 de 2016** (Código de Convivencia)
-    - 💼 **Código Sustantivo del Trabajo** (CST - Laboral)
-    - 💡 **Ley 142 de 1994** (Servicios Públicos)
-    - 💳 **Ley 1266/08 y Ley 2157/21** (Datacrédito / Habeas Data)
-    - 🏥 **Ley 1751 de 2015** (Derecho a la Salud)
-    - 🇨🇴 **Ley 43 de 1993** (Nacionalidad Colombiana)
-    - 📞 **Ley 2300 de 2023** (Ley "Dejen de Fregar")
-    - ⚖️ **Sentencia C-055 de 2022** (IVE - Salud Sexual)
+    Base jurídica colombiana verificada:
+    - 🏛️ **Constitución Política de 1991** (Arts. 15, 23, 74, 86, 96)
+    - ⚖️ **Código Penal (Ley 599/00):** Dolo, culpa, homicidio, feminicidio, hurto, estafa
+    - 🚔 **Código de Procedimiento Penal (Ley 906/04):** Denuncia, flagrancia, término 36h
+    - 🛡️ **Ley 1257 de 2008 y Ley 294/96:** Violencia intrafamiliar y medidas de protección
+    - 👨‍👩‍👧 **Ley 1098 de 2006 y Ley 2097/21:** Alimentos, inasistencia y REDAM
+    - 🚗 **Ley 769 de 2002 y Ley 2251/22:** Fotomultas, accidentes y SOAT
+    - 💼 **Código Sustantivo del Trabajo:** Despidos, liquidación, recargos y acoso
+    - 💡 **Ley 142 de 1994:** Servicios públicos y reclamos
+    - 💳 **Ley 1266/08 y Ley 2157/21:** Datacrédito y Habeas Data
+    - 🏥 **Ley Estatutaria 1751 de 2015:** Salud y medicamentos
+    - 🛒 **Ley 1480 de 2011:** Consumidor y garantías
+    - 🏠 **Ley 820 de 2003:** Arrendamiento urbano
+    - 📋 **Ley 1755 de 2015:** Derecho de petición
+    - 📞 **Ley 2300 de 2023:** Ley "Dejen de Fregar" (Spam/Cobranza)
+    - 🇨🇴 **Ley 43 de 1993:** Nacionalidad colombiana
+    - 👮 **Ley 1801 de 2016:** Código de Policía
+    - ⚖️ **Sentencia C-055 de 2022:** IVE
     """)
     st.divider()
     st.subheader("🎓 Proyecto Académico")
@@ -84,31 +82,31 @@ col4, col5, col6 = st.columns(3)
 
 sample_query = None
 with col1:
-    if st.button("📋 Petición no respondida"):
-        sample_query = "¿Qué hago si una entidad pública no responde una petición que hice?"
+    if st.button("🚨 Fui víctima de robo / hurto"):
+        sample_query = "Me robaron el celular en la calle con un cuchillo, ¿cómo denuncio y qué delito es en Colombia?"
 with col2:
-    if st.button("🛒 Producto por internet dañado"):
-        sample_query = "Compré un producto por internet, me llegó dañado y no me quieren devolver el dinero. ¿Qué derechos tengo?"
+    if st.button("🛡️ Violencia intrafamiliar y desalojo"):
+        sample_query = "Mi pareja me agredió físicamente y me insulta, ¿cómo pido que lo desalojen de la casa en la Comisaría?"
 with col3:
-    if st.button("🏠 Aumento excesivo de arriendo"):
-        sample_query = "¿Cuánto es lo máximo que me pueden subir el arriendo este año en Colombia?"
+    if st.button("⚖️ Homicidio, dolo vs culpa y legítima defensa"):
+        sample_query = "¿Cuál es la diferencia entre dolo, culpa, preterintención y legítima defensa en el Código Penal?"
 
 with col4:
-    if st.button("💼 Despido o liquidación laboral"):
-        sample_query = "Me despidieron de mi trabajo sin justa causa, ¿qué indemnización y liquidación me corresponde?"
+    if st.button("👨‍👩‍👧 Demanda de alimentos y REDAM"):
+        sample_query = "¿Cómo fijo la cuota de alimentos de mis hijos y qué consecuencias tiene el reporte en el REDAM?"
 with col5:
-    if st.button("💳 Reporte negativo en Datacrédito"):
-        sample_query = "¿Cuánto tiempo puede durar un reporte negativo en Datacrédito y qué requisitos tiene?"
+    if st.button("🚗 Fotomultas y choques de tránsito"):
+        sample_query = "¿Cómo impugno una fotomulta si yo no iba conduciendo y qué hacer en un choque simple?"
 with col6:
-    if st.button("💡 Cobro excesivo en factura de luz/agua"):
-        sample_query = "Me llegó la factura de servicios públicos con cobro desmedido, ¿me pueden cortar el servicio si reclamo?"
+    if st.button("💼 Despido y liquidación laboral"):
+        sample_query = "Me despidieron de mi trabajo sin justa causa, ¿qué indemnización y liquidación me corresponde?"
 
 # ----------------- Gestión del Chat -----------------
 if "messages" not in st.session_state:
     st.session_state.messages = [
         {
             "role": "assistant",
-            "content": "¡Hola! Soy tu asistente de **Conoce tus Derechos**. Describe en tus propias palabras la situación o el problema que estás experimentando (por ejemplo, en tu trabajo, servicios públicos, datacrédito, salud, vivienda, compras, trámites públicos, nacionalidad o convivencia) y te explicaré qué normas te protegen y qué pasos seguir."
+            "content": "¡Hola! Soy tu asistente de **Conoce tus Derechos**. Puedes consultarme sobre **robos, delitos penales (dolo, culpa, legítima defensa), homicidios, feminicidios, violencia intrafamiliar, cuota de alimentos, accidentes y fotomultas, despidos laborales, servicios públicos, datacrédito, salud, arriendo o trámites públicos**. Describe tu caso en lenguaje común y te orientaré con las leyes colombianas aplicables."
         }
     ]
 
@@ -116,7 +114,7 @@ for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
 
-user_input = st.chat_input("Escribe tu pregunta o situación aquí...")
+user_input = st.chat_input("Escribe tu pregunta jurídica sobre cualquier tema aquí...")
 if sample_query:
     user_input = sample_query
 
@@ -125,159 +123,222 @@ if user_input:
     with st.chat_message("user"):
         st.markdown(user_input)
 
+    lower = user_input.lower()
     resp_text = ""
-    lower_input = user_input.lower()
 
-    if "petición" in lower_input or "peticion" in lower_input or "no responde" in lower_input or "entidad pública" in lower_input:
+    # 1. Delitos Penales: Dolo, Culpa, Preterintención, Legítima Defensa
+    if "dolo" in lower or "culpa" in lower or "preterintencion" in lower or "preterintención" in lower or "legítima defensa" in lower or "legitima defensa" in lower:
         resp_text = """
 > ⚠️ **Advertencia legal:** *Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.*
 
-Si una entidad pública no respondió tu solicitud dentro de los términos legales, se vulnera tu **Derecho Fundamental de Petición** (Art. 23 Constitución Política y Ley 1755 de 2015).
+En el **Código Penal Colombiano (Ley 599 de 2000)**, la responsabilidad penal exige culpabilidad (Art. 9 CP):
 
-### 📅 1. Términos legales de respuesta (Días Hábiles):
-* **10 días hábiles:** Para solicitud de información y entrega de documentos/copias.
-* **15 días hábiles:** Para peticiones de interés general o particular.
-* **30 días hábiles:** Para consultas técnicas o jurídicas.
+### ⚖️ 1. Formas de Culpabilidad:
+* **Dolo (Art. 22 CP):** Se configura cuando la persona **conoce los hechos delictivos y quiere su realización** (dolo directo), o cuando los prevé como probables y los acepta (dolo eventual).
+* **Culpa (Art. 23 CP):** El resultado punible ocurre por **imprudencia, negligencia, impericia o violación de deberes objetivos de cuidado**, habiendo sido previsible (por ejemplo, accidentes de tránsito por exceso de velocidad o negligencia médica).
+* **Preterintención (Art. 24 CP):** El resultado **excede la intención del autor**. Por ejemplo, quien propina un golpe con la sola intención de causar una lesión menor, pero la persona cae y fallece (Homicidio Preterintencional - Art. 105 CP).
 
-### ⚡ 2. ¿Qué puedes hacer?:
-1. **Acción de Tutela:** Procede de inmediato por tratarse de un derecho fundamental. Se presenta ante cualquier juez, es gratuita y no requiere abogado. El juez debe resolver en máximo 10 días hábiles.
-2. **Silencio Administrativo Positivo (para documentos):** Si pediste copias y pasaron 10 días, la ley asume que fue aprobada y deben entregártelas en 3 días (Art. 14 Ley 1755 de 2015).
-3. **Queja Disciplinaria:** Puedes presentar queja ante la **Personería Municipal** o la **Procuraduría General de la Nación**.
+### 🛡️ 2. Legítima Defensa (Art. 32 Num. 6 CP):
+Es una causal de **ausencia de responsabilidad penal** cuando una persona obra en necesidad de defender un derecho propio o ajeno contra una agresión ilegítima, actual o inminente, con proporcionalidad en el medio.
+* **Legítima defensa privilegiada:** Se presume legal defenderse frente a quien pretenda penetrar indebidamente a la vivienda o vehículo habitado.
         """
-    elif "arriendo" in lower_input or "arrendamiento" in lower_input or "canon" in lower_input:
+    # 2. Homicidio, Muerte, Asesinato, Feminicidio
+    elif "matar" in lower or "muerte" in lower or "homicidio" in lower or "asesinato" in lower or "feminicidio" in lower or "cadáver" in lower or "sicariato" in lower:
         resp_text = """
 > ⚠️ **Advertencia legal:** *Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.*
 
-En Colombia, los arrendamientos de vivienda urbana están regulados por la **Ley 820 de 2003**:
+Los delitos contra la vida humana son los más graves del ordenamiento jurídico colombiano (**Código Penal - Ley 599 de 2000**):
 
-### 🏠 Reglas clave del canon de arrendamiento:
-1. **Tope máximo de incremento (Art. 20):** El arrendador solo puede subir el valor cada **12 meses** continuos de contrato, y el aumento no puede superar el **100% de la inflación (IPC)** del año anterior.
-2. **Tope del valor total:** El canon mensual jamás podrá superar el 1% del valor comercial del inmueble.
-3. **Aviso previo:** El arrendador está obligado a notificarte el incremento por escrito antes de cobrarlo.
-4. **Prohibición de depósitos (Art. 18):** Está expresamente prohibido exigir depósitos en efectivo o pagarés en garantía para vivienda urbana.
+### 🚨 Tipificación y Sanciones:
+1. **Homicidio Simple (Art. 103 CP):** Prisión de 208 a 450 meses (17.3 a 37.5 años).
+2. **Homicidio Agravado (Art. 104 CP):** Pena de hasta 50 o 60 años de cárcel cuando se comete con sevicia, contra familiares/cónyuge, para ocultar otro delito, por precio o recompensa (sicariato), o colocando a la víctima en indefensión.
+3. **Feminicidio (Art. 104A CP - Ley 1761 de 2015 "Rosa Elvira Cely"):** Causar la muerte a una mujer por su condición de ser mujer o por motivos de identidad de género (con antecedentes de violencia familiar, relaciones de poder, mutilaciones o exposición del cuerpo). Pena de 250 a 500 meses de prisión sin rebaja de penas.
+4. **Homicidio Culposo (Art. 109 CP):** Muerte causada por negligencia o impericia (típico en accidentes de tránsito o impericia profesional).
+
+### ⚡ Canales Urgentes:
+* **Denuncia inmediata:** Línea 122 (Fiscalía), Línea 123 (Policía Nacional) o URI de turno presencial.
+* **Medicina Legal:** Dictamina la causa de muerte y protocolo de necropsia para el juicio oral.
         """
-    elif "consumidor" in lower_input or "garantía" in lower_input or "garantia" in lower_input or "compra" in lower_input or "dañado" in lower_input or "retracto" in lower_input:
+    # 3. Hurto, Robo, Atraco, Escopolamina, Extorsión, Estafa
+    elif "robo" in lower or "robaron" in lower or "hurto" in lower or "atraco" in lower or "estafa" in lower or "extorsión" in lower or "extorsion" in lower or "escopolamina" in lower:
         resp_text = """
 > ⚠️ **Advertencia legal:** *Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.*
 
-Tus derechos como comprador están amparados por el **Estatuto del Consumidor (Ley 1480 de 2011)**:
+Los delitos patrimoniales se tipifican en el **Código Penal (Ley 599 de 2000)**:
 
-### 🛒 Tus derechos principales:
-1. **Garantía Legal (Arts. 7 y 11):** Todo producto nuevo tiene garantía mínima. Si el producto falla y no puede ser reparado, o si repite la falla, **tienes derecho a elegir** entre el cambio por uno nuevo o la devolución total de tu dinero.
-2. **Derecho de Retracto (Art. 47):** Si compraste por internet o teléfono, tienes **5 días hábiles** desde la entrega para arrepentirte y devolverlo; el vendedor debe reembolsarte el 100% en máximo 30 días.
-3. **Reversión del Pago (Art. 51):** Si pagaste con tarjeta y fuiste víctima de fraude, producto no entregado o defectuoso, puedes pedir la reversión a tu banco en 5 días hábiles.
-4. **Demanda ante la SIC:** Puedes demandar gratis y virtualmente en [sic.gov.co](https://www.sic.gov.co) sin necesidad de abogado.
+### 💼 Clasificación del delito:
+1. **Hurto Calificado (Art. 240 CP):** Ocurre cuando se usa **violencia sobre las personas**, armas, o se coloca a la víctima en **indefensión** (mediante escopolamina o somníferos), o con ruptura de cerraduras o escalamiento. Es delito investigable de oficio.
+2. **Hurto Agravado (Art. 241 CP):** Se agrava si participan 2 o más personas, si es en transporte público o sobre vehículos automotores.
+3. **Estafa (Art. 246 CP):** Obtener dinero o bienes induciendo a la víctima en error mediante engaños o artificios (ventas fraudulentas, pirámides).
+4. **Extorsión (Art. 244 CP):** Constreñimiento o amenaza para exigir pagos indebidos. **Denuncia prioritaria ante el GAULA en la Línea 165.**
+
+### 📲 ¿Cómo denunciar de inmediato?:
+* Radica tu denuncia 24/7 en el portal virtual conjunto de Fiscalía y Policía: **[adenunciar.policia.gov.co](https://adenunciar.policia.gov.co)**.
+* Si hubo capturado en flagrancia, la policía dispone de un término constitucional estricto de **36 horas** para presentarlo ante el Juez de Control de Garantías (Art. 302 CPP).
+* Puedes reclamar indemnización a través del **Incidente de Reparación Integral (Art. 102 CPP)**.
         """
-    elif "trabajo" in lower_input or "laboral" in lower_input or "despido" in lower_input or "liquidación" in lower_input or "liquidacion" in lower_input or "prima" in lower_input or "cesantías" in lower_input or "horas extras" in lower_input or "acoso laboral" in lower_input:
+    # 4. Violencia Intrafamiliar, Violencia contra la Mujer, Golpes, Agresión
+    elif "violencia" in lower or "agredió" in lower or "agredio" in lower or "golpeó" in lower or "golpeo" in lower or "maltrato" in lower or "intrafamiliar" in lower or "desalojo" in lower or "comisaría" in lower:
         resp_text = """
 > ⚠️ **Advertencia legal:** *Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.*
 
-Tus derechos laborales están regulados por el **Código Sustantivo del Trabajo (CST)** y la **Ley 2101 de 2021**:
+La violencia intrafamiliar y contra la mujer es un delito prioritario sancionado por el **Art. 229 del Código Penal** y la **Ley 1257 de 2008**:
 
-### 💼 Aspectos clave que debes conocer:
-1. **Despido sin justa causa (Art. 64 CST):** Da derecho inmediato a indemnización económica. A término indefinido: 30 días de salario por el primer año y 20 días adicionales por cada año siguiente (para sueldos menores a 10 SMLMV).
-2. **Liquidación y sanción moratoria (Art. 65 CST):** El empleador debe pagar la liquidación completa al momento del despido o renuncia. Si se demora injustificadamente, debe pagar **un día de salario por cada día de retraso** (hasta por 24 meses).
-3. **Prestaciones obligatorias:** Prima de servicios (junio y diciembre), Cesantías consignadas antes del 15 de febrero, Intereses de cesantías pagados en enero (12%), y 15 días hábiles de vacaciones por año.
-4. **Jornada laboral y recargos:** La jornada máxima legal se reduce gradualmente por Ley 2101/21 (46/44/42 horas). El recargo nocturno ordinario es del 35% y los dominicales/festivos se remuneran con recargo del 75%.
-5. **Acoso laboral (Ley 1010 de 2006):** Si radicas queja ante el Comité de Convivencia o MinTrabajo, gozas de fuero de protección frente al despido por 6 meses.
+### 🛡️ Medidas Urgentes de Protección (Ley 294/96 y Ley 2126/21):
+Acude a la **Comisaría de Familia** más cercana (o Juzgado Municipal). El comisario puede expedir en menos de 4 horas:
+1. **Desalojo inmediato del agresor:** El agresor debe abandonar inmediatamente el hogar compartido con la víctima, sin importar de quién sea la vivienda.
+2. **Orden de alejamiento:** Prohibición estricta de acercarse a tu casa, trabajo o comunicarse contigo por llamadas o redes sociales.
+3. **Pensión provisional de alimentos:** Fijación de cuota para sustento de hijos y cónyuge.
+4. **Acompañamiento policial y custodia provisional:** Protección para retirar pertenencias personales y custodia inmediata de menores.
+
+### 🚨 Líneas de Auxilio Gratuito 24/7:
+* 📞 **Línea 155:** Orientación nacional a mujeres víctimas de violencia.
+* 🚨 **Línea 123:** Emergencias con patrulla policial inmediata.
+* ⚖️ **Línea 122:** Fiscalía General de la Nación para denuncia penal (delito no desistible ni conciliable).
+* 🟣 **Línea Púrpura:** 018000 112 137 o WhatsApp 300 755 1846.
         """
-    elif "servicio público" in lower_input or "servicios publicos" in lower_input or "factura" in lower_input or "recibo" in lower_input or "luz" in lower_input or "agua" in lower_input or "gas" in lower_input or "corte" in lower_input:
+    # 5. Familia: Alimentos, Pensión, REDAM, Custodia
+    elif "alimentos" in lower or "cuota alimentaria" in lower or "pensión alimenticia" in lower or "hijos" in lower or "redam" in lower or "patria potestad" in lower:
+        resp_text = """
+> ⚠️ **Advertencia legal:** *Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.*
+
+El derecho de alimentos en favor de los hijos se regula por el **Código de la Infancia y la Adolescencia (Ley 1098 de 2006)**:
+
+### 👨‍👩‍👧 1. Fijación de la Cuota (Trámite Gratuito sin Abogado):
+* Solicita audiencia de conciliación ante el **ICBF**, la **Comisaría de Familia** o la **Personería Municipal**.
+* El acta de conciliación presta **mérito ejecutivo**: si el obligado incumple tan solo una cuota, se pueden embargar sus cuentas y bienes directamente ante un juez de familia.
+* **Tope de embargo:** La ley permite embargar **hasta el 50% de todo el salario y prestaciones sociales** (incluidas cesantías y primas) para responder por alimentos (Art. 130).
+
+### 🚫 2. Sanciones por Incumplimiento:
+1. **Delito de Inasistencia Alimentaria (Art. 233 CP):** Prisión de 16 a 54 meses.
+2. **Reporte en el REDAM (Ley 2097 de 2021):** Si adeuda 3 cuotas, se inscribe en el Registro de Deudores Alimentarios Morosos, acarreando:
+   * **Prohibición de salir del país** (Migración Colombia impide la salida).
+   * **Prohibición de contratar con el Estado** o asumir cargos públicos.
+   * **Bloqueo de créditos financieros** e impedimento para traspasar vehículos o inmuebles.
+        """
+    # 6. Tránsito: Fotomultas, Choques, Accidentes, SOAT
+    elif "fotomulta" in lower or "fotodetección" in lower or "accidente de tránsito" in lower or "choque" in lower or "soat" in lower or "comparendo" in lower:
+        resp_text = """
+> ⚠️ **Advertencia legal:** *Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.*
+
+El régimen de tránsito se rige por la **Ley 769 de 2002**, la **Ley 2251 de 2022** y la jurisprudencia constitucional:
+
+### 🚗 1. Fotomultas (Sentencia C-038 de 2020 de la Corte Constitucional):
+* **Identificación obligatoria del infractor:** Está prohibido multar automáticamente al dueño del carro. La secretaría de tránsito **debe probar quién iba conduciendo** al momento de la infracción.
+* **Término de notificación:** Deben notificarte dentro de los **3 días hábiles** siguientes a la validación del comparendo. Si no fuiste notificado debidamente, puedes solicitar audiencia y pedir la revocatoria directa por violación al debido proceso.
+
+### 💥 2. Choques Simples (Ley 2251 de 2022 - Ley Julián Esteban):
+* Si en el choque solo hubo daños materiales ("latas"), **NO es necesario esperar al agente de tránsito ni policía**.
+* Los conductores deben tomar fotos/videos de los daños y retirar los carros de inmediato para no obstaculizar la vía. Las aseguradoras resuelven con las pruebas recaudadas.
+
+### 🏥 3. Accidentes con Lesionados (Cobertura SOAT - Ley 2161 de 2021):
+* El SOAT cubre automáticamente y sin excepciones a todas las víctimas (peatones, ciclistas, pasajeros). Ninguna clínica puede condicionar la atención de urgencias a copagos ni autorizaciones.
+        """
+    # 7. Laboral: Despido, Liquidación, Recargos, Acoso
+    elif "trabajo" in lower or "laboral" in lower or "despido" in lower or "liquidación" in lower or "liquidacion" in lower or "prima" in lower or "cesantías" in lower or "horas extras" in lower or "acoso laboral" in lower:
+        resp_text = """
+> ⚠️ **Advertencia legal:** *Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.*
+
+Tus derechos laborales se fundamentan en el **Código Sustantivo del Trabajo (CST)** y la **Ley 2101 de 2021**:
+1. **Despido sin justa causa (Art. 64 CST):** Da derecho a indemnización económica obligatoria.
+2. **Sanción por no pago de liquidación (Art. 65 CST):** El empleador debe pagar la liquidación completa al terminar el contrato. Por cada día de mora, debe pagarte **un día de salario** (hasta por 24 meses).
+3. **Prestaciones de ley:** Prima de servicios (junio y diciembre), Cesantías en fondo (antes del 15 de febrero), intereses (12% en enero) y 15 días hábiles de vacaciones por año.
+4. **Jornada y recargos:** Reducción de jornada laboral semanal por Ley 2101/21. Recargo nocturno (35%) y festivo/dominical (75%).
+        """
+    # 8. Servicios Públicos Domiciliarios
+    elif "servicio público" in lower or "servicios publicos" in lower or "factura" in lower or "recibo" in lower or "luz" in lower or "agua" in lower or "gas" in lower or "corte" in lower:
         resp_text = """
 > ⚠️ **Advertencia legal:** *Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.*
 
 Los servicios públicos domiciliarios se rigen por la **Ley 142 de 1994**:
-
-### 💡 Tus derechos frente a la empresa prestadora:
-1. **Cobros desmedidos o anomalías (Art. 149):** Frente a desviaciones significativas de consumo, la empresa debe investigar técnicamente antes de cobrar el valor extraordinario. Solo estás obligado a pagar el promedio histórico habitual mientras se define el reclamo.
-2. **Prohibición de corte (Art. 155):** La empresa **NO puede suspenderte el servicio** por las sumas que estén en reclamación formal, siempre que canceles la porción no disputada.
-3. **Plazo para reclamar y recursos (Art. 154):** Tienes hasta 5 meses para objetar la factura. Si la empresa te niega la queja, debes interponer **Recurso de Reposición y en subsidio de Apelación** ante la **Superservicios** dentro de los 5 días hábiles siguientes.
-4. **Silencio Administrativo Positivo (Art. 158):** Si la empresa tarda más de **15 días hábiles** en responder y notificar tu reclamo, la ley entiende que ganaste el caso por derecho y el cobro debe anularse.
+1. **Desviaciones de consumo (Art. 149):** La empresa debe investigar técnicamente anomalías en el contador antes de cobrar sumas desmedidas. Solo pagas tu promedio histórico.
+2. **Prohibición de corte (Art. 155):** No pueden suspender el servicio por cobros que estén en trámite de reclamación formal.
+3. **Recursos legales (Art. 154):** Si rechazan el reclamo, interpon **Recurso de Reposición y en subsidio de Apelación** ante la **Superservicios**.
+4. **Silencio Administrativo Positivo (Art. 158):** Si tardan más de 15 días hábiles en responder, ganas automáticamente por ley.
         """
-    elif "datacrédito" in lower_input or "datacredito" in lower_input or "cifin" in lower_input or "centrales de riesgo" in lower_input or "reporte negativo" in lower_input or "deuda" in lower_input or "suplantación" in lower_input or "suplantacion" in lower_input:
+    # 9. Datacrédito / Centrales de Riesgo
+    elif "datacrédito" in lower or "datacredito" in lower or "cifin" in lower or "centrales de riesgo" in lower or "reporte negativo" in lower or "deuda" in lower or "suplantación" in lower or "suplantacion" in lower:
         resp_text = """
 > ⚠️ **Advertencia legal:** *Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.*
 
-Tu información crediticia está protegida por la **Ley 1266 de 2008** y la **Ley 2157 de 2021 ("Borrón y Cuenta Nueva")**:
-
-### 💳 Reglas del Habeas Data Financiero:
-1. **Aviso previo obligatorio (Art. 12):** La entidad acreedora debe enviarte una notificación previa por escrito al menos **20 días calendario antes** de reportarte a Datacrédito o CIFIN. Si no lo hizo, el reporte es nulo y puedes exigir su retiro inmediato.
-2. **Caducidad del reporte negativo (Art. 13):**
-   * Si la mora fue menor a 2 años: El reporte negativo dura el **doble del tiempo de la mora** una vez pagada la deuda.
-   * Si la mora fue de 2 o más años: Una vez cancelada la obligación, el reporte dura **máximo 4 años**.
-   * Prescripción por paso del tiempo: Si nunca pagaste y pasaron **8 años** en mora, el reporte debe eliminarse automáticamente.
-3. **Suplantación de identidad:** Si sacaron créditos a tu nombre fraudulentamente, radica copia de la denuncia penal ante la entidad. En 10 días deben colocar la leyenda *"Víctima de falsedad personal"* y suspender el reporte.
-4. **Consulta gratis:** Consultar tu historial en Datacrédito es 100% gratuito y no baja tu puntaje score.
+Tu historial crediticio está amparado por la **Ley 1266 de 2008** y la **Ley 2157 de 2021 ("Borrón y Cuenta Nueva")**:
+1. **Aviso previo de 20 días calendario (Art. 12):** Sin este aviso formal previo, el reporte es ilegal y puedes exigir su retiro.
+2. **Permanencia del reporte (Art. 13):** Máximo el doble del tiempo de la mora (tope 4 años tras pagar) o caducidad definitiva a los 8 años sin necesidad de pagar.
+3. **Suplantación de identidad:** Con copia de la denuncia penal ante Fiscalía, la entidad debe suspender el reporte negativo en 10 días y colocar leyenda de víctima de falsedad.
         """
-    elif "salud" in lower_input or "eps" in lower_input or "medicamento" in lower_input or "urgencias" in lower_input or "medico" in lower_input or "médico" in lower_input or "cirugía" in lower_input:
+    # 10. Salud y Medicamentos
+    elif "salud" in lower or "eps" in lower or "medicamento" in lower or "urgencias" in lower or "medico" in lower or "médico" in lower or "cirugía" in lower:
         resp_text = """
 > ⚠️ **Advertencia legal:** *Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría médica ni jurídica formal.*
 
-En Colombia, la salud es un **derecho fundamental autónomo e irrenunciable** amparado por la **Ley Estatutaria 1751 de 2015**:
-
-### 🏥 Principios y garantías irrenunciables:
-1. **Prohibición absoluta de negación de urgencias (Arts. 10 y 14):** Ningún hospital o clínica pública o privada puede exigir copagos, cheques, pagarés o autorizaciones de la EPS para atender una urgencia vital. El "paseo de la muerte" es un delito.
-2. **Entrega de medicamentos en 48 horas (Res. 1604/13):** Si el dispensario de tu EPS no tiene el medicamento formulado, dispone de máximo **48 horas** para entregarlo (incluso a domicilio si estás imposibilitado).
-3. **Principio de Integralidad (Art. 8):** La EPS no puede imponer barreras administrativas ni fragmentar tratamientos. Debe cubrir diagnóstico, procedimientos y medicinas completas.
-4. **Vías inmediatas:** Radica queja urgente ante la **Superintendencia Nacional de Salud (Supersalud)** al 018000 513700. Si está en peligro la vida o la salud, presenta **Acción de Tutela con solicitud de medida cautelar provisional** ante cualquier juez.
+La salud es un derecho fundamental irrenunciable amparado por la **Ley Estatutaria 1751 de 2015**:
+1. **Atención de urgencias incondicional (Arts. 10 y 14):** Ningún hospital puede negar urgencias o exigir copagos o autorizaciones previas.
+2. **Entrega de medicamentos en 48 horas (Res. 1604/13):** Plazo máximo para entrega de medicamentos formulados.
+3. **Mecanismos:** Queja ante la **Supersalud** (018000 513700) o **Acción de Tutela con solicitud de medida provisional** ante cualquier juez.
         """
-    elif "nacionalidad" in lower_input or "venezuela" in lower_input or "pasaporte" in lower_input or "ius solis" in lower_input or "ius sanguinis" in lower_input or "doble nacionalidad" in lower_input:
+    # 11. Llamadas Spam / Cobranza
+    elif "llamada" in lower or "cobranza" in lower or "spam" in lower or "dejen de fregar" in lower or "banco llama" in lower:
         resp_text = """
 > ⚠️ **Advertencia legal:** *Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.*
 
-La nacionalidad colombiana se rige por el **Artículo 96 de la Constitución Política** y la **Ley 43 de 1993**:
-
-### 🇨🇴 Criterios de Nacionalidad en Colombia:
-1. **Criterio Mixto por Nacimiento:**
-   * **Ius Sanguinis:** Si naciste en Colombia y al menos uno de tus padres es colombiano, eres colombiano por nacimiento.
-   * **Ius Solis con domicilio:** Si naciste en Colombia de padres extranjeros, eres colombiano si al menos uno de ellos estaba domiciliado legalmente en el país al momento de nacer.
-   * **Hijos de venezolanos nacidos en Colombia (Ley 1997/19 - Primero la Niñez):** Se otorga nacionalidad colombiana preventiva contra la apatridia a los nacidos en territorio nacional desde 2015.
-2. **Doble Nacionalidad (Ley 43/93 Art. 22):** Colombia reconoce la doble y múltiple nacionalidad (puedes tener pasaporte venezolano, libanés y colombiano simultáneamente).
-3. **Obligación legal:** Al ingresar, permanecer o salir de Colombia, debes identificarte y actuar obligatoriamente como ciudadano colombiano portando tus documentos nacionales.
+Las gestiones de cobro comercial están reguladas por la **Ley 2300 de 2023 ("Ley Dejen de Fregar")**:
+1. **Horarios estrictos (Art. 3):** Lunes a viernes de 7am a 7pm, sábados de 8am a 3pm. **Domingos y festivos está totalmente prohibido.**
+2. **Periodicidad:** Máximo 2 contactos por semana por entidad.
+3. **Prohibición a referencias:** No pueden contactar a tus familiares ni amigos para indagar sobre tu deuda.
         """
-    elif "caballo" in lower_input or "retención" in lower_input or "retencion" in lower_input or "club" in lower_input or "deuda animal" in lower_input:
+    # 12. Petición Ciudadana
+    elif "petición" in lower or "peticion" in lower or "no responde" in lower or "entidad pública" in lower:
         resp_text = """
 > ⚠️ **Advertencia legal:** *Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.*
 
-Respecto a deudas de mantenimiento o hospedaje y tenencia de animales en Colombia:
-
-### 🐴 Marco Civil y de Bienestar Animal:
-1. **Derecho de Retención (Art. 2417 Código Civil):** Si adeudas el hospedaje o manutención, el club o pesebrera puede retener provisionalmente el animal hasta el pago de los gastos necesarios.
-2. **NO transfiere la propiedad:** El derecho de retención jamás convierte al club o entrenador en dueño del animal. **No pueden venderlo, cederlo ni dejar que terceros lo monten o exploten comercialmente** sin una orden judicial previa en un proceso ejecutivo.
-3. **Animales como seres sintientes (Ley 1774 de 2016):** El tenedor temporal está obligado a brindar alimentación adecuada y atención veterinaria. Dejarlo montar arbitrariamente o descuidarlo puede configurar abuso de confianza o maltrato sancionable.
+Si una entidad pública no respondió dentro de los términos legales, se vulnera tu **Derecho de Petición** (Art. 23 C.P. y Ley 1755 de 2015):
+* **Términos:** 10 días hábiles (documentos), 15 días (interés general), 30 días (consultas jurídicas).
+* **Acciones:** Acción de Tutela (Art. 86 C.P.), Silencio Administrativo Positivo para copias (Art. 14) o queja ante Personería y Procuraduría.
         """
-    elif "llamadas" in lower_input or "cobranza" in lower_input or "spam" in lower_input or "dejen de fregar" in lower_input or "banco llama" in lower_input:
+    # 13. Arrendamiento
+    elif "arriendo" in lower or "arrendamiento" in lower or "canon" in lower:
         resp_text = """
 > ⚠️ **Advertencia legal:** *Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.*
 
-Las llamadas y mensajes comerciales o de cobro están estrictamente regulados por la **Ley 2300 de 2023 ("Ley Dejen de Fregar")**:
-
-### 📞 Reglas obligatorias para entidades y bancos:
-1. **Horarios permitidos (Art. 3):**
-   * Lunes a viernes: de 7:00 a.m. a 7:00 p.m.
-   * Sábados: de 8:00 a.m. a 3:00 p.m.
-   * **Domingos y festivos: TERMINANTEMENTE PROHIBIDO contactar al usuario.**
-2. **Periodicidad:** Máximo 2 contactos por semana por entidad, sin importar el canal (llamada, SMS o WhatsApp).
-3. **Prohibición a referencias:** Las entidades NO pueden llamar a tus familiares o amigos para cobrarles o avergonzarte sobre tu deuda.
-4. **Sanciones:** Puedes presentar queja formal ante la **Superintendencia de Industria y Comercio (SIC)** o la **Superfinanciera**.
+En Colombia, el arrendamiento de vivienda se rige por la **Ley 820 de 2003**:
+* **Incremento (Art. 20):** Solo cada 12 meses y máximo el 100% de la inflación (IPC) del año anterior.
+* **Prohibición de depósitos (Art. 18):** Ilegal exigir depósitos en efectivo o pagarés en garantía.
         """
-    elif "transito" in lower_input or "tránsito" in lower_input or "requisa" in lower_input or "policia" in lower_input or "policía" in lower_input:
+    # 14. Consumidor y Garantías
+    elif "consumidor" in lower or "garantía" in lower or "garantia" in lower or "compra" in lower or "dañado" in lower or "retracto" in lower:
         resp_text = """
 > ⚠️ **Advertencia legal:** *Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.*
 
-### 👮 Procedimientos en vía pública y registro a personas:
-1. **Agentes Civiles / Guardas de Tránsito:** **NO pueden requisar** a las personas ni revisar bolsos o pertenencias personales (Ley 769 de 2002 y Sentencia C-128 de 2018). Solo verifican documentos del vehículo y equipo de prevención vial.
-2. **Policía Nacional Uniformada:** Sí está facultada para realizar registros preventivos bajo el **Art. 159 de la Ley 1801 de 2016** para buscar armas o sustancias, siempre con respeto a la dignidad y por personal del mismo género.
-3. **Derecho a Grabar (Art. 21 Ley 1801 de 2016 y Sentencia T-032/21):** Todo ciudadano tiene derecho constitucional a filmar en audio y video los procedimientos públicos de las autoridades.
+Tus derechos como consumidor están amparados por la **Ley 1480 de 2011**:
+* **Garantía Legal (Arts. 7 y 11):** Si el bien repite la falla o no admite arreglo, puedes exigir el cambio o la devolución total de tu dinero.
+* **Retracto (Art. 47):** 5 días hábiles en compras virtuales para devolver el producto y recibir el 100% del dinero.
         """
-    elif "abortar" in lower_input or "ive" in lower_input or "embarazo" in lower_input:
+    # 15. Requisas y Tránsito
+    elif "transito" in lower or "tránsito" in lower or "requisa" in lower or "policia" in lower or "policía" in lower:
+        resp_text = """
+> ⚠️ **Advertencia legal:** *Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.*
+
+### 👮 Procedimientos en vía pública:
+* **Agentes Civiles de Tránsito:** NO pueden requisar personas ni bolsos (Sentencia C-128/18).
+* **Policía Nacional:** Registro preventivo bajo Art. 159 Ley 1801/16 (mismo género, sin desnudamiento ni revisar chats de celular).
+* **Derecho a filmar (Art. 21 Ley 1801/16):** Derecho constitucional inalienable a grabar en video todo procedimiento público policial.
+        """
+    # 16. IVE
+    elif "abortar" in lower or "ive" in lower or "embarazo" in lower:
         resp_text = """
 > ⚠️ **Advertencia legal:** *Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría médica ni jurídica formal.*
 
-En Colombia, la **Interrupción Voluntaria del Embarazo (IVE)** es un derecho fundamental amparado por la **Sentencia C-055 de 2022 de la Corte Constitucional**:
-1. **Hasta la semana 24 de gestación:** Es libre, voluntaria y no requiere cumplir causales.
-2. **Después de la semana 24:** Aplican las 3 causales de la Sentencia C-355 de 2006 (salud/vida de la madre, malformación fetal o agresión sexual).
-3. **Atención gratuita en EPS:** Regulado por la Resolución 051 de 2023 del MinSalud con plazo máximo de 5 días calendario.
-4. **Líneas de apoyo confidencial:** Profamilia (300 912 4560), Oriéntame ((601) 744 7633) y Línea Púrpura (01 8000 112 137).
+En Colombia, la **Interrupción Voluntaria del Embarazo (IVE)** es un derecho fundamental amparado por la **Sentencia C-055 de 2022**:
+* Libre y voluntario hasta la semana 24 de gestación; posterior a la semana 24 aplican las 3 causales de la Sentencia C-355 de 2006.
+* Gratuito en la red de salud de tu EPS en máximo 5 días (Res. 051/23).
+        """
+    # 17. Nacionalidad y Retención
+    elif "nacionalidad" in lower or "venezuela" in lower or "pasaporte" in lower or "ius solis" in lower or "ius sanguinis" in lower or "caballo" in lower or "retención" in lower or "retencion" in lower:
+        resp_text = """
+> ⚠️ **Advertencia legal:** *Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.*
+
+* **Nacionalidad (Art. 96 C.P. y Ley 43/93):** Criterio mixto por nacimiento (Ius sanguinis e Ius domicilii). Medida "Primero la Niñez" (Ley 1997/19) para hijos de venezolanos nacidos en Colombia. Se admite la doble nacionalidad.
+* **Derecho de Retención (Art. 2417 Código Civil):** Retener una cosa o animal por deudas de cuidado o mantenimiento **no transfiere la propiedad** ni autoriza a venderlo o explotarlo. Los animales son seres sintientes protegidos por la Ley 1774 de 2016.
         """
     else:
         resp_text = f"""
@@ -285,10 +346,10 @@ En Colombia, la **Interrupción Voluntaria del Embarazo (IVE)** es un derecho fu
 
 He recibido tu consulta sobre: *"{user_input}"*.
 
-Para brindarte una respuesta precisa y evitar alucinaciones jurídicas:
-1. **Marco normativo general:** En Colombia tus derechos constitucionales están protegidos por la **Constitución Política de 1991** (Art. 86 Tutela, Art. 23 Petición, Art. 29 Debido Proceso).
-2. **Mecanismo sugerido:** Si una entidad o particular está afectando tus derechos, puedes radicar un **Derecho de Petición** solicitando explicaciones o solución, o acudir a los canales de conciliación y justicia gratuita.
-3. **Apoyo gratuito:** Te recomendamos consultar el portal **[LegalApp del Ministerio de Justicia](https://www.legalapp.gov.co)** o acudir al **Consultorio Jurídico de la Pontificia Universidad Javeriana** para revisión personalizada de tu caso.
+Para orientarte de forma veraz y prevenir alucinaciones jurídicas:
+1. **Marco normativo general:** En Colombia tus derechos están amparados por la **Constitución Política de 1991** (Art. 23 Petición, Art. 29 Debido Proceso, Art. 86 Tutela, Art. 96 Nacionalidad) y los códigos y leyes sustantivas de la República.
+2. **Ruta sugerida:** Puedes presentar un **Derecho de Petición**, interponer una denuncia penal ante la Fiscalía (en [adenunciar.policia.gov.co](https://adenunciar.policia.gov.co)) o solicitar conciliación gratuita.
+3. **Canales gratuitos:** Consulta el portal **[LegalApp del Ministerio de Justicia](https://www.legalapp.gov.co)** o acude al **Consultorio Jurídico de la Pontificia Universidad Javeriana** para atención presencial personalizada.
         """
 
     with st.chat_message("assistant"):

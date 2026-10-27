@@ -35,19 +35,27 @@ En Colombia existe una amplia brecha de desconocimiento y barreras de acceso a l
 | Remite a entidades oficiales y canales gratuitos (Personería, Defensoría, Consultorios Jurídicos). | No recolecta ni almacena datos personales sensibles ni información privada real. |
 
 ### 1.4 Marco jurídico y fuentes
-Corpus normativo oficial que alimenta la herramienta:
-- [x] [**Constitución Política de Colombia de 1991:** Artículos 15, 23, 74, 86 y 96](./constitucion_politica_1991.md)
-- [x] [**Ley Estatutaria 1755 de 2015:** Derecho Fundamental de Petición](./ley_1755_2015_derecho_peticion.md)
-- [x] [**Ley 1480 de 2011:** Estatuto del Consumidor](./ley_1480_2011_consumidor.md)
-- [x] [**Ley 820 de 2003:** Arrendamiento de Vivienda Urbana](./ley_820_2003_arrendamiento.md)
-- [x] [**Ley 1801 de 2016:** Código Nacional de Policía y Convivencia](./ley_1801_2016_codigo_policia.md)
-- [x] [**Sentencia C-055 de 2022:** Interrupción Voluntaria del Embarazo](./sentencia_c055_2022_ive.md)
-- [x] [**Código Sustantivo del Trabajo (CST):** Derechos laborales, despidos, liquidación y recargos](./codigo_sustantivo_trabajo.md)
-- [x] [**Ley 142 de 1994:** Servicios Públicos Domiciliarios y reclamos](./ley_142_1994_servicios_publicos.md)
-- [x] [**Ley 1266 de 2008 y Ley 2157 de 2021:** Habeas Data Financiero y Centrales de Riesgo](./ley_1266_2008_habeas_data_financiero.md)
+Corpus normativo oficial integral que alimenta la herramienta:
+- [x] [**Constitución Política de Colombia de 1991 (Íntegra):** Preámbulo, 13 Títulos y 380 Artículos (Principios, Derechos, Deberes y Estructura del Estado)](./constitucion_politica_colombia_completa.md)
+- [x] [**Compendio de Códigos Nacionales:** Código Civil, Código de Comercio, CGP (Ley 1564/12), CPACA (Ley 1437/11) y Código Disciplinario](./compendio_codigos_nacionales_colombia.md)
+- [x] [**Jurisprudencia Constitucional Hito:** Sentencias C, T y SU (Eutanasia, ECI, Libre desarrollo, Matrimonio igualitario, Tutela)](./sentencias_hito_corte_constitucional.md)
+- [x] [**Guía y Conexión SUIN-JURISCOL:** Acceso al repositorio del 100% de leyes y decretos reglamentarios vigentes de Colombia](./guia_suin_juriscol_fuentes_oficiales.md)
+- [x] [**Código Penal Colombiano (Ley 599 de 2000):** Dolo, culpa, preterintención, legítima defensa, homicidio, feminicidio, hurto calificado y estafa](./codigo_penal_delitos_vida_patrimonio.md)
+- [x] [**Código de Procedimiento Penal (Ley 906 de 2004):** Denuncia penal, flagrancia, término constitucional de 36 horas y derechos de víctimas](./ley_906_2004_procedimiento_penal_denuncia.md)
+- [x] [**Ley 1257 de 2008 y Ley 294 de 1996:** Violencia intrafamiliar, violencia de género y medidas urgentes de Comisarías de Familia](./ley_1257_2008_violencia_genero_intrafamiliar.md)
+- [x] [**Código de la Infancia y la Adolescencia (Ley 1098 de 2006) y Ley 2097 de 2021:** Cuota de alimentos, inasistencia alimentaria y REDAM](./codigo_infancia_adolescencia_familia.md)
+- [x] [**Código Nacional de Tránsito (Ley 769 de 2002) y Ley 2251 de 2022:** Fotomultas, accidentes viales y cobertura incondicional SOAT](./ley_769_2002_transito_fotomultas_accidentes.md)
+- [x] [**Código Sustantivo del Trabajo (CST) y Ley 2101 de 2021:** Derechos laborales, despidos, liquidación, recargos y acoso laboral](./codigo_sustantivo_trabajo.md)
+- [x] [**Ley 142 de 1994:** Servicios Públicos Domiciliarios y reclamos ante Superservicios](./ley_142_1994_servicios_publicos.md)
+- [x] [**Ley 1266 de 2008 y Ley 2157 de 2021:** Habeas Data Financiero, Datacrédito y "Borrón y Cuenta Nueva"](./ley_1266_2008_habeas_data_financiero.md)
 - [x] [**Ley Estatutaria 1751 de 2015:** Derecho Fundamental a la Salud y Medicamentos](./ley_1751_2015_estatutaria_salud.md)
-- [x] [**Ley 43 de 1993 y C.P. Art. 96:** Nacionalidad, Ciudadanía y Régimen de Retención](./ley_43_1993_nacionalidad_colombiana.md)
-- [x] [**Ley 2300 de 2023:** Ley "Dejen de Fregar" (Llamadas de cobranza y spam)](./ley_2300_2023_dejen_de_fregar.md)
+- [x] [**Ley Estatutaria 1755 de 2015:** Derecho Fundamental de Petición](./ley_1755_2015_derecho_peticion.md)
+- [x] [**Ley 1480 de 2011:** Estatuto del Consumidor, garantía legal y retracto](./ley_1480_2011_consumidor.md)
+- [x] [**Ley 820 de 2003:** Arrendamiento de Vivienda Urbana y topes IPC](./ley_820_2003_arrendamiento.md)
+- [x] [**Ley 43 de 1993 y C.P. Art. 96:** Nacionalidad, Ciudadanía y Régimen Civil de Retención](./ley_43_1993_nacionalidad_colombiana.md)
+- [x] [**Ley 2300 de 2023:** Ley "Dejen de Fregar" (Llamadas de cobranza y spam comercial)](./ley_2300_2023_dejen_de_fregar.md)
+- [x] [**Ley 1801 de 2016:** Código Nacional de Policía y Convivencia Ciudadana](./ley_1801_2016_codigo_policia.md)
+- [x] [**Sentencia C-055 de 2022:** Interrupción Voluntaria del Embarazo](./sentencia_c055_2022_ive.md)
 
 ### 1.5 Nombre y lema
 * **Nombre:** Conoce tus derechos
