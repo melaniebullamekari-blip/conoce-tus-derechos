@@ -61,20 +61,35 @@
           <h2 class="text-sm font-bold text-slate-700 uppercase tracking-wider mb-3 flex items-center gap-2">
             <i class="fa-regular fa-lightbulb text-amber-500"></i> Consultas Frecuentes
           </h2>
-          <div class="space-y-2 text-xs">
-            <button onclick="askSample('¿Qué hago si una entidad pública no responde una petición que hice?')" class="w-full text-left p-2.5 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
+          <div class="space-y-1.5 text-xs">
+            <button onclick="askSample('¿Qué hago si una entidad pública no responde una petición que hice?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
               📋 Entidad pública no responde petición
             </button>
-            <button onclick="askSample('Compré un celular por internet, me llegó roto y la tienda no responde. ¿Qué derechos tengo?')" class="w-full text-left p-2.5 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
+            <button onclick="askSample('Compré un celular por internet, me llegó roto y la tienda no responde. ¿Qué derechos tengo?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
               🛒 Producto por internet dañado / Garantía
             </button>
-            <button onclick="askSample('¿Cuánto es lo máximo que me pueden subir el arriendo este año en Colombia?')" class="w-full text-left p-2.5 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
-              🏠 Aumento del canon de arrendamiento (IPC)
+            <button onclick="askSample('¿Cuánto es lo máximo que me pueden subir el arriendo este año en Colombia?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
+              🏠 Aumento del arriendo (IPC)
             </button>
-            <button onclick="askSample('¿Un agente de tránsito civil me puede requisar la billetera o mi bolso en la calle?')" class="w-full text-left p-2.5 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
+            <button onclick="askSample('Me despidieron sin justa causa de mi trabajo, ¿qué liquidación e indemnización me deben pagar?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
+              💼 Despido y liquidación laboral (CST)
+            </button>
+            <button onclick="askSample('¿Cuánto tiempo puede durar un reporte negativo en Datacrédito y cómo aplica la ley borrón y cuenta nueva?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
+              💳 Datacrédito y reportes negativos
+            </button>
+            <button onclick="askSample('Me llegó la factura del agua con un cobro desmedido, ¿me pueden cortar el servicio si reclamo?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
+              💡 Servicios públicos y cobros indebidos
+            </button>
+            <button onclick="askSample('La EPS no me entrega un medicamento urgente formulado por el médico, ¿qué puedo hacer?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
+              🏥 EPS no entrega medicamento (48h)
+            </button>
+            <button onclick="askSample('Un banco me llama a cobrar en domingo o festivo, ¿es legal?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
+              📞 Llamadas de cobranza (Ley Dejen de Fregar)
+            </button>
+            <button onclick="askSample('¿Un agente de tránsito civil me puede requisar la billetera o mi bolso en la calle?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
               👮 Requisas en vía pública y tránsito
             </button>
-            <button onclick="askSample('¿Hasta qué semana puedo interrumpir un embarazo de forma libre en Colombia?')" class="w-full text-left p-2.5 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
+            <button onclick="askSample('¿Hasta qué semana puedo interrumpir un embarazo de forma libre en Colombia?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
               ⚖️ Interrupción Voluntaria del Embarazo (IVE)
             </button>
           </div>
@@ -83,14 +98,20 @@
         <!-- Marco Jurídico Oficial -->
         <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm text-xs">
           <h2 class="text-sm font-bold text-slate-700 uppercase tracking-wider mb-2 flex items-center gap-2">
-            <i class="fa-solid fa-book-bookmark text-blue-700"></i> Corpus Normativo
+            <i class="fa-solid fa-book-bookmark text-blue-700"></i> Corpus Normativo (12 Fuentes)
           </h2>
           <p class="text-slate-500 mb-3 text-[11px]">Normas colombianas oficiales que sustentan las respuestas:</p>
           <ul class="space-y-1.5 text-slate-600">
-            <li><a href="./constitucion_politica_1991.md" class="text-blue-700 hover:underline">🏛️ Constitución Política (Arts. 15, 23, 86)</a></li>
+            <li><a href="./constitucion_politica_1991.md" class="text-blue-700 hover:underline">🏛️ Constitución Política (Arts. 15, 23, 86, 96)</a></li>
             <li><a href="./ley_1755_2015_derecho_peticion.md" class="text-blue-700 hover:underline">📋 Ley 1755 de 2015 (Derecho de Petición)</a></li>
             <li><a href="./ley_1480_2011_consumidor.md" class="text-blue-700 hover:underline">🛒 Ley 1480 de 2011 (Consumidor y Garantías)</a></li>
             <li><a href="./ley_820_2003_arrendamiento.md" class="text-blue-700 hover:underline">🏠 Ley 820 de 2003 (Arrendamiento Urbano)</a></li>
+            <li><a href="./codigo_sustantivo_trabajo.md" class="text-blue-700 hover:underline">💼 Código Sustantivo del Trabajo (CST Laboral)</a></li>
+            <li><a href="./ley_142_1994_servicios_publicos.md" class="text-blue-700 hover:underline">💡 Ley 142 de 1994 (Servicios Públicos)</a></li>
+            <li><a href="./ley_1266_2008_habeas_data_financiero.md" class="text-blue-700 hover:underline">💳 Ley 1266/08 y Ley 2157/21 (Datacrédito)</a></li>
+            <li><a href="./ley_1751_2015_estatutaria_salud.md" class="text-blue-700 hover:underline">🏥 Ley 1751 de 2015 (Salud y Medicamentos)</a></li>
+            <li><a href="./ley_43_1993_nacionalidad_colombiana.md" class="text-blue-700 hover:underline">🇨🇴 Ley 43 de 1993 (Nacionalidad Colombiana)</a></li>
+            <li><a href="./ley_2300_2023_dejen_de_fregar.md" class="text-blue-700 hover:underline">📞 Ley 2300 de 2023 ("Dejen de Fregar")</a></li>
             <li><a href="./ley_1801_2016_codigo_policia.md" class="text-blue-700 hover:underline">👮 Ley 1801 de 2016 (Código de Policía)</a></li>
             <li><a href="./sentencia_c055_2022_ive.md" class="text-blue-700 hover:underline">⚖️ Sentencia C-055/22 y Res. 051/23 (IVE)</a></li>
           </ul>
@@ -98,51 +119,57 @@
 
       </aside>
 
-      <!-- Ventana de Chat Interactivo -->
-      <section class="bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col h-[580px] lg:col-span-2 order-1 lg:order-2">
+      <!-- Columna Principal: Chat Interactivo -->
+      <section class="lg:col-span-2 order-1 lg:order-2 flex flex-col bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden min-h-[560px]">
         
-        <!-- Header del Chat -->
-        <div class="px-4 py-3 border-b border-slate-100 flex items-center justify-between bg-slate-50/50 rounded-t-xl">
-          <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            Asistente en línea
+        <!-- Barra de herramientas del chat -->
+        <div class="px-4 py-3 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-xs font-semibold text-slate-700">Asistente en línea · Corpus jurídico actualizado</span>
           </div>
-          <button onclick="clearChat()" class="text-xs text-slate-400 hover:text-slate-600">
-            <i class="fa-solid fa-arrows-rotate"></i> Reiniciar
+          <button onclick="clearChat()" class="text-xs text-slate-500 hover:text-slate-800 flex items-center gap-1 transition">
+            <i class="fa-solid fa-arrow-rotate-right"></i> Reiniciar
           </button>
         </div>
 
-        <!-- Área de Mensajes -->
-        <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-4 text-sm">
-          <!-- Mensaje inicial del Asistente -->
+        <!-- Área de mensajes -->
+        <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-4 text-sm leading-relaxed max-h-[500px]">
+          
+          <!-- Mensaje de bienvenida inicial -->
           <div class="flex items-start gap-3 chat-bubble">
             <div class="w-8 h-8 rounded-full bg-blue-900 text-white flex-shrink-0 flex items-center justify-center text-xs">
               ⚖️
             </div>
-            <div class="bg-slate-100 text-slate-800 p-3.5 rounded-2xl rounded-tl-sm max-w-[85%] leading-relaxed">
-              ¡Hola! Soy tu asistente de <strong>Conoce tus Derechos</strong>. Explícame tu situación en palabras sencillas (arrendamiento, compras por internet, problemas con entidades públicas, procedimientos policiales, etc.) y te indicaré qué normas te amparan y qué puedes hacer.
+            <div class="bg-slate-100 text-slate-800 p-3.5 rounded-2xl rounded-tl-sm max-w-[85%]">
+              <p>¡Hola! Soy tu asistente de <strong>Conoce tus Derechos</strong>.</p>
+              <p class="mt-2">Describe en tus propias palabras la situación que estás viviendo (por ejemplo en tu <strong>trabajo, arriendo, compras, servicios públicos, datacrédito, salud, trámites públicos, nacionalidad o comparendos</strong>) y te explicaré qué normas colombianas te protegen y qué pasos puedes seguir.</p>
             </div>
           </div>
+
         </div>
 
-        <!-- Barra de Entrada de Texto -->
-        <div class="p-3 border-t border-slate-100 bg-white rounded-b-xl">
+        <!-- Barra de entrada de texto -->
+        <div class="p-3 border-t border-slate-200 bg-white">
           <form id="chatForm" onsubmit="handleSend(event)" class="flex gap-2">
             <input 
               type="text" 
               id="userInput" 
-              placeholder="Describe tu situación jurídica aquí..." 
+              placeholder="Describe tu problema o haz una pregunta legal en Colombia..." 
               autocomplete="off"
-              class="flex-1 px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition"
-            >
+              class="flex-1 border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-transparent transition"
+            />
             <button 
               type="submit" 
-              class="px-5 py-2.5 bg-blue-900 hover:bg-blue-950 text-white rounded-xl text-sm font-semibold transition flex items-center gap-2 shadow-sm"
+              class="bg-blue-900 hover:bg-blue-800 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition flex items-center gap-2 shadow-sm"
             >
-              <span>Enviar</span>
-              <i class="fa-regular fa-paper-plane text-xs"></i>
+              <span>Consultar</span>
+              <i class="fa-solid fa-paper-plane text-xs"></i>
             </button>
           </form>
+          <div class="mt-2 text-[11px] text-slate-400 text-center">
+            Orientación pedagógica basada en leyes colombianas vigentes. Consulta con un abogado titulado para trámites judiciales.
+          </div>
         </div>
 
       </section>
@@ -241,6 +268,110 @@
             </ul>
           </div>
         `;
+      } else if (lower.includes('trabajo') || lower.includes('laboral') || lower.includes('despido') || lower.includes('liquidación') || lower.includes('liquidacion') || lower.includes('prima') || lower.includes('cesantías') || lower.includes('horas extras') || lower.includes('acoso laboral')) {
+        return `
+          <div class="space-y-2">
+            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
+              ⚠️ <em>Ejercicio académico con fines pedagógicos. No sustituye la consulta jurídica profesional.</em>
+            </div>
+            <p>Tus derechos laborales están respaldados por el <strong>Código Sustantivo del Trabajo (CST)</strong> y la <strong>Ley 2101 de 2021</strong>:</p>
+            <ul class="list-disc pl-5 space-y-1.5">
+              <li><strong>Despido sin justa causa (Art. 64 CST):</strong> Tienes derecho a indemnización económica. En contrato indefinido: 30 días de sueldo por el 1.er año y 20 días adicionales por cada año siguiente (para sueldos menores a 10 salarios mínimos).</li>
+              <li><strong>Sanción por mora en liquidación (Art. 65 CST):</strong> El empleador debe pagar la liquidación completa al terminar el contrato. Si demora sin justificación legal, debe pagarte <strong>un día de salario por cada día de retraso</strong> (hasta por 24 meses).</li>
+              <li><strong>Prestaciones sociales:</strong> Prima de servicios (junio y diciembre), Cesantías consignadas en fondo antes del 15 de febrero, intereses de cesantías (12% en enero) y 15 días hábiles de vacaciones por año.</li>
+              <li><strong>Jornada y recargos:</strong> Reducción gradual por Ley 2101/21. Recargo nocturno ordinario del 35% y dominicales/festivos con recargo del 75%.</li>
+              <li><strong>Acoso laboral (Ley 1010 de 2006):</strong> La radicación de queja ante el Comité de Convivencia o MinTrabajo otorga fuero de protección frente al despido por 6 meses.</li>
+            </ul>
+          </div>
+        `;
+      } else if (lower.includes('servicio público') || lower.includes('servicios publicos') || lower.includes('factura') || lower.includes('recibo') || lower.includes('luz') || lower.includes('agua') || lower.includes('gas') || lower.includes('corte')) {
+        return `
+          <div class="space-y-2">
+            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
+              ⚠️ <em>Ejercicio académico con fines pedagógicos. No sustituye la consulta jurídica profesional.</em>
+            </div>
+            <p>Los servicios públicos domiciliarios se rigen por la <strong>Ley 142 de 1994</strong>:</p>
+            <ul class="list-disc pl-5 space-y-1.5">
+              <li><strong>Desviaciones de consumo (Art. 149):</strong> Ante cobros anómalos o sospechosos, la empresa está obligada a investigar técnicamente el medidor antes de cobrar. Solo debes pagar tu promedio histórico habitual mientras se resuelve.</li>
+              <li><strong>Prohibición de corte (Art. 155):</strong> La empresa <strong>no puede suspender el servicio</strong> por cobros que se encuentren en trámite de reclamo formal, siempre que pagues la parte no disputada.</li>
+              <li><strong>Recursos legales (Art. 154):</strong> Si rechazan tu reclamo, interpon en un solo escrito el <strong>Recurso de Reposición y en subsidio de Apelación</strong> ante la Superintendencia de Servicios Públicos Domiciliarios (Superservicios) dentro de 5 días hábiles.</li>
+              <li><strong>Silencio Administrativo Positivo (Art. 158):</strong> Si la empresa tarda más de <strong>15 días hábiles</strong> en responder, por ley ganas automáticamente la reclamación y se anula el cobro.</li>
+            </ul>
+          </div>
+        `;
+      } else if (lower.includes('datacrédito') || lower.includes('datacredito') || lower.includes('cifin') || lower.includes('centrales de riesgo') || lower.includes('reporte negativo') || lower.includes('deuda') || lower.includes('suplantación') || lower.includes('suplantacion')) {
+        return `
+          <div class="space-y-2">
+            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
+              ⚠️ <em>Ejercicio académico con fines pedagógicos. No sustituye la consulta jurídica profesional.</em>
+            </div>
+            <p>Tu historial crediticio está amparado por la <strong>Ley 1266 de 2008</strong> y la <strong>Ley 2157 de 2021 ("Borrón y Cuenta Nueva")</strong>:</p>
+            <ul class="list-disc pl-5 space-y-1.5">
+              <li><strong>Comunicación previa obligatoria (Art. 12):</strong> Deben avisarte por escrito con al menos <strong>20 días calendario de anticipación</strong> antes de reportarte negativamente. Sin este aviso, el reporte es ilegal y puedes exigir que lo eliminen.</li>
+              <li><strong>Permanencia del reporte (Art. 13):</strong> Si la mora fue menor a 2 años, el castigo dura el doble del tiempo de la mora tras pagar. Si fue mayor a 2 años, dura máximo <strong>4 años</strong> tras pagar la deuda.</li>
+              <li><strong>Caducidad por tiempo:</strong> Si la deuda nunca se pagó y pasaron <strong>8 años</strong> en mora, el reporte debe desaparecer definitivamente.</li>
+              <li><strong>Suplantación:</strong> Con la denuncia penal de Fiscalía, la entidad debe poner en 10 días la leyenda <em>"Víctima de falsedad personal"</em> y congelar el reporte negativo.</li>
+            </ul>
+          </div>
+        `;
+      } else if (lower.includes('salud') || lower.includes('eps') || lower.includes('medicamento') || lower.includes('urgencias') || lower.includes('medico') || lower.includes('médico') || lower.includes('cirugía')) {
+        return `
+          <div class="space-y-2">
+            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
+              ⚠️ <em>Ejercicio académico con fines pedagógicos. No sustituye la consulta médica ni jurídica profesional.</em>
+            </div>
+            <p>La salud es un derecho fundamental autónomo amparado por la <strong>Ley Estatutaria 1751 de 2015</strong>:</p>
+            <ul class="list-disc pl-5 space-y-1.5">
+              <li><strong>Prohibición de negación de urgencias (Arts. 10 y 14):</strong> Ninguna clínica pública o privada puede exigir dinero, cheques, pagarés o autorización de la EPS para atender una urgencia vital.</li>
+              <li><strong>Entrega de medicamentos en 48 horas (Res. 1604/13):</strong> Si la farmacia de la EPS no tiene el medicamento formulado, dispone de máximo 48 horas para llevártelo a domicilio o entregártelo de inmediato.</li>
+              <li><strong>Integralidad (Art. 8):</strong> La EPS no puede imponer barreras administrativas ni negar citas o tratamientos continuos.</li>
+              <li><strong>Mecanismos:</strong> Reclamo urgente en Supersalud (018000 513700) o <strong>Acción de Tutela con solicitud de medida cautelar provisional</strong> ante cualquier juez si peligra tu vida o salud.</li>
+            </ul>
+          </div>
+        `;
+      } else if (lower.includes('llamada') || lower.includes('cobranza') || lower.includes('spam') || lower.includes('dejen de fregar') || lower.includes('banco llama')) {
+        return `
+          <div class="space-y-2">
+            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
+              ⚠️ <em>Ejercicio académico con fines pedagógicos. No sustituye la consulta jurídica profesional.</em>
+            </div>
+            <p>Las gestiones de cobranza y mensajes comerciales están regulados por la <strong>Ley 2300 de 2023 ("Ley Dejen de Fregar")</strong>:</p>
+            <ul class="list-disc pl-5 space-y-1.5">
+              <li><strong>Horarios estrictos (Art. 3):</strong> Lunes a viernes de 7:00 a.m. a 7:00 p.m., sábados de 8:00 a.m. a 3:00 p.m. <strong>Domingos y días festivos está totalmente prohibido</strong> que te llamen o escriban.</li>
+              <li><strong>Frecuencia:</strong> Máximo 2 contactos por semana por entidad, sin importar si usan llamada, WhatsApp o SMS.</li>
+              <li><strong>Prohibición a referencias:</strong> Tienen terminantemente prohibido llamar a tus familiares o amigos para presionar el cobro de tu deuda.</li>
+              <li><strong>Denuncias:</strong> Si violan la ley, puedes denunciarlos ante la Superintendencia de Industria y Comercio (SIC).</li>
+            </ul>
+          </div>
+        `;
+      } else if (lower.includes('nacionalidad') || lower.includes('venezuela') || lower.includes('pasaporte') || lower.includes('ius solis') || lower.includes('ius sanguinis') || lower.includes('doble nacionalidad')) {
+        return `
+          <div class="space-y-2">
+            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
+              ⚠️ <em>Ejercicio académico con fines pedagógicos. No sustituye la consulta jurídica profesional.</em>
+            </div>
+            <p>La nacionalidad en Colombia se fundamenta en el <strong>Artículo 96 de la Constitución Política</strong> y la <strong>Ley 43 de 1993</strong>:</p>
+            <ul class="list-disc pl-5 space-y-1.5">
+              <li><strong>Criterio mixto por nacimiento:</strong> Es colombiano quien nace en Colombia con padre o madre colombiana (<em>Ius sanguinis</em>) o hijo de extranjeros con al menos uno domiciliado en el país al momento de nacer (<em>Ius solis</em> calificado).</li>
+              <li><strong>Medida Primero la Niñez (Ley 1997/19):</strong> Otorga nacionalidad colombiana por nacimiento a los hijos de venezolanos nacidos en Colombia desde 2015 para prevenir la apatridia.</li>
+              <li><strong>Doble nacionalidad:</strong> Colombia permite tener múltiples nacionalidades (por ejemplo pasaporte venezolano, libanés y colombiano). Sin embargo, dentro del país debes identificarte ante las autoridades siempre como ciudadano colombiano.</li>
+            </ul>
+          </div>
+        `;
+      } else if (lower.includes('caballo') || lower.includes('retención') || lower.includes('retencion') || lower.includes('club') || lower.includes('deuda animal')) {
+        return `
+          <div class="space-y-2">
+            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
+              ⚠️ <em>Ejercicio académico con fines pedagógicos. No sustituye la consulta jurídica profesional.</em>
+            </div>
+            <p>Respecto a deudas de hospedaje y tenencia de animales en Colombia:</p>
+            <ul class="list-disc pl-5 space-y-1.5">
+              <li><strong>Derecho de Retención (Art. 2417 Código Civil):</strong> El club o entrenador puede retener preventivamente al caballo hasta que pagues el mantenimiento adeudado.</li>
+              <li><strong>NO se vuelven dueños:</strong> La retención jamás transfiere la propiedad. <strong>No pueden venderlo, apropiárselo ni permitir que terceros lo monten o usen comercialmente</strong> sin autorización de un juez civil.</li>
+              <li><strong>Seres sintientes (Ley 1774 de 2016):</strong> Están en la obligación legal de alimentarlo y prestarle atención veterinaria. Si lo explotan indebidamente, incurren en abuso de confianza o maltrato animal.</li>
+            </ul>
+          </div>
+        `;
       } else if (lower.includes('transito') || lower.includes('tránsito') || lower.includes('requisa') || lower.includes('policia') || lower.includes('policía')) {
         return `
           <div class="space-y-2">
@@ -279,7 +410,7 @@
             <p>He analizado tu consulta sobre: <em>"${escapeHtml(query)}"</em>.</p>
             <p>Para orientarte de forma veraz y prevenir alucinaciones jurídicas:</p>
             <ul class="list-disc pl-5 space-y-1">
-              <li>En Colombia tus derechos fundamentales están amparados por la <strong>Constitución Política de 1991</strong> (Art. 23 Derecho de Petición, Art. 29 Debido Proceso, Art. 86 Tutela).</li>
+              <li>En Colombia tus derechos fundamentales están amparados por la <strong>Constitución Política de 1991</strong> (Art. 23 Derecho de Petición, Art. 29 Debido Proceso, Art. 86 Tutela, Art. 96 Nacionalidad).</li>
               <li>Si sientes que una autoridad o empresa está vulnerando tus derechos, puedes radicar un <strong>Derecho de Petición</strong> solicitando claridad o la corrección de la situación.</li>
               <li>Para orientación personalizada gratuita puedes consultar en <a href="https://www.legalapp.gov.co" target="_blank" class="text-blue-700 underline">LegalApp (Ministerio de Justicia)</a> o acudir al <strong>Consultorio Jurídico de la Pontificia Universidad Javeriana</strong>.</li>
             </ul>
@@ -318,8 +449,9 @@
           <div class="w-8 h-8 rounded-full bg-blue-900 text-white flex-shrink-0 flex items-center justify-center text-xs">
             ⚖️
           </div>
-          <div class="bg-slate-100 text-slate-800 p-3.5 rounded-2xl rounded-tl-sm max-w-[85%] leading-relaxed">
-            ¡Hola! Soy tu asistente de <strong>Conoce tus Derechos</strong>. Explícame tu situación en palabras sencillas (arrendamiento, compras por internet, problemas con entidades públicas, procedimientos policiales, etc.) y te indicaré qué normas te amparan y qué puedes hacer.
+          <div class="bg-slate-100 text-slate-800 p-3.5 rounded-2xl rounded-tl-sm max-w-[85%]">
+            <p>¡Hola! Soy tu asistente de <strong>Conoce tus Derechos</strong>.</p>
+            <p class="mt-2">Describe en tus propias palabras la situación que estás viviendo (por ejemplo en tu <strong>trabajo, arriendo, compras, servicios públicos, datacrédito, salud, trámites públicos, nacionalidad o comparendos</strong>) y te explicaré qué normas colombianas te protegen y qué pasos puedes seguir.</p>
           </div>
         </div>
       `;
