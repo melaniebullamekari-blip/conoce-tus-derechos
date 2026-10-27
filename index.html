@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conoce tus Derechos — Asistente Jurídico Ciudadano</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .chat-bubble { animation: fadeIn 0.3s ease-in-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+  <!-- Encabezado Principal -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-20 shadow-sm">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-blue-900 text-white flex items-center justify-center font-bold text-xl shadow-md">
+          ⚖️
+        </div>
+        <div>
+          <h1 class="text-lg md:text-xl font-bold text-blue-950 leading-tight">Conoce tus Derechos</h1>
+          <p class="text-xs text-slate-500">Pontificia Universidad Javeriana · Derecho e IA</p>
+        </div>
+      </div>
+      <div class="text-right hidden sm:block">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+          Colombia 🇨🇴
+        </span>
+        <p class="text-[11px] text-slate-400 mt-0.5">Melanie Bulla & Valeria Suarez</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenedor Central -->
+  <main class="max-w-5xl mx-auto px-4 py-6 flex-1 w-full flex flex-col gap-5">
+
+    <!-- Advertencia Legal Visible Obligatoria (Parte 6 de la Rúbrica) -->
+    <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg shadow-sm flex items-start gap-3">
+      <i class="fa-solid fa-triangle-exclamation text-amber-600 text-lg mt-0.5"></i>
+      <div class="text-xs md:text-sm text-amber-900 leading-relaxed">
+        <strong class="font-semibold">Advertencia legal visible obligatoria:</strong> Esta herramienta es un ejercicio académico con fines exclusivamente pedagógicos e informativos. 
+        <strong>No constituye asesoría jurídica formal ni sustituye la consulta con un profesional del derecho.</strong>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 flex-1">
+      
+      <!-- Columna Lateral: Marco Jurídico y Consultas Rápidas -->
+      <aside class="space-y-5 lg:col-span-1 order-2 lg:order-1">
+        
+        <!-- Consultas Rápidas -->
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <h2 class="text-sm font-bold text-slate-700 uppercase tracking-wider mb-3 flex items-center gap-2">
+            <i class="fa-regular fa-lightbulb text-amber-500"></i> Consultas Frecuentes
+          </h2>
+          <div class="space-y-2 text-xs">
+            <button onclick="askSample('¿Qué hago si una entidad pública no responde una petición que hice?')" class="w-full text-left p-2.5 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
+              📋 Entidad pública no responde petición
+            </button>
+            <button onclick="askSample('Compré un celular por internet, me llegó roto y la tienda no responde. ¿Qué derechos tengo?')" class="w-full text-left p-2.5 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
+              🛒 Producto por internet dañado / Garantía
+            </button>
+            <button onclick="askSample('¿Cuánto es lo máximo que me pueden subir el arriendo este año en Colombia?')" class="w-full text-left p-2.5 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
+              🏠 Aumento del canon de arrendamiento (IPC)
+            </button>
+            <button onclick="askSample('¿Un agente de tránsito civil me puede requisar la billetera o mi bolso en la calle?')" class="w-full text-left p-2.5 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
+              👮 Requisas en vía pública y tránsito
+            </button>
+            <button onclick="askSample('¿Hasta qué semana puedo interrumpir un embarazo de forma libre en Colombia?')" class="w-full text-left p-2.5 rounded-lg bg-slate-50 hover:bg-blue-50 hover:text-blue-900 text-slate-700 transition border border-slate-100">
+              ⚖️ Interrupción Voluntaria del Embarazo (IVE)
+            </button>
+          </div>
+        </div>
+
+        <!-- Marco Jurídico Oficial -->
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm text-xs">
+          <h2 class="text-sm font-bold text-slate-700 uppercase tracking-wider mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-book-bookmark text-blue-700"></i> Corpus Normativo
+          </h2>
+          <p class="text-slate-500 mb-3 text-[11px]">Normas colombianas oficiales que sustentan las respuestas:</p>
+          <ul class="space-y-1.5 text-slate-600">
+            <li><a href="./constitucion_politica_1991.md" class="text-blue-700 hover:underline">🏛️ Constitución Política (Arts. 15, 23, 86)</a></li>
+            <li><a href="./ley_1755_2015_derecho_peticion.md" class="text-blue-700 hover:underline">📋 Ley 1755 de 2015 (Derecho de Petición)</a></li>
+            <li><a href="./ley_1480_2011_consumidor.md" class="text-blue-700 hover:underline">🛒 Ley 1480 de 2011 (Consumidor y Garantías)</a></li>
+            <li><a href="./ley_820_2003_arrendamiento.md" class="text-blue-700 hover:underline">🏠 Ley 820 de 2003 (Arrendamiento Urbano)</a></li>
+            <li><a href="./ley_1801_2016_codigo_policia.md" class="text-blue-700 hover:underline">👮 Ley 1801 de 2016 (Código de Policía)</a></li>
+            <li><a href="./sentencia_c055_2022_ive.md" class="text-blue-700 hover:underline">⚖️ Sentencia C-055/22 y Res. 051/23 (IVE)</a></li>
+          </ul>
+        </div>
+
+      </aside>
+
+      <!-- Ventana de Chat Interactivo -->
+      <section class="bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col h-[580px] lg:col-span-2 order-1 lg:order-2">
+        
+        <!-- Header del Chat -->
+        <div class="px-4 py-3 border-b border-slate-100 flex items-center justify-between bg-slate-50/50 rounded-t-xl">
+          <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Asistente en línea
+          </div>
+          <button onclick="clearChat()" class="text-xs text-slate-400 hover:text-slate-600">
+            <i class="fa-solid fa-arrows-rotate"></i> Reiniciar
+          </button>
+        </div>
+
+        <!-- Área de Mensajes -->
+        <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-4 text-sm">
+          <!-- Mensaje inicial del Asistente -->
+          <div class="flex items-start gap-3 chat-bubble">
+            <div class="w-8 h-8 rounded-full bg-blue-900 text-white flex-shrink-0 flex items-center justify-center text-xs">
+              ⚖️
+            </div>
+            <div class="bg-slate-100 text-slate-800 p-3.5 rounded-2xl rounded-tl-sm max-w-[85%] leading-relaxed">
+              ¡Hola! Soy tu asistente de <strong>Conoce tus Derechos</strong>. Explícame tu situación en palabras sencillas (arrendamiento, compras por internet, problemas con entidades públicas, procedimientos policiales, etc.) y te indicaré qué normas te amparan y qué puedes hacer.
+            </div>
+          </div>
+        </div>
+
+        <!-- Barra de Entrada de Texto -->
+        <div class="p-3 border-t border-slate-100 bg-white rounded-b-xl">
+          <form id="chatForm" onsubmit="handleSend(event)" class="flex gap-2">
+            <input 
+              type="text" 
+              id="userInput" 
+              placeholder="Describe tu situación jurídica aquí..." 
+              autocomplete="off"
+              class="flex-1 px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition"
+            >
+            <button 
+              type="submit" 
+              class="px-5 py-2.5 bg-blue-900 hover:bg-blue-950 text-white rounded-xl text-sm font-semibold transition flex items-center gap-2 shadow-sm"
+            >
+              <span>Enviar</span>
+              <i class="fa-regular fa-paper-plane text-xs"></i>
+            </button>
+          </form>
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Footer Institucional -->
+  <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
+    <div class="max-w-5xl mx-auto px-4">
+      Proyecto Final — Derecho e Inteligencia Artificial · Pontificia Universidad Javeriana 2026-II · Docente: Pedro Ardila
+    </div>
+  </footer>
+
+  <!-- Lógica Inteligente del Asistente (Base Normativa Colombiana) -->
+  <script>
+    const chatContainer = document.getElementById('chatMessages');
+
+    function appendMessage(role, htmlContent) {
+      const isUser = role === 'user';
+      const wrapper = document.createElement('div');
+      wrapper.className = `flex items-start gap-3 chat-bubble ${isUser ? 'flex-row-reverse' : ''}`;
+
+      const avatar = document.createElement('div');
+      avatar.className = `w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold ${
+        isUser ? 'bg-slate-700 text-white' : 'bg-blue-900 text-white'
+      }`;
+      avatar.innerHTML = isUser ? '👤' : '⚖️';
+
+      const bubble = document.createElement('div');
+      bubble.className = `p-3.5 rounded-2xl max-w-[85%] leading-relaxed ${
+        isUser 
+          ? 'bg-blue-900 text-white rounded-tr-sm' 
+          : 'bg-slate-100 text-slate-800 rounded-tl-sm'
+      }`;
+      bubble.innerHTML = htmlContent;
+
+      wrapper.appendChild(avatar);
+      wrapper.appendChild(bubble);
+      chatContainer.appendChild(wrapper);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    function generateResponse(query) {
+      const lower = query.toLowerCase();
+
+      if (lower.includes('peticion') || lower.includes('petición') || lower.includes('no responde') || lower.includes('entidad pública')) {
+        return `
+          <div class="space-y-2">
+            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
+              ⚠️ <em>Ejercicio académico con fines pedagógicos. No sustituye la consulta jurídica profesional.</em>
+            </div>
+            <p>Si una entidad pública no respondió dentro de los plazos de ley, se está vulnerando tu <strong>Derecho Fundamental de Petición</strong> (Art. 23 Constitución Política y Ley 1755 de 2015).</p>
+            <p class="font-semibold text-slate-900">📅 Términos legales de respuesta (Días Hábiles):</p>
+            <ul class="list-disc pl-5 space-y-1">
+              <li><strong>10 días hábiles:</strong> Solicitud de información y entrega de documentos/copias.</li>
+              <li><strong>15 días hábiles:</strong> Peticiones de interés general o particular.</li>
+              <li><strong>30 días hábiles:</strong> Consultas técnicas o conceptos jurídicos.</li>
+            </ul>
+            <p class="font-semibold text-slate-900 mt-2">⚡ ¿Qué acciones puedes tomar?:</p>
+            <ol class="list-decimal pl-5 space-y-1">
+              <li><strong>Acción de Tutela (Art. 86 C.P.):</strong> Procede de forma inmediata. No requiere abogado, es gratuita y el juez debe ordenar la respuesta en máximo 10 días hábiles.</li>
+              <li><strong>Silencio Administrativo Positivo:</strong> Si pediste copias y pasaron 10 días, la ley asume aceptada la solicitud y deben entregártelas en 3 días (Art. 14 Ley 1755 de 2015).</li>
+              <li><strong>Queja disciplinaria:</strong> Ante la Personería o Procuraduría General de la Nación por falta del funcionario.</li>
+            </ol>
+          </div>
+        `;
+      } else if (lower.includes('arriendo') || lower.includes('arrendamiento') || lower.includes('canon')) {
+        return `
+          <div class="space-y-2">
+            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
+              ⚠️ <em>Ejercicio académico con fines pedagógicos. No sustituye la consulta jurídica profesional.</em>
+            </div>
+            <p>En Colombia, los arrendamientos de vivienda urbana están regulados por la <strong>Ley 820 de 2003</strong>:</p>
+            <ul class="list-disc pl-5 space-y-1.5">
+              <li><strong>Tope de incremento (Art. 20):</strong> El canon solo puede incrementarse cada <strong>12 meses continuos</strong> de contrato y el aumento <strong>no puede superar el 100% de la inflación (IPC)</strong> del año calendario inmediatamente anterior.</li>
+              <li><strong>Tope comercial:</strong> El valor total del arriendo no puede exceder el 1% del valor comercial del inmueble.</li>
+              <li><strong>Aviso por escrito:</strong> El arrendador debe notificar previamente el incremento por escrito indicando el monto y la fecha.</li>
+              <li><strong>Prohibición de depósitos (Art. 18):</strong> En vivienda urbana está totalmente prohibido exigir depósitos de dinero o pagarés en garantía.</li>
+            </ul>
+          </div>
+        `;
+      } else if (lower.includes('consumidor') || lower.includes('garantía') || lower.includes('garantia') || lower.includes('compra') || lower.includes('dañado') || lower.includes('roto') || lower.includes('retracto')) {
+        return `
+          <div class="space-y-2">
+            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
+              ⚠️ <em>Ejercicio académico con fines pedagógicos. No sustituye la consulta jurídica profesional.</em>
+            </div>
+            <p>Tus derechos como comprador están protegidos por el <strong>Estatuto del Consumidor (Ley 1480 de 2011)</strong>:</p>
+            <ul class="list-disc pl-5 space-y-1.5">
+              <li><strong>Garantía Legal (Arts. 7 y 11):</strong> Si el producto falla y no tiene reparación o repite la falla, <strong>tú tienes derecho a elegir</strong> entre el cambio del bien por uno nuevo o la devolución total de tu dinero.</li>
+              <li><strong>Derecho de Retracto (Art. 47):</strong> En compras por internet o catálogo, tienes <strong>5 días hábiles</strong> desde la entrega para cancelar la compra y devolver el producto; el vendedor debe reembolsar el 100% en máximo 30 días.</li>
+              <li><strong>Reversión del pago (Art. 51):</strong> Si compraste con tarjeta de crédito/débito y el producto llegó defectuoso o no llegó, puedes exigir la reversión del cobro a tu banco en 5 días hábiles.</li>
+              <li><strong>Demanda gratuita:</strong> Puedes interponer demanda virtual de protección al consumidor ante la Superintendencia de Industria y Comercio (<a href="https://www.sic.gov.co" target="_blank" class="text-blue-700 underline">sic.gov.co</a>) sin abogado.</li>
+            </ul>
+          </div>
+        `;
+      } else if (lower.includes('transito') || lower.includes('tránsito') || lower.includes('requisa') || lower.includes('policia') || lower.includes('policía')) {
+        return `
+          <div class="space-y-2">
+            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
+              ⚠️ <em>Ejercicio académico con fines pedagógicos. No sustituye la consulta jurídica profesional.</em>
+            </div>
+            <p>Para saber si el procedimiento es legal, se debe distinguir el tipo de funcionario:</p>
+            <ul class="list-disc pl-5 space-y-1.5">
+              <li><strong>Agente Civil de Tránsito:</strong> <strong>NO puede requisarte</strong>, ni hacerte bajar para revisar tu cuerpo, bolsillos o bolso. Solo puede revisar documentos viales y equipo de carretera (Ley 769/02 y Sentencia C-128/18).</li>
+              <li><strong>Policía Nacional Uniformado:</strong> Sí puede realizar un registro preventivo bajo el Art. 159 de la Ley 1801 de 2016, pero <strong>debe ser de tu mismo género, sin desnudamiento y está prohibido que revise tus chats o fotos de celular</strong> (Art. 15 Constitución Política).</li>
+              <li><strong>Derecho a filmar (Art. 21 Ley 1801 de 2016):</strong> Tienes derecho constitucional inalienable a grabar en audio y video todo procedimiento público de la policía.</li>
+            </ul>
+          </div>
+        `;
+      } else if (lower.includes('abortar') || lower.includes('ive') || lower.includes('embarazo')) {
+        return `
+          <div class="space-y-2">
+            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
+              ⚠️ <em>Ejercicio académico con fines pedagógicos. No sustituye la consulta médica ni jurídica profesional.</em>
+            </div>
+            <p>En Colombia, la <strong>Interrupción Voluntaria del Embarazo (IVE)</strong> es un derecho fundamental reconocido por la <strong>Sentencia C-055 de 2022 de la Corte Constitucional</strong>:</p>
+            <ul class="list-disc pl-5 space-y-1.5">
+              <li><strong>Hasta la semana 24 de gestación:</strong> Es totalmente libre y voluntario, sin necesidad de justificar causales.</li>
+              <li><strong>Después de la semana 24:</strong> Aplican las 3 causales de la Sentencia C-355 de 2006 (salud o vida de la madre, malformación fetal o violencia sexual).</li>
+              <li><strong>Atención gratuita en EPS:</strong> Regulado por la Resolución 051 de 2023 del MinSalud, debe prestarse dentro de los 5 días calendario siguientes a la solicitud.</li>
+              <li><strong>Líneas confidenciales:</strong> Profamilia (300 912 4560), Oriéntame ((601) 744 7633) y Línea Púrpura (01 8000 112 137).</li>
+            </ul>
+          </div>
+        `;
+      } else {
+        return `
+          <div class="space-y-2">
+            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
+              ⚠️ <em>Ejercicio académico con fines pedagógicos. No sustituye la consulta jurídica profesional.</em>
+            </div>
+            <p>He analizado tu consulta sobre: <em>"${escapeHtml(query)}"</em>.</p>
+            <p>Para orientarte de forma veraz y prevenir alucinaciones jurídicas:</p>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>En Colombia tus derechos fundamentales están amparados por la <strong>Constitución Política de 1991</strong> (Art. 23 Derecho de Petición, Art. 29 Debido Proceso, Art. 86 Tutela).</li>
+              <li>Si sientes que una autoridad o empresa está vulnerando tus derechos, puedes radicar un <strong>Derecho de Petición</strong> solicitando claridad o la corrección de la situación.</li>
+              <li>Para orientación personalizada gratuita puedes consultar en <a href="https://www.legalapp.gov.co" target="_blank" class="text-blue-700 underline">LegalApp (Ministerio de Justicia)</a> o acudir al <strong>Consultorio Jurídico de la Pontificia Universidad Javeriana</strong>.</li>
+            </ul>
+          </div>
+        `;
+      }
+    }
+
+    function escapeHtml(text) {
+      return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function handleSend(event) {
+      event.preventDefault();
+      const input = document.getElementById('userInput');
+      const text = input.value.trim();
+      if (!text) return;
+
+      appendMessage('user', escapeHtml(text));
+      input.value = '';
+
+      setTimeout(() => {
+        const responseHtml = generateResponse(text);
+        appendMessage('assistant', responseHtml);
+      }, 400);
+    }
+
+    function askSample(question) {
+      document.getElementById('userInput').value = question;
+      document.getElementById('chatForm').dispatchEvent(new Event('submit'));
+    }
+
+    function clearChat() {
+      chatContainer.innerHTML = `
+        <div class="flex items-start gap-3 chat-bubble">
+          <div class="w-8 h-8 rounded-full bg-blue-900 text-white flex-shrink-0 flex items-center justify-center text-xs">
+            ⚖️
+          </div>
+          <div class="bg-slate-100 text-slate-800 p-3.5 rounded-2xl rounded-tl-sm max-w-[85%] leading-relaxed">
+            ¡Hola! Soy tu asistente de <strong>Conoce tus Derechos</strong>. Explícame tu situación en palabras sencillas (arrendamiento, compras por internet, problemas con entidades públicas, procedimientos policiales, etc.) y te indicaré qué normas te amparan y qué puedes hacer.
+          </div>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
