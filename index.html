@@ -802,7 +802,112 @@ REGLAS OBLIGATORIAS:
         `;
       }
 
-      // 23. RUTA UNIVERSAL DE ORIENTACIÓN CIUDADANA Y ACCESO A LA JUSTICIA (Para cualquier otra consulta)
+      // 23. CASO RUIDO DE VECINOS Y TRANQUILIDAD (Código de Policía - Ley 1801 de 2016)
+      if (lower.includes('ruido') || lower.includes('fiesta') || lower.includes('música') || lower.includes('musica') || lower.includes('volumen') || lower.includes('vecino ruidoso')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Ruido Excesivo y Convivencia en Colombia (Art. 33 Ley 1801 de 2016)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Infracción policiva:</strong> Perturbar la tranquilidad ciudadana con sonidos o ruidos de alto impacto da lugar a comparendo con <strong>Multa General Tipo 3</strong> (alrededor de 16 SMDLV).</li>
+              <li><strong>Facultad policial inmediata:</strong> La Policía Nacional está facultada para acudir al inmueble, exigir la disminución inmediata del volumen o <strong>apagar y desactivar temporalmente la fuente de sonido</strong> si los ocupantes se niegan a colaborar.</li>
+              <li><strong>Ruta de denuncia:</strong> Llamar a la Línea 123 o al cuadrante de policía de tu sector. Si ocurre en propiedad horizontal, queja ante la Administración para imposición de sanciones del reglamento interno (Ley 675 de 2001).</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 24. CASO ALCOHOLEMIA AL CONDUCIR (Ley 1696 de 2013)
+      if (lower.includes('alcoholemia') || lower.includes('embriaguez') || lower.includes('alcohol') || lower.includes('prueba de aire') || lower.includes('borracho')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Pruebas de Alcoholemia al Conducir en Colombia (Ley 1696 de 2013 y Art. 150 Ley 769/02)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>¿Es legal negarse a la prueba?:</strong> <strong>NO es conveniente negarse.</strong> La ley colombiana establece que si el conductor se niega a realizar la prueba de alcoholemia, se le aplica de inmediato <strong>la sanción más severa de grado 3</strong>.</li>
+              <li><strong>Consecuencias por negarse o dar positivo:</strong> Multa millonaria de hasta 1.440 UVT (decenas de millones de pesos), <strong>suspensión o cancelación definitiva de la licencia de conducción</strong> (de 5 a 25 años) e inmovilización obligatoria del vehículo hasta por 20 días hábiles.</li>
+              <li><strong>Garantías del conductor:</strong> Tienes derecho a exigir que el alcoholímetro tenga calibración técnica vigente expedida por entidad acreditada y a solicitar una contraprueba o prueba de sangre clínica si discrepas del resultado.</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 25. CASO MORDEDURA DE PERRO Y MASCOTAS (Ley 1801 de 2016)
+      if (lower.includes('perro') || lower.includes('mordedura') || lower.includes('mordio') || lower.includes('mordió') || lower.includes('canino') || lower.includes('mascota')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Responsabilidad por Mordeduras y Mascotas en Colombia (Ley 1801 de 2016 y Código Civil)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Responsabilidad del dueño (Art. 124 y 134 Código de Policía):</strong> El propietario o tenedor del animal es plenamente responsable de <strong>todos los gastos médicos, farmacéuticos y hospitalarios</strong> de la persona o mascota lesionada.</li>
+              <li><strong>Perros de manejo especial (razas potencialmente peligrosas):</strong> Obligatorio el uso constante de <strong>bozal y traílla</strong> en vías públicas, registro en alcaldía y póliza de seguro de responsabilidad civil extracontractual.</li>
+              <li><strong>Acciones legales:</strong> Denuncia ante la Inspección de Policía para imposición de multa y conciliación de daños; si no concilian, demanda civil por responsabilidad extracontractual (Art. 2353 del Código Civil) o denuncia penal por lesiones personales culposas (Art. 120 CP).</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 26. CASO EMBARGO DE CUENTAS BANCARIAS Y SALARIOS
+      if (lower.includes('embargo') || lower.includes('embargar') || lower.includes('cuenta de ahorros') || lower.includes('embargaron')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Límites Legales al Embargo de Cuentas y Salarios en Colombia (CGP y CST)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Cuentas de Ahorros Inembargables (Art. 594 CGP):</strong> La ley protege las cuentas de ahorro de personas naturales hasta un monto determinado por la Superintendencia Financiera (aproximadamente hasta 44 millones de pesos colombianos para deudas comunes).</li>
+              <li><strong>Embargo de Salarios (Art. 155 y 156 CST):</strong> El salario mínimo legal mensual es inembargable por deudas comerciales o bancarias comunes. Solo el excedente del salario mínimo se puede embargar en un máximo de una quinta parte (20%).</li>
+              <li><strong>Excepción absoluta por Alimentos y Cooperativas:</strong> Únicamente por deudas de cuota de alimentos o cooperativas legalmente constituidas se puede embargar <strong>hasta el 50% de todo el salario y prestaciones sociales</strong> (Art. 130 Ley 1098 de 2006).</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 27. CASO EUTANASIA Y MUERTE DIGNA (Sentencias Corte Constitucional)
+      if (lower.includes('eutanasia') || lower.includes('muerte digna') || lower.includes('morir dignamente') || lower.includes('suicidio asistido')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Derecho Fundamental a Morir con Dignidad en Colombia (Sentencias C-233/21 y C-164/22)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Despenalización amplia:</strong> La Corte Constitucional reconoció que la eutanasia es legal no solo para pacientes terminales, sino también para personas con enfermedades o lesiones graves e incurables que generen <strong>sufrimientos físicos o psíquicos incompatibles con una vida digna</strong>.</li>
+              <li><strong>Consentimiento libre e informado:</strong> El paciente debe manifestar su voluntad de forma clara e inequívoca, o mediante documento de Voluntad Anticipada suscrito previamente ante notario o médico.</li>
+              <li><strong>Trámite en la EPS:</strong> Se radica la solicitud ante el médico tratante; la EPS debe convocar al Comité Científico-Interdisciplinario de Muerte Digna en menos de 10 días para evaluar y programar el procedimiento sin dilaciones.</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 28. CASO DOSIS MÍNIMA Y PORTE DE SUSTANCIAS (Sentencia C-221 de 1994)
+      if (lower.includes('dosis minima') || lower.includes('dosis mínima') || lower.includes('dosis personal') || lower.includes('porte de droga') || lower.includes('marihuana')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Dosis Personal y Convivencia en Colombia (Sentencia C-221/94 y C-253/19)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Dosis mínima legal (Ley 30 de 1986):</strong> Hasta 20 gramos de marihuana y hasta 1 gramo de cocaína o estupefacientes a base de cocaína para consumo personal no constituyen delito penal de narcotráfico.</li>
+              <li><strong>Libre desarrollo de la personalidad (Art. 16 Constitución):</strong> La Corte Constitucional prohíbe criminalizar penalmente al consumidor. Sin embargo, los alcaldes y la policía pueden restringir el consumo en áreas escolares, parques infantiles y zonas comunes familiares bajo el Código de Policía.</li>
+              <li><strong>Prohibición de incautaciones abusivas:</strong> Si portas una cantidad dentro del margen de la dosis personal para tu propio consumo y no para distribución o venta, la policía no puede judicializarte penalmente.</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 29. CASO UNIÓN MARITAL DE HECHO Y COMPAÑERO PERMANENTE (Ley 54 de 1990)
+      if (lower.includes('union marital') || lower.includes('unión marital') || lower.includes('compañero permanente') || lower.includes('compañera permanente') || lower.includes('concubina') || lower.includes('union libre') || lower.includes('unión libre')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Unión Marital de Hecho y Sociedad Patrimonial en Colombia (Ley 54 de 1990)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Nacimiento de la Sociedad Patrimonial:</strong> Cuando dos personas conviven en unión libre de manera continua y singular durante <strong>dos (2) años o más</strong>, nace la sociedad patrimonial entre compañeros permanentes.</li>
+              <li><strong>Bienes sociales:</strong> Todos los bienes, inmuebles, vehículos y ahorros adquiridos durante la convivencia ingresan al haber común y deben repartirse por partes iguales (50% y 50%) al separarse.</li>
+              <li><strong>Mismos derechos que el matrimonio:</strong> El compañero(a) permanente tiene derecho a pensión de sobreviviente, herencia en los mismos términos del cónyuge y afiliación como beneficiario al sistema de salud.</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 30. RUTA UNIVERSAL DE ORIENTACIÓN CIUDADANA Y ACCESO A LA JUSTICIA (Para cualquier otra consulta)
       return `
         ${disclaimer}
         <div class="space-y-3">
