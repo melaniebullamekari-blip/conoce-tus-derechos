@@ -1,4 +1,0 @@
-cd "/Users/melaniebullam/Documents/Default Project"
-git add -A
-git commit -m "Conecta OpenRouter como LLM del sitio"
-git push
