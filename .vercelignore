@@ -1,0 +1,9 @@
+app.py
+ai.py
+requirements.txt
+.venv/
+__pycache__/
+.agents/
+.env*
+casos-de-prueba.md
+evidencia-usuario.md
