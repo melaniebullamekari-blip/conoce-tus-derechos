@@ -3,5 +3,10 @@
   "framework": null,
   "buildCommand": null,
   "outputDirectory": ".",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "functions": {
+    "api/chat.py": {
+      "maxDuration": 60
+    }
+  }
 }

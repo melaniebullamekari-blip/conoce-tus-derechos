@@ -244,8 +244,8 @@
       </div>
       
       <div class="mt-4 space-y-3 text-xs text-slate-600">
-        <p>El asistente cuenta con un <strong>motor jurídico integrado de Colombia</strong> que funciona al 100% sin necesidad de claves de API externas.</p>
-        <p>Si deseas activar respuestas generativas libres en la nube mediante un modelo de lenguaje de OpenRouter, puedes ingresar una clave de API aquí:</p>
+        <p>El asistente responde con <strong>inteligencia artificial</strong> cuando el sitio tiene una clave configurada en el servidor. Si no la tiene, usa el <strong>motor jurídico integrado de Colombia</strong>, que funciona al 100% sin claves externas.</p>
+        <p>Solo si quieres usar <em>tu propia</em> clave de OpenRouter (opcional), puedes ingresarla aquí. Se guarda únicamente en tu navegador:</p>
         
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Clave de API OpenRouter (opcional):</label>
@@ -284,6 +284,7 @@
   <!-- Lógica Inteligente del Asistente Jurídico de Colombia -->
   <script>
     const chatContainer = document.getElementById('chatMessages');
+    const historialConversacion = []; // contexto que se envia a la IA
 
     // Manejo de Clave de API en localStorage
     function getStoredApiKey() {
@@ -304,7 +305,10 @@
     function updateApiKeyStatus() {
       const key = getStoredApiKey();
       const statusEl = document.getElementById('apiKeyStatus');
-      if (key && key.trim().length > 10) {
+      if (servidorIA === true) {
+        statusEl.textContent = 'IA del servidor activa (no necesitas clave)';
+        statusEl.className = 'font-semibold text-blue-800';
+      } else if (key && key.trim().length > 10) {
         statusEl.textContent = 'IA en la nube (OpenRouter) configurada';
         statusEl.className = 'font-semibold text-blue-800';
       } else {
@@ -312,6 +316,12 @@
         statusEl.className = 'font-semibold text-emerald-700';
       }
     }
+
+    // Comprueba al cargar si el servidor ya tiene IA configurada.
+    fetch('/api/chat')
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { if (d && d.estado === 'ok') servidorIA = true; })
+      .catch(() => {});
 
     function saveCustomApiKey() {
       const key = document.getElementById('apiKeyInput').value.trim();
@@ -328,6 +338,33 @@
       localStorage.removeItem('conoce_derechos_openrouter_key');
       document.getElementById('apiKeyInput').value = '';
       updateApiKeyStatus();
+    }
+
+    // IA del servidor (Vercel /api/chat). La key vive en el servidor, no aqui.
+    let servidorIA = null; // null = sin comprobar, true/false = comprobado
+    async function fetchServerAI(query, historial) {
+      if (servidorIA === false) return null;
+      try {
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query: query, historial: historial })
+        });
+        if (!response.ok) {
+          servidorIA = false;
+          return null;
+        }
+        const data = await response.json();
+        if (data && data.respuesta) {
+          servidorIA = true;
+          return data.respuesta;
+        }
+        servidorIA = false;
+        return null;
+      } catch (err) {
+        servidorIA = false;
+        return null;
+      }
     }
 
     function appendMessage(role, htmlContent) {
@@ -377,13 +414,25 @@
         </div>
       `);
 
-      // 1. Si existe clave de API configurada en localStorage, intentar llamada dinámica a OpenRouter
+      // 1. IA del servidor: si el despliegue tiene una API key configurada,
+      //    el navegador no necesita ninguna clave.
+      historialConversacion.push({ role: 'user', content: text });
+      const serverResponse = await fetchServerAI(text, historialConversacion.slice(0, -1));
+      if (serverResponse) {
+        loadingBubble.innerHTML = marked.parse(serverResponse);
+        historialConversacion.push({ role: 'assistant', content: serverResponse });
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+        return;
+      }
+
+      // 2. Si existe clave de API configurada en localStorage, intentar llamada dinámica a OpenRouter
       const customKey = getStoredApiKey();
       if (customKey && customKey.trim().length > 15) {
         try {
           const aiResponse = await fetchOpenRouterAPI(text, customKey.trim());
           if (aiResponse) {
             loadingBubble.innerHTML = marked.parse(aiResponse);
+            historialConversacion.push({ role: 'assistant', content: aiResponse });
             chatContainer.scrollTop = chatContainer.scrollHeight;
             return;
           }
@@ -392,7 +441,7 @@
         }
       }
 
-      // 2. Respuesta instantánea del Motor Jurídico Integrado de Colombia
+      // 3. Respuesta instantánea del Motor Jurídico Integrado de Colombia
       setTimeout(() => {
         const localResponse = getLocalLegalResponse(text);
         loadingBubble.innerHTML = localResponse;
@@ -438,7 +487,9 @@ REGLAS OBLIGATORIAS:
     // MOTOR JURÍDICO INTEGRADO DE COLOMBIA (RESPUESTAS COMPLETAS Y RIGUROSAS)
     // =========================================================================
     function getLocalLegalResponse(query) {
-      const lower = query.toLowerCase();
+      // Normaliza la consulta: minusculas y sin tildes, para que
+      // "me robaron" o "ROBARON" coincidan con las mismas palabras clave.
+      const lower = query.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
       const disclaimer = `
         <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2.5 rounded-lg border border-amber-200 mb-3">
           ⚠️ <em>Advertencia legal: Esta herramienta es un ejercicio académico con fines exclusivamente pedagógicos e informativos. No constituye asesoría jurídica formal ni sustituye la consulta con un profesional del derecho.</em>
@@ -446,7 +497,7 @@ REGLAS OBLIGATORIAS:
       `;
 
       // 1. CASO FOTOMULTAS Y TRÁNSITO (Sentencia C-038 de 2020)
-      if (lower.includes('fotomulta') || lower.includes('foto multa') || lower.includes('fotodetecci') || lower.includes('c-038') || (lower.includes('comparendo') && !lower.includes('policía')) || (lower.includes('choque') && (lower.includes('lata') || lower.includes('simple') || lower.includes('latas')))) {
+      if (lower.includes('fotomulta') || lower.includes('foto multa') || lower.includes('fotodetecci') || lower.includes('c-038') || (lower.includes('comparendo') && !lower.includes('policia')) || (lower.includes('choque') && (lower.includes('lata') || lower.includes('simple') || lower.includes('latas')))) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
@@ -462,7 +513,7 @@ REGLAS OBLIGATORIAS:
       }
 
       // 2. CASO PROCEDIMIENTO PENAL, FLAGRANCIA Y TÉRMINO DE 36 HORAS
-      if (lower.includes('flagrancia') || lower.includes('36 horas') || lower.includes('36h') || lower.includes('legalizar captura') || lower.includes('garantias') || lower.includes('garantías')) {
+      if (lower.includes('flagrancia') || lower.includes('36 horas') || lower.includes('36h') || lower.includes('legalizar captura') || lower.includes('garantias') || lower.includes('garantias')) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
@@ -523,7 +574,7 @@ REGLAS OBLIGATORIAS:
       }
 
       // 6. CASO TEORÍA DEL DELITO: DOLO, CULPA, PRETERINTENCIÓN Y LEGÍTIMA DEFENSA
-      if (lower.includes('dolo') || lower.includes('culpa') || lower.includes('preterintencion') || lower.includes('preterintención') || lower.includes('legítima defensa') || lower.includes('legitima defensa') || lower.includes('teoria del delito') || lower.includes('teoría del delito')) {
+      if (lower.includes('dolo') || lower.includes('culpa') || lower.includes('preterintencion') || lower.includes('preterintencion') || lower.includes('legitima defensa') || lower.includes('legitima defensa') || lower.includes('teoria del delito') || lower.includes('teoria del delito')) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
@@ -539,7 +590,7 @@ REGLAS OBLIGATORIAS:
       }
 
       // 7. CASO ROBO, HURTO CALIFICADO, ARMAS Y ESCOPOLAMINA
-      if (lower.includes('robo') || lower.includes('hurto') || lower.includes('atraco') || lower.includes('arma') || lower.includes('escopolamina') || lower.includes('ladron') || lower.includes('ladrón') || lower.includes('asalt') || lower.includes('ratero') || lower.includes('extorsion') || lower.includes('extorsión') || lower.includes('estafa')) {
+      if (lower.includes('robo') || lower.includes('roba') || lower.includes('robe') || lower.includes('hurt') || lower.includes('atrac') || lower.includes('armas') || lower.includes('con arma') || lower.includes('a mano armada') || lower.includes('escopolamina') || lower.includes('ladron') || lower.includes('asalt') || lower.includes('rater') || lower.includes('extors') || lower.includes('estafa') || lower.includes('despoj')) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
@@ -571,7 +622,7 @@ REGLAS OBLIGATORIAS:
       }
 
       // 9. CASO VIOLENCIA INTRAFAMILIAR, MEDIDAS DE PROTECCIÓN Y DESALOJO
-      if (lower.includes('violencia intrafamiliar') || lower.includes('agredió') || lower.includes('agredio') || lower.includes('golpeó') || lower.includes('golpeo') || lower.includes('maltrato') || lower.includes('desalojo') || lower.includes('comisaría') || lower.includes('comisaria') || lower.includes('medidas de protecci') || lower.includes('pego') || lower.includes('pegó') || lower.includes('violencia de genero') || lower.includes('violencia de género')) {
+      if (lower.includes('violencia intrafamiliar') || lower.includes('agredio') || lower.includes('agredio') || lower.includes('golpeo') || lower.includes('golpeo') || lower.includes('maltrato') || lower.includes('desalojo') || lower.includes('comisaria') || lower.includes('comisaria') || lower.includes('medidas de protecci') || lower.includes('pego') || lower.includes('pego') || lower.includes('violencia de genero') || lower.includes('violencia de genero')) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
@@ -592,7 +643,7 @@ REGLAS OBLIGATORIAS:
       }
 
       // 10. CASO ALIMENTOS, FIJACIÓN DE CUOTA, EMBARGO Y REDAM
-      if (lower.includes('alimento') || lower.includes('cuota alimentaria') || lower.includes('redam') || lower.includes('hijos') || lower.includes('pension alimenticia') || lower.includes('pensión alimenticia') || lower.includes('inasistencia')) {
+      if (lower.includes('alimento') || lower.includes('cuota alimentaria') || lower.includes('redam') || lower.includes('hijos') || lower.includes('pension alimenticia') || lower.includes('pension alimenticia') || lower.includes('inasistencia')) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
@@ -630,7 +681,7 @@ REGLAS OBLIGATORIAS:
       }
 
       // 12. CASO DATACRÉDITO, TRANSUNION Y BORRÓN Y CUENTA NUEVA
-      if (lower.includes('datacredito') || lower.includes('datacrédito') || lower.includes('transunion') || lower.includes('habeas data') || lower.includes('hábeas data') || lower.includes('reporte negativo') || lower.includes('centrales de riesgo') || lower.includes('borron y cuenta nueva') || lower.includes('borrón y cuenta nueva')) {
+      if (lower.includes('datacredito') || lower.includes('datacredito') || lower.includes('transunion') || lower.includes('habeas data') || lower.includes('habeas data') || lower.includes('reporte negativo') || lower.includes('centrales de riesgo') || lower.includes('borron y cuenta nueva') || lower.includes('borron y cuenta nueva')) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
@@ -661,7 +712,7 @@ REGLAS OBLIGATORIAS:
       }
 
       // 14. CASO ARRENDAMIENTO DE VIVIENDA URBANA
-      if (lower.includes('arriendo') || lower.includes('arrendamiento') || lower.includes('canon') || lower.includes('inquilino') || lower.includes('arrendador') || lower.includes('subir el arriendo') || lower.includes('deposito en efectivo') || lower.includes('depósito en efectivo')) {
+      if (lower.includes('arriendo') || lower.includes('arrendamiento') || lower.includes('canon') || lower.includes('inquilino') || lower.includes('arrendador') || lower.includes('subir el arriendo') || lower.includes('deposito en efectivo') || lower.includes('deposito en efectivo')) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
@@ -676,7 +727,7 @@ REGLAS OBLIGATORIAS:
       }
 
       // 15. CASO CONSUMIDOR, COMPRAS POR INTERNET, RETRACTO Y GARANTÍAS
-      if (lower.includes('consumidor') || lower.includes('garantia') || lower.includes('garantía') || lower.includes('retracto') || lower.includes('devolucion') || lower.includes('devolución') || lower.includes('compra por internet') || lower.includes('mercancia defectuosa') || lower.includes('sic')) {
+      if (lower.includes('consumidor') || lower.includes('garantia') || lower.includes('garantia') || lower.includes('retracto') || lower.includes('devolucion') || lower.includes('devolucion') || lower.includes('compra por internet') || lower.includes('mercancia defectuosa') || lower.includes('sic')) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
@@ -692,7 +743,7 @@ REGLAS OBLIGATORIAS:
       }
 
       // 16. CASO ACCIÓN DE TUTELA Y DERECHO A LA SALUD
-      if (lower.includes('tutela') || lower.includes('salud') || lower.includes('eps') || lower.includes('medicamento') || lower.includes('cirugia') || lower.includes('cirugía') || lower.includes('desacato')) {
+      if (lower.includes('tutela') || lower.includes('salud') || lower.includes('eps') || lower.includes('medicamento') || lower.includes('cirugia') || lower.includes('cirugia') || lower.includes('desacato')) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
@@ -707,7 +758,7 @@ REGLAS OBLIGATORIAS:
       }
 
       // 17. CASO DERECHO DE PETICIÓN Y TÉRMINOS
-      if (lower.includes('peticion') || lower.includes('petición') || lower.includes('derecho de peticion') || lower.includes('derecho de petición') || lower.includes('termino para responder') || lower.includes('término para responder') || lower.includes('15 dias') || lower.includes('15 días')) {
+      if (lower.includes('peticion') || lower.includes('peticion') || lower.includes('derecho de peticion') || lower.includes('derecho de peticion') || lower.includes('termino para responder') || lower.includes('termino para responder') || lower.includes('15 dias') || lower.includes('15 dias')) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
@@ -727,7 +778,7 @@ REGLAS OBLIGATORIAS:
       }
 
       // 18. CASO SERVICIOS PÚBLICOS DOMICILIARIOS
-      if (lower.includes('servicio publico') || lower.includes('servicios publicos') || lower.includes('servicios públicos') || lower.includes('servicio público') || lower.includes('corte de luz') || lower.includes('cortaron la luz') || lower.includes('cortaron el agua') || lower.includes('recibo del agua') || lower.includes('factura de energia') || lower.includes('superservicios')) {
+      if (lower.includes('servicio publico') || lower.includes('servicios publicos') || lower.includes('servicios publicos') || lower.includes('servicio publico') || lower.includes('corte de luz') || lower.includes('cortaron la luz') || lower.includes('cortaron el agua') || lower.includes('recibo del agua') || lower.includes('factura de energia') || lower.includes('superservicios')) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
@@ -742,7 +793,7 @@ REGLAS OBLIGATORIAS:
       }
 
       // 19. CASO CONTRATOS, INCUMPLIMIENTO Y ARRAS
-      if (lower.includes('contrato') || lower.includes('arras') || lower.includes('clausula penal') || lower.includes('cláusula penal') || lower.includes('incumplimiento contractual') || lower.includes('condicion resolutoria') || lower.includes('condición resolutoria')) {
+      if (lower.includes('contrato') || lower.includes('arras') || lower.includes('clausula penal') || lower.includes('clausula penal') || lower.includes('incumplimiento contractual') || lower.includes('condicion resolutoria') || lower.includes('condicion resolutoria')) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
@@ -757,7 +808,7 @@ REGLAS OBLIGATORIAS:
       }
 
       // 20. CASO HERENCIAS, SUCESIONES Y DIVORCIO
-      if (lower.includes('herencia') || lower.includes('sucesion') || lower.includes('sucesión') || lower.includes('testamento') || lower.includes('divorcio') || lower.includes('separacion de bienes') || lower.includes('separación de bienes')) {
+      if (lower.includes('herencia') || lower.includes('sucesion') || lower.includes('sucesion') || lower.includes('testamento') || lower.includes('divorcio') || lower.includes('separacion de bienes') || lower.includes('separacion de bienes')) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
@@ -772,7 +823,7 @@ REGLAS OBLIGATORIAS:
       }
 
       // 21. CASO DELITOS INFORMÁTICOS Y ESTAFAS VIRTUALES
-      if (lower.includes('delito informatico') || lower.includes('delitos informáticos') || lower.includes('estafa virtual') || lower.includes('whatsapp') || lower.includes('hacke') || lower.includes('suplantacion') || lower.includes('suplantación') || lower.includes('cai virtual')) {
+      if (lower.includes('delito informatico') || lower.includes('delitos informaticos') || lower.includes('estafa virtual') || lower.includes('whatsapp') || lower.includes('hacke') || lower.includes('suplantacion') || lower.includes('suplantacion') || lower.includes('cai virtual')) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
@@ -787,7 +838,7 @@ REGLAS OBLIGATORIAS:
       }
 
       // 22. CASO INTERRUPCIÓN VOLUNTARIA DEL EMBARAZO (IVE)
-      if (lower.includes('abort') || lower.includes('ive') || lower.includes('interrupcion del embarazo') || lower.includes('interrupción del embarazo') || lower.includes('c-055')) {
+      if (lower.includes('abort') || lower.includes('ive') || lower.includes('interrupcion del embarazo') || lower.includes('interrupcion del embarazo') || lower.includes('c-055')) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
@@ -803,7 +854,7 @@ REGLAS OBLIGATORIAS:
       }
 
       // 23. CASO RUIDO DE VECINOS Y TRANQUILIDAD (Código de Policía - Ley 1801 de 2016)
-      if (lower.includes('ruido') || lower.includes('fiesta') || lower.includes('música') || lower.includes('musica') || lower.includes('volumen') || lower.includes('vecino ruidoso')) {
+      if (lower.includes('ruido') || lower.includes('fiesta') || lower.includes('musica') || lower.includes('musica') || lower.includes('volumen') || lower.includes('vecino ruidoso')) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
@@ -833,7 +884,7 @@ REGLAS OBLIGATORIAS:
       }
 
       // 25. CASO MORDEDURA DE PERRO Y MASCOTAS (Ley 1801 de 2016)
-      if (lower.includes('perro') || lower.includes('mordedura') || lower.includes('mordio') || lower.includes('mordió') || lower.includes('canino') || lower.includes('mascota')) {
+      if (lower.includes('perro') || lower.includes('mordedura') || lower.includes('mordio') || lower.includes('mordio') || lower.includes('canino') || lower.includes('mascota')) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
@@ -878,7 +929,7 @@ REGLAS OBLIGATORIAS:
       }
 
       // 28. CASO DOSIS MÍNIMA Y PORTE DE SUSTANCIAS (Sentencia C-221 de 1994)
-      if (lower.includes('dosis minima') || lower.includes('dosis mínima') || lower.includes('dosis personal') || lower.includes('porte de droga') || lower.includes('marihuana')) {
+      if (lower.includes('dosis minima') || lower.includes('dosis minima') || lower.includes('dosis personal') || lower.includes('porte de droga') || lower.includes('marihuana')) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
@@ -893,7 +944,7 @@ REGLAS OBLIGATORIAS:
       }
 
       // 29. CASO UNIÓN MARITAL DE HECHO Y COMPAÑERO PERMANENTE (Ley 54 de 1990)
-      if (lower.includes('union marital') || lower.includes('unión marital') || lower.includes('compañero permanente') || lower.includes('compañera permanente') || lower.includes('concubina') || lower.includes('union libre') || lower.includes('unión libre')) {
+      if (lower.includes('union marital') || lower.includes('union marital') || lower.includes('companero permanente') || lower.includes('companera permanente') || lower.includes('concubina') || lower.includes('union libre') || lower.includes('union libre')) {
         return `
           ${disclaimer}
           <div class="space-y-2.5">
