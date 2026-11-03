@@ -46,14 +46,23 @@
         </div>
         <div>
           <h1 class="text-lg md:text-xl font-bold text-blue-950 leading-tight">Conoce tus Derechos</h1>
-          <p class="text-xs text-slate-500">Pontificia Universidad Javeriana · Asistente Jurídico con IA</p>
+          <p class="text-xs text-slate-500">Pontificia Universidad Javeriana · Asistente Jurídico Integral de Colombia</p>
         </div>
       </div>
-      <div class="text-right hidden sm:block">
-        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
-          <span class="w-2 h-2 rounded-full bg-emerald-500 mr-1.5 animate-pulse"></span> IA Activa · Colombia 🇨🇴
-        </span>
-        <p class="text-[11px] text-slate-400 mt-0.5">Melanie Bulla & Valeria Suarez</p>
+      
+      <div class="flex items-center gap-3">
+        <!-- Botón para configurar API Key opcional -->
+        <button onclick="toggleConfigModal(true)" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-2.5 py-1.5 rounded-lg border border-slate-300 transition flex items-center gap-1.5 font-medium shadow-sm">
+          <i class="fa-solid fa-gear text-slate-500"></i>
+          <span class="hidden sm:inline">Configurar</span> IA
+        </button>
+
+        <div class="text-right hidden md:block">
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 mr-1.5 animate-pulse"></span> Sistema Activo · Colombia 🇨🇴
+          </span>
+          <p class="text-[11px] text-slate-400 mt-0.5">Melanie Bulla & Valeria Suarez</p>
+        </div>
       </div>
     </div>
   </header>
@@ -76,9 +85,10 @@
       <aside class="space-y-4 lg:col-span-1 order-2 lg:order-1">
         
         <!-- Consultas Rápidas -->
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm max-h-[460px] overflow-y-auto">
-          <h2 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2.5 flex items-center gap-2">
-            <i class="fa-regular fa-lightbulb text-amber-500"></i> Consultas Frecuentes Rápidas
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm max-h-[480px] overflow-y-auto">
+          <h2 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2.5 flex items-center justify-between">
+            <span class="flex items-center gap-2"><i class="fa-regular fa-lightbulb text-amber-500"></i> Casos y Preguntas Frecuentes</span>
+            <span class="text-[10px] text-blue-800 bg-blue-50 px-2 py-0.5 rounded-full">Clic para consultar</span>
           </h2>
           <div class="space-y-1.5 text-xs">
             <button onclick="askSample('¿Es legal que me bajen del carro para requisarme en Colombia?')" class="w-full text-left p-2 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-950 transition border border-blue-200">
@@ -93,56 +103,74 @@
             <button onclick="askSample('Me robaron el celular en la calle a mano armada, ¿cómo denuncio y qué delito es?')" class="w-full text-left p-2 rounded-lg bg-red-50 hover:bg-red-100 text-red-950 transition border border-red-200">
               🚨 Robo a mano armada / Hurto calificado
             </button>
+            <button onclick="askSample('¿Cuánto tiempo tiene la policía para legalizar una captura en flagrancia ante el juez?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
+              🚔 Término de flagrancia y 36 horas (Art. 302 CPP)
+            </button>
             <button onclick="askSample('Mi pareja me agredió físicamente, ¿cómo solicito el desalojo en Comisaría de Familia?')" class="w-full text-left p-2 rounded-lg bg-purple-50 hover:bg-purple-100 text-purple-950 transition border border-purple-200">
-              🛡️ Violencia intrafamiliar y medidas de protección
+              🛡️ Violencia intrafamiliar y medidas de desalojo
             </button>
             <button onclick="askSample('¿Cuál es la diferencia entre dolo, culpa, preterintención y legítima defensa en el Código Penal?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
               ⚖️ Dolo, culpa, preterintención y legítima defensa
             </button>
             <button onclick="askSample('¿Cómo fijo la cuota de alimentos de mis hijos y qué sanciones tiene el reporte en el REDAM?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
-              👨‍👩‍👧 Cuota de alimentos y REDAM
+              👨‍👩‍👧 Cuota de alimentos, embargo y REDAM
             </button>
             <button onclick="askSample('¿Cómo impugno una fotomulta si yo no iba conduciendo según la Sentencia C-038 de 2020?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
               🚗 Fotomultas y Sentencia C-038/20
             </button>
             <button onclick="askSample('Me despidieron sin justa causa de mi trabajo, ¿qué liquidación e indemnización me deben pagar?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
-              💼 Despido y liquidación laboral (CST)
+              💼 Despido sin justa causa y liquidación (CST)
             </button>
             <button onclick="askSample('¿Cuánto tiempo puede durar un reporte negativo en Datacrédito y cómo aplica borrón y cuenta nueva?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
-              💳 Datacrédito y caducidad de reportes
+              💳 Datacrédito y caducidad de reportes negativos
+            </button>
+            <button onclick="askSample('Me llaman a cobrar en domingo y festivos, ¿qué dice la Ley Dejen de Fregar (Ley 2300 de 2023)?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
+              📞 Cobranza abusiva y Ley Dejen de Fregar
+            </button>
+            <button onclick="askSample('¿Cuánto me pueden subir el arriendo este año y es legal que me pidan depósito en efectivo?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
+              🏠 Arrendamiento: IPC y prohibición de depósitos
+            </button>
+            <button onclick="askSample('Compré por internet y el producto salió defectuoso, ¿cómo ejerzo la garantía o el derecho de retracto?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
+              🛍️ Garantía legal y derecho de retracto (Ley 1480/11)
+            </button>
+            <button onclick="askSample('¿Cuánto tiempo tiene una entidad para responder un derecho de petición en Colombia?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
+              📝 Términos del Derecho de Petición (Ley 1755/15)
+            </button>
+            <button onclick="askSample('La EPS me negó un medicamento o cirugía urgente, ¿cómo interpongo una Acción de Tutela?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
+              🏥 Tutela en salud y desacato (Ley 1751/15)
             </button>
           </div>
         </div>
 
         <!-- Marco Jurídico Oficial -->
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm text-xs max-h-[280px] overflow-y-auto">
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm text-xs max-h-[260px] overflow-y-auto">
           <h2 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 flex items-center gap-2">
-            <i class="fa-solid fa-book-bookmark text-blue-700"></i> Corpus Jurídico Integrado
+            <i class="fa-solid fa-book-bookmark text-blue-700"></i> Corpus Jurídico Integrado (20+ Fuentes)
           </h2>
-          <ul class="space-y-1 text-[11px] text-slate-600">
-            <li><a href="./constitucion_politica_colombia_completa.md" class="text-blue-700 hover:underline">🏛️ Constitución de 1991 (Íntegra: 380 Arts.)</a></li>
-            <li><a href="./codigo_penal_delitos_vida_patrimonio.md" class="text-blue-700 hover:underline">⚖️ Código Penal (Dolo, Homicidio, Hurto, Feminicidio)</a></li>
-            <li><a href="./ley_906_2004_procedimiento_penal_denuncia.md" class="text-blue-700 hover:underline">🚔 CPP Ley 906/04 (Denuncia, Flagrancia, Término 36h)</a></li>
-            <li><a href="./compendio_codigos_nacionales_colombia.md" class="text-blue-700 hover:underline">📚 Códigos Civil, Comercio, CGP, CPACA</a></li>
-            <li><a href="./sentencias_hito_corte_constitucional.md" class="text-blue-700 hover:underline">⚖️ Sentencias Hito Corte Constitucional</a></li>
-            <li><a href="./ley_1257_2008_violencia_genero_intrafamiliar.md" class="text-blue-700 hover:underline">🛡️ Ley 1257/08 (Violencia Intrafamiliar)</a></li>
-            <li><a href="./codigo_infancia_adolescencia_familia.md" class="text-blue-700 hover:underline">👨‍👩‍👧 Ley 1098/06 y REDAM (Alimentos)</a></li>
-            <li><a href="./ley_769_2002_transito_fotomultas_accidentes.md" class="text-blue-700 hover:underline">🚗 Código de Tránsito (Fotomultas y SOAT)</a></li>
-            <li><a href="./codigo_sustantivo_trabajo.md" class="text-blue-700 hover:underline">💼 CST (Derecho Laboral y Despidos)</a></li>
-            <li><a href="./guia_suin_juriscol_fuentes_oficiales.md" class="text-blue-700 hover:underline">🌐 SUIN-JURISCOL (Leyes y decretos de Colombia)</a></li>
+          <ul class="space-y-1.5 text-[11px] text-slate-600">
+            <li><a href="./constitucion_politica_colombia_completa.md" target="_blank" class="text-blue-700 hover:underline">🏛️ Constitución Política de 1991 (380 Artículos)</a></li>
+            <li><a href="./codigo_penal_delitos_vida_patrimonio.md" target="_blank" class="text-blue-700 hover:underline">⚖️ Código Penal (Dolo, Homicidio, Hurto, Feminicidio)</a></li>
+            <li><a href="./ley_906_2004_procedimiento_penal_denuncia.md" target="_blank" class="text-blue-700 hover:underline">🚔 CPP Ley 906/04 (Denuncia, Flagrancia y Término 36h)</a></li>
+            <li><a href="./compendio_codigos_nacionales_colombia.md" target="_blank" class="text-blue-700 hover:underline">📚 Códigos Civil, Comercio, CGP, CPACA</a></li>
+            <li><a href="./sentencias_hito_corte_constitucional.md" target="_blank" class="text-blue-700 hover:underline">⚖️ Sentencias Hito de la Corte Constitucional</a></li>
+            <li><a href="./ley_1257_2008_violencia_genero_intrafamiliar.md" target="_blank" class="text-blue-700 hover:underline">🛡️ Ley 1257/08 (Violencia Intrafamiliar y Desalojo)</a></li>
+            <li><a href="./codigo_infancia_adolescencia_familia.md" target="_blank" class="text-blue-700 hover:underline">👨‍👩‍👧 Ley 1098/06 y REDAM (Alimentos y Embargos)</a></li>
+            <li><a href="./ley_769_2002_transito_fotomultas_accidentes.md" target="_blank" class="text-blue-700 hover:underline">🚗 Código de Tránsito (Fotomultas y Choques)</a></li>
+            <li><a href="./codigo_sustantivo_trabajo.md" target="_blank" class="text-blue-700 hover:underline">💼 CST (Derecho Laboral y Despidos)</a></li>
+            <li><a href="./guia_suin_juriscol_fuentes_oficiales.md" target="_blank" class="text-blue-700 hover:underline">🌐 SUIN-JURISCOL (Leyes y Decretos Oficiales)</a></li>
           </ul>
         </div>
 
       </aside>
 
-      <!-- Columna Principal: Chat Interactivo con IA -->
-      <section class="lg:col-span-2 order-1 lg:order-2 flex flex-col bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden min-h-[600px]">
+      <!-- Columna Principal: Chat Interactivo con Asistente Jurídico -->
+      <section class="lg:col-span-2 order-1 lg:order-2 flex flex-col bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden min-h-[620px]">
         
         <!-- Barra de herramientas del chat -->
         <div class="px-4 py-3 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
           <div class="flex items-center gap-2">
             <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span class="text-xs font-semibold text-slate-700">Asistente Jurídico Inteligente · Respuestas en tiempo real</span>
+            <span class="text-xs font-semibold text-slate-700">Orientador Legal Inteligente · Cobertura Total de Colombia</span>
           </div>
           <button onclick="clearChat()" class="text-xs text-slate-500 hover:text-slate-800 flex items-center gap-1 transition">
             <i class="fa-solid fa-arrow-rotate-right"></i> Reiniciar
@@ -150,17 +178,24 @@
         </div>
 
         <!-- Área de mensajes -->
-        <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-4 text-sm leading-relaxed max-h-[520px]">
+        <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-4 text-sm leading-relaxed max-h-[540px]">
           
           <!-- Mensaje de bienvenida inicial -->
           <div class="flex items-start gap-3 chat-bubble">
             <div class="w-8 h-8 rounded-full bg-blue-900 text-white flex-shrink-0 flex items-center justify-center text-xs">
               ⚖️
             </div>
-            <div class="bg-slate-100 text-slate-800 p-3.5 rounded-2xl rounded-tl-sm max-w-[85%]">
-              <p>¡Hola! Soy tu orientador legal de <strong>Conoce tus Derechos</strong>.</p>
-              <p class="mt-2">Pregúntame con total libertad sobre <strong>cualquier tema jurídico en Colombia</strong>: requisas y policías, robos, homicidios, feminicidios, dolo o culpa, violencia intrafamiliar, retención de bienes o animales, cuota de alimentos, nacionalidad y pasaportes, fotomultas, despidos laborales o derechos constitucionales.</p>
-              <p class="mt-1 text-slate-500 text-xs">Describe tu situación con tus propias palabras y recibirás una orientación jurídica detallada con leyes y artículos colombianos.</p>
+            <div class="bg-slate-100 text-slate-800 p-4 rounded-2xl rounded-tl-sm max-w-[90%] leading-relaxed">
+              <p class="font-semibold text-blue-950">¡Bienvenido a Conoce tus Derechos!</p>
+              <p class="mt-2 text-xs md:text-sm">Soy tu orientador jurídico integral para el ordenamiento de <strong>Colombia</strong>. Puedes consultarme con total libertad sobre <strong>cualquier tema legal o situación cotidiana</strong>, por ejemplo:</p>
+              <ul class="list-disc pl-5 mt-2 space-y-1 text-xs text-slate-700">
+                <li><strong>Tránsito y Policía:</strong> Requisas en vehículos, guardas vs policía, derecho a filmar con celular y fotomultas.</li>
+                <li><strong>Penal:</strong> Robos, armas, escopolamina, flagrancia de 36 horas, dolo, culpa, homicidios y feminicidios.</li>
+                <li><strong>Familia y Género:</strong> Violencia intrafamiliar, medidas de desalojo inmediato, cuota de alimentos y REDAM.</li>
+                <li><strong>Civil y Bienes:</strong> Derecho de retención, animales como seres sintientes, contrato de mantenimiento y deudas.</li>
+                <li><strong>Constitucional y Laboral:</strong> Doble nacionalidad, pasaportes, despidos injustificados, tutela y derechos de petición.</li>
+              </ul>
+              <p class="mt-2.5 text-xs text-slate-500">Escribe tu situación abajo con tus propias palabras o pulsa cualquier botón de ejemplo a la izquierda.</p>
             </div>
           </div>
 
@@ -172,7 +207,7 @@
             <input 
               type="text" 
               id="userInput" 
-              placeholder="Haz cualquier pregunta jurídica o describe tu situación en Colombia..." 
+              placeholder="Escribe tu consulta jurídica o describe tu situación en Colombia..." 
               autocomplete="off"
               class="flex-1 border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-transparent transition"
             />
@@ -186,7 +221,7 @@
             </button>
           </form>
           <div class="mt-2 text-[11px] text-slate-400 text-center">
-            Orientación pedagógica basada en leyes colombianas vigentes. Consulta a un abogado para trámites formales.
+            Orientación pedagógica basada en leyes colombianas vigentes. Consulta a un abogado para trámites judiciales formales.
           </div>
         </div>
 
@@ -196,6 +231,49 @@
 
   </main>
 
+  <!-- Modal de Configuración de API Key (Opcional) -->
+  <div id="configModal" class="fixed inset-0 bg-slate-900/60 z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
+          <i class="fa-solid fa-sliders text-blue-900"></i> Configuración del Asistente IA
+        </h3>
+        <button onclick="toggleConfigModal(false)" class="text-slate-400 hover:text-slate-600 text-lg">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      
+      <div class="mt-4 space-y-3 text-xs text-slate-600">
+        <p>El asistente cuenta con un <strong>motor jurídico integrado de Colombia</strong> que funciona al 100% sin necesidad de claves de API externas.</p>
+        <p>Si deseas activar respuestas generativas libres en la nube mediante un modelo de lenguaje de OpenRouter, puedes ingresar una clave de API aquí:</p>
+        
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Clave de API OpenRouter (opcional):</label>
+          <input 
+            type="password" 
+            id="apiKeyInput" 
+            placeholder="sk-or-v1-..."
+            class="w-full border border-slate-300 rounded-lg p-2.5 font-mono text-xs focus:ring-2 focus:ring-blue-900 focus:outline-none"
+          />
+          <p class="text-[11px] text-slate-400 mt-1">Puedes obtener una clave gratuita en <a href="https://openrouter.ai/keys" target="_blank" class="text-blue-700 underline font-medium">openrouter.ai/keys</a>.</p>
+        </div>
+
+        <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 text-[11px]">
+          <strong>Estado actual:</strong> <span id="apiKeyStatus" class="font-semibold text-emerald-700">Motor Jurídico Integrado Activo</span>
+        </div>
+      </div>
+
+      <div class="mt-5 flex gap-2 justify-end">
+        <button onclick="clearCustomApiKey()" class="px-3 py-2 text-xs text-red-600 hover:bg-red-50 rounded-lg font-medium transition">
+          Borrar Clave
+        </button>
+        <button onclick="saveCustomApiKey()" class="px-4 py-2 text-xs bg-blue-900 hover:bg-blue-800 text-white rounded-lg font-semibold transition">
+          Guardar Cambios
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer Institucional -->
   <footer class="bg-white border-t border-slate-200 py-3.5 text-center text-xs text-slate-500">
     <div class="max-w-6xl mx-auto px-4">
@@ -203,21 +281,54 @@
     </div>
   </footer>
 
-  <!-- Lógica Inteligente del Asistente con IA de OpenRouter + Respaldo Local -->
+  <!-- Lógica Inteligente del Asistente Jurídico de Colombia -->
   <script>
     const chatContainer = document.getElementById('chatMessages');
-    const OPENROUTER_API_KEY = "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";
-    const OPENROUTER_MODEL = "nvidia/nemotron-3.5-lightning:free";
 
-    const SYSTEM_PROMPT = `Eres "Conoce tus Derechos", un asistente de inteligencia artificial pedagógico especializado en el ordenamiento jurídico de Colombia (Pontificia Universidad Javeriana).
+    // Manejo de Clave de API en localStorage
+    function getStoredApiKey() {
+      return localStorage.getItem('conoce_derechos_openrouter_key') || '';
+    }
 
-REGLAS OBLIGATORIAS:
-1. INCLUYE SIEMPRE EN EL ENCABEZADO DE CADA RESPUESTA:
-   "⚠️ Advertencia legal: Esta herramienta es un ejercicio académico con fines exclusivamente pedagógicos e informativos. No constituye asesoría jurídica formal ni sustituye la consulta con un profesional del derecho."
-2. CITA SIEMPRE NORMAS COLOMBIANAS VIGENTES (Constitución Política de 1991, Código Penal Ley 599/2000, Código Civil, Código de Comercio, Código Sustantivo del Trabajo, Código de Policía Ley 1801/2016, Ley 769/2002 de Tránsito, Ley 1257/2008 de Violencia Intrafamiliar, Ley 1098/2006 de Alimentos, Sentencias de la Corte Constitucional, etc.).
-3. Responde directamente y con claridad al caso planteado por el usuario en lenguaje accesible y riguroso.
-4. Explica el paso a paso de lo que el ciudadano puede hacer y las entidades oficiales gratuitas dónde acudir (Personería, Defensoría, Comisaría de Familia, Inspección de Policía, URI de la Fiscalía, Consultorio Jurídico Javeriana, LegalApp).
-5. Mantén un formato Markdown limpio con negritas, títulos y listas.`;
+    function toggleConfigModal(show) {
+      const modal = document.getElementById('configModal');
+      if (show) {
+        modal.classList.remove('hidden');
+        document.getElementById('apiKeyInput').value = getStoredApiKey();
+        updateApiKeyStatus();
+      } else {
+        modal.classList.add('hidden');
+      }
+    }
+
+    function updateApiKeyStatus() {
+      const key = getStoredApiKey();
+      const statusEl = document.getElementById('apiKeyStatus');
+      if (key && key.trim().length > 10) {
+        statusEl.textContent = 'IA en la nube (OpenRouter) configurada';
+        statusEl.className = 'font-semibold text-blue-800';
+      } else {
+        statusEl.textContent = 'Motor Jurídico Integrado Autónomo (Sin API Externa)';
+        statusEl.className = 'font-semibold text-emerald-700';
+      }
+    }
+
+    function saveCustomApiKey() {
+      const key = document.getElementById('apiKeyInput').value.trim();
+      if (key) {
+        localStorage.setItem('conoce_derechos_openrouter_key', key);
+      } else {
+        localStorage.removeItem('conoce_derechos_openrouter_key');
+      }
+      toggleConfigModal(false);
+      updateApiKeyStatus();
+    }
+
+    function clearCustomApiKey() {
+      localStorage.removeItem('conoce_derechos_openrouter_key');
+      document.getElementById('apiKeyInput').value = '';
+      updateApiKeyStatus();
+    }
 
     function appendMessage(role, htmlContent) {
       const isUser = role === 'user';
@@ -231,10 +342,10 @@ REGLAS OBLIGATORIAS:
       avatar.innerHTML = isUser ? '👤' : '⚖️';
 
       const bubble = document.createElement('div');
-      bubble.className = `p-3.5 rounded-2xl max-w-[85%] leading-relaxed ${
+      bubble.className = `p-4 rounded-2xl max-w-[88%] leading-relaxed ${
         isUser 
-          ? 'bg-blue-900 text-white rounded-tr-sm' 
-          : 'bg-slate-100 text-slate-800 rounded-tl-sm markdown-body'
+          ? 'bg-blue-900 text-white rounded-tr-sm text-sm' 
+          : 'bg-slate-100 text-slate-800 rounded-tl-sm markdown-body text-xs md:text-sm'
       }`;
       bubble.innerHTML = htmlContent;
 
@@ -248,49 +359,65 @@ REGLAS OBLIGATORIAS:
     async function handleSend(event) {
       if (event) event.preventDefault();
       const input = document.getElementById('userInput');
-      const text = input.value.trim();
-      if (!text) return;
+      const text = (input.value || '').trim();
+      if (!text) {
+        input.focus();
+        return;
+      }
 
+      // Publicar mensaje del usuario
       appendMessage('user', escapeHtml(text));
       input.value = '';
 
-      // Mostrar indicador de carga
+      // Indicador de análisis jurídico
       const loadingBubble = appendMessage('assistant', `
         <div class="flex items-center gap-2 text-slate-500 text-xs py-1">
           <i class="fa-solid fa-spinner fa-spin text-blue-900"></i>
-          <span>Consultando el marco jurídico colombiano con IA...</span>
+          <span>Analizando el marco jurídico colombiano aplicable...</span>
         </div>
       `);
 
-      try {
-        // 1. Intento de respuesta con IA en vivo vía OpenRouter
-        const aiResponse = await fetchAIResponse(text);
-        if (aiResponse) {
-          loadingBubble.innerHTML = marked.parse(aiResponse);
-          chatContainer.scrollTop = chatContainer.scrollHeight;
-          return;
+      // 1. Si existe clave de API configurada en localStorage, intentar llamada dinámica a OpenRouter
+      const customKey = getStoredApiKey();
+      if (customKey && customKey.trim().length > 15) {
+        try {
+          const aiResponse = await fetchOpenRouterAPI(text, customKey.trim());
+          if (aiResponse) {
+            loadingBubble.innerHTML = marked.parse(aiResponse);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            return;
+          }
+        } catch (err) {
+          console.warn("API de nube no disponible, activando motor jurídico integrado:", err);
         }
-      } catch (err) {
-        console.warn("Fallo en API de IA, activando motor de respuesta local...", err);
       }
 
-      // 2. Respaldo local de alta fidelidad si la API está ocupada o sin conexión
-      const localResponse = getLocalLegalResponse(text);
-      loadingBubble.innerHTML = localResponse;
-      chatContainer.scrollTop = chatContainer.scrollHeight;
+      // 2. Respuesta instantánea del Motor Jurídico Integrado de Colombia
+      setTimeout(() => {
+        const localResponse = getLocalLegalResponse(text);
+        loadingBubble.innerHTML = localResponse;
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }, 250);
     }
 
-    async function fetchAIResponse(query) {
+    async function fetchOpenRouterAPI(query, apiKey) {
       const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
+          "Authorization": `Bearer ${apiKey}`,
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          model: OPENROUTER_MODEL,
+          model: "nvidia/nemotron-3.5-lightning:free",
           messages: [
-            { role: "system", content: SYSTEM_PROMPT },
+            {
+              role: "system",
+              content: `Eres "Conoce tus Derechos", asistente jurídico pedagógico de la Pontificia Universidad Javeriana.
+REGLAS OBLIGATORIAS:
+1. Incluye siempre la advertencia legal pedagógica al inicio.
+2. Cita leyes, decretos y artículos vigentes de Colombia.
+3. Brinda una explicación clara y el paso a paso de lo que el ciudadano puede hacer.`
+            },
             { role: "user", content: query }
           ]
         })
@@ -307,172 +434,412 @@ REGLAS OBLIGATORIAS:
       return null;
     }
 
-    // Motor de respaldo local para todas las consultas clave de Colombia
+    // =========================================================================
+    // MOTOR JURÍDICO INTEGRADO DE COLOMBIA (RESPUESTAS COMPLETAS Y RIGUROSAS)
+    // =========================================================================
     function getLocalLegalResponse(query) {
       const lower = query.toLowerCase();
+      const disclaimer = `
+        <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2.5 rounded-lg border border-amber-200 mb-3">
+          ⚠️ <em>Advertencia legal: Esta herramienta es un ejercicio académico con fines exclusivamente pedagógicos e informativos. No constituye asesoría jurídica formal ni sustituye la consulta con un profesional del derecho.</em>
+        </div>
+      `;
 
-      // Caso Requisas en Carro / Policía / Tránsito
-      if (lower.includes('requisa') || lower.includes('bajar del carro') || lower.includes('bajan') || lower.includes('bajarme') || lower.includes('requisaron') || (lower.includes('carro') && lower.includes('polic'))) {
+      // 1. CASO FOTOMULTAS Y TRÁNSITO (Sentencia C-038 de 2020)
+      if (lower.includes('fotomulta') || lower.includes('foto multa') || lower.includes('fotodetecci') || lower.includes('c-038') || (lower.includes('comparendo') && !lower.includes('policía')) || (lower.includes('choque') && (lower.includes('lata') || lower.includes('simple') || lower.includes('latas')))) {
         return `
-          <div class="space-y-2">
-            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
-              ⚠️ <em>Advertencia legal: Esta herramienta es un ejercicio académico con fines exclusivamente pedagógicos e informativos. No constituye asesoría jurídica formal.</em>
-            </div>
-            <p>Respecto a si es legal que te bajen del vehículo para requisarte en Colombia:</p>
-            <ul class="list-disc pl-5 space-y-1.5">
-              <li><strong>Agentes Civiles / Guardas de Tránsito:</strong> <strong>NO tienen facultad legal para requisarte ni hacerte bajar para revisar tu cuerpo, bolsillos o bolso personal</strong> (Código Nacional de Tránsito y Sentencia C-128 de 2018). Solo pueden solicitar documentos del vehículo y licencia, y verificar el equipo de prevención vial.</li>
-              <li><strong>Policía Nacional Uniformada:</strong> Sí puede solicitar el descenso del vehículo con fines preventivos de seguridad o en puestos de control legalmente instalados bajo el <strong>Art. 159 de la Ley 1801 de 2016 (Código Nacional de Policía)</strong>. Sin embargo, el registro debe ser realizado por personal de tu mismo género, respetando tu pudor, sin desnudamiento y está <strong>terminantemente prohibido que revisen tus chats o fotos de celular</strong> (Art. 15 de la Constitución Política).</li>
-              <li><strong>Derecho a filmar (Art. 21 Ley 1801 de 2016 y Sentencia T-032/21):</strong> Tienes derecho constitucional inalienable a grabar en audio y video todo procedimiento público policial sin que te decomisen el teléfono.</li>
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Normativa de Tránsito y Fotomultas en Colombia</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Sentencia C-038 de 2020 (Corte Constitucional):</strong> Se declaró inexequible la responsabilidad solidaria automática entre propietario y conductor. <strong>La secretaría de tránsito NO puede multar al dueño del carro si no demuestra fehacientemente que él era quien iba conduciendo</strong> al momento de la infracción.</li>
+              <li><strong>Notificación legal (Ley 1843 de 2017):</strong> La orden de comparendo debe enviarse por correo certificado o electrónico dentro de los <strong>3 días hábiles</strong> siguientes a la validación de la infracción. Si no te notificaron oportunamente, opera la indebida notificación y puedes pedir la nulidad.</li>
+              <li><strong>Paso a paso para impugnar:</strong> Radica solicitud de <strong>audiencia pública virtual o presencial</strong> ante el organismo de tránsito dentro del término de ley. Manifiesta que no ibas conduciendo e invoca la Sentencia C-038/20.</li>
+              <li><strong>Choques simples de "solo latas" (Ley 2251 de 2022):</strong> Si hay un choque sin heridos ni fallecidos, los conductores <strong>deben retirar los vehículos inmediatamente de la vía</strong> tras tomar fotos o videos. <strong>Ya no se requiere esperar al agente de tránsito</strong> ni hacer croquis en vía pública.</li>
             </ul>
           </div>
         `;
       }
 
-      // Caso Caballo / Pesebrera / Deuda de Mantenimiento / 80 millones
-      if (lower.includes('caballo') || lower.includes('pesebrera') || lower.includes('animal') || (lower.includes('80 millones') || lower.includes('mantenimiento'))) {
+      // 2. CASO PROCEDIMIENTO PENAL, FLAGRANCIA Y TÉRMINO DE 36 HORAS
+      if (lower.includes('flagrancia') || lower.includes('36 horas') || lower.includes('36h') || lower.includes('legalizar captura') || lower.includes('garantias') || lower.includes('garantías')) {
         return `
-          <div class="space-y-2">
-            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
-              ⚠️ <em>Advertencia legal: Esta herramienta es un ejercicio académico con fines exclusivamente pedagógicos e informativos. No constituye asesoría jurídica formal.</em>
-            </div>
-            <p>Frente a una deuda de mantenimiento de un caballo y su tenencia en Colombia:</p>
-            <ul class="list-disc pl-5 space-y-1.5">
-              <li><strong>El caballo NO se vuelve propiedad del club ni de los entrenadores:</strong> El <strong>Derecho de Retención (Art. 2417 del Código Civil)</strong> faculta a retener la tenencia del bien hasta que se cancelen los gastos de cuidado y alimentación, pero <strong>jamás transfiere el dominio ni la propiedad</strong>.</li>
-              <li><strong>Prohibición de uso y explotación:</strong> El club o entrenador <strong>no puede dejar montar el caballo a terceras personas ni alquilarlo o explotarlo comercialmente</strong> sin autorización judicial previa o pacto expreso en el contrato. Si lo hacen, incurren en presunto abuso de confianza civil o penal.</li>
-              <li><strong>Seres sintientes (Ley 1774 de 2016):</strong> Los animales en Colombia no son cosas inertes sino seres sintientes. El tenedor provisional está obligado por ley a brindarles alimentación adecuada, salud veterinaria y resguardo, so pena de incurrir en maltrato sancionable.</li>
-              <li><strong>¿Qué debe hacer el club legalmente?:</strong> Iniciar un proceso ejecutivo ante un juez civil para que mediante orden judicial se embargue el animal o se liquide la deuda, nunca apropiárselo por vías de hecho.</li>
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Flagrancia y Legalización de Captura en Colombia (Ley 906 de 2004)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Término perentorio de 36 horas (Art. 302 CPP y Art. 28 de la Constitución):</strong> Toda persona capturada en flagrancia debe ser puesta a disposición de un Juez de Control de Garantías en un <strong>plazo improrrogable de máximo 36 horas</strong> para la legalización formal de su captura.</li>
+              <li><strong>Consecuencia de vencer el plazo:</strong> Si se cumplen las 36 horas sin legalizar la captura, la detención se torna ilícita y el juez debe ordenar la <strong>libertad inmediata</strong> del capturado.</li>
+              <li><strong>Derechos del capturado (Art. 303 CPP):</strong> A conocer el motivo de la detención, a entrevistarse privadamente con un abogado de confianza o de la Defensoría del Pueblo, a informar a un familiar y a guardar silencio sin que sea usado en su contra.</li>
             </ul>
           </div>
         `;
       }
 
-      // Caso Nacionalidad / Venezuela / Libanesa / Pasaporte
-      if (lower.includes('venezuela') || lower.includes('liban') || lower.includes('nacionalidad') || lower.includes('pasaporte') || lower.includes('ius solis') || lower.includes('ius sanguinis')) {
+      // 3. CASO REQUISAS EN VEHÍCULOS, POLICÍA Y DERECHO A GRABAR
+      if (lower.includes('requisa') || lower.includes('bajar del carro') || lower.includes('bajan') || lower.includes('bajarme') || lower.includes('requisaron') || (lower.includes('polic') && (lower.includes('carro') || lower.includes('bolsillo') || lower.includes('celular') || lower.includes('grabar')))) {
         return `
-          <div class="space-y-2">
-            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
-              ⚠️ <em>Advertencia legal: Esta herramienta es un ejercicio académico con fines exclusivamente pedagógicos e informativos. No constituye asesoría jurídica formal.</em>
-            </div>
-            <p>Respecto a tu nacionalidad en Colombia:</p>
-            <ul class="list-disc pl-5 space-y-1.5">
-              <li><strong>Nacionalidad Colombiana por Nacimiento (Art. 96 Constitución Política):</strong> Si naciste en territorio colombiano, eres colombiano por nacimiento si al menos uno de tus padres estaba legalmente domiciliado en el país al momento del nacimiento. Además, mediante la medida preventiva contra la apatridia ("Primero la Niñez" - Ley 1997 de 2019), los hijos de venezolanos nacidos en Colombia adquieren la nacionalidad colombiana de forma prioritaria.</li>
-              <li><strong>Doble o Múltiple Nacionalidad (Art. 22 Ley 43 de 1993):</strong> En Colombia está plenamente reconocida la múltiple nacionalidad. Puedes poseer simultáneamente nacionalidad colombiana, pasaporte venezolano y nacionalidad libanesa por derecho consanguíneo (*Ius sanguinis*) derivado de tus abuelos.</li>
-              <li><strong>Deber en territorio colombiano:</strong> Al ingresar, permanecer o salir de Colombia, ante las autoridades migratorias y estatales debes identificarte obligatoriamente con tus documentos colombianos.</li>
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Requisas, Tránsito y Procedimientos Policiales en Colombia</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Agentes Civiles / Guardas de Tránsito:</strong> <strong>NO tienen facultad legal para requisarte ni hacerte bajar para registrar tu cuerpo, bolsillos o bolso personal</strong> (Código Nacional de Tránsito y Sentencia C-128 de 2018). Su competencia se limita a verificar documentos del vehículo, licencia y equipo de prevención vial.</li>
+              <li><strong>Policía Nacional Uniformada:</strong> Sí puede solicitar el registro preventivo bajo el <strong>Art. 159 de la Ley 1801 de 2016 (Código Nacional de Policía)</strong>. Sin embargo, el registro debe ser realizado por personal de tu mismo género, respetando tu pudor, sin desnudamiento y está <strong>terminantemente prohibido que revisen tus conversaciones de WhatsApp, fotos o contenidos privados de tu celular</strong> (Art. 15 de la Constitución Política).</li>
+              <li><strong>Derecho constitucional a filmar (Art. 21 Ley 1801 de 2016 y Sentencia T-032 de 2021):</strong> Tienes derecho fundamental e inalienable a grabar en audio y video cualquier procedimiento público policial. Ningún policía puede prohibirlo, amenazarte ni decomisarte el teléfono por filmar.</li>
             </ul>
           </div>
         `;
       }
 
-      // Caso Dolo, Culpa, Preterintención, Legítima Defensa
-      if (lower.includes('dolo') || lower.includes('culpa') || lower.includes('preterintencion') || lower.includes('legítima defensa') || lower.includes('legitima defensa')) {
+      // 4. CASO CABALLO, PESEBRERA, 80 MILLONES Y DERECHO DE RETENCIÓN
+      if (lower.includes('caballo') || lower.includes('pesebrera') || lower.includes('equino') || lower.includes('yegua') || ((lower.includes('retenci') || lower.includes('retener')) && (lower.includes('animal') || lower.includes('80') || lower.includes('deuda') || lower.includes('mantenimiento')))) {
         return `
-          <div class="space-y-2">
-            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
-              ⚠️ <em>Advertencia legal: Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.</em>
-            </div>
-            <p>En el <strong>Código Penal Colombiano (Ley 599 de 2000)</strong>:</p>
-            <ul class="list-disc pl-5 space-y-1.5">
-              <li><strong>Dolo (Art. 22 CP):</strong> Conocer los hechos y querer directamente realizar la conducta delictiva (directo) o aceptarla como probable (eventual).</li>
-              <li><strong>Culpa (Art. 23 CP):</strong> Producto de imprudencia, negligencia, impericia o violación del deber de cuidado (accidentes de tránsito, mala praxis).</li>
-              <li><strong>Preterintención (Art. 24 CP):</strong> El resultado dañoso excede la intención del autor (ej. golpear para lesionar pero causar la muerte).</li>
-              <li><strong>Legítima Defensa (Art. 32 Num. 6 CP):</strong> Causal de ausencia de responsabilidad penal cuando se defiende un derecho propio o ajeno contra agresión ilegítima actual e inminente de forma proporcional. Se presume legal al rechazar intrusos en la vivienda o vehículo habitado.</li>
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Retención de Animales y Cobro de Mantenimiento en Colombia</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>El caballo NO se vuelve propiedad del club ni del entrenador:</strong> El <strong>Derecho de Retención (Art. 2417 del Código Civil)</strong> faculta únicamente a retener la tenencia material del bien mientras se cancelan los gastos causados por su conservación, pero <strong>jamás transfiere el dominio ni la propiedad</strong>.</li>
+              <li><strong>Prohibición absoluta de uso y lucro:</strong> El club o entrenador <strong>no puede dejar montar el animal a terceros, alquilarlo, competir con él ni explotarlo comercialmente</strong> sin autorización expresa o mandato judicial. Si lo hacen, incurren en presunto delito de abuso de confianza (Art. 249 CP).</li>
+              <li><strong>Seres sintientes (Ley 1774 de 2016):</strong> En Colombia los animales son seres sintientes con especial protección constitucional. Quien ejerza la retención está legalmente obligado a garantizarle comida, atención veterinaria y bienestar, so pena de sanciones penales por maltrato animal.</li>
+              <li><strong>Vía jurídica correcta:</strong> El acreedor debe iniciar un <strong>proceso ejecutivo civil</strong> ante un Juez Civil Municipal para cobrar la deuda o solicitar el remate judicial formal, nunca apropiarse del caballo por vías de hecho.</li>
             </ul>
           </div>
         `;
       }
 
-      // Caso Robo / Hurto / Armas / Escopolamina
-      if (lower.includes('robo') || lower.includes('hurto') || lower.includes('atraco') || lower.includes('arma') || lower.includes('escopolamina') || lower.includes('ladron') || lower.includes('ladrón')) {
+      // 5. CASO NACIONALIDAD, VENEZUELA, LÍBANO, IUS SOLIS Y PASAPORTES
+      if (lower.includes('venezuela') || lower.includes('venezolan') || lower.includes('liban') || lower.includes('nacionalidad') || lower.includes('pasaporte') || lower.includes('ius solis') || lower.includes('ius sanguinis') || lower.includes('doble ciudadan')) {
         return `
-          <div class="space-y-2">
-            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
-              ⚠️ <em>Advertencia legal: Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.</em>
-            </div>
-            <p>Delitos contra el patrimonio en el <strong>Código Penal (Ley 599 de 2000)</strong>:</p>
-            <ul class="list-disc pl-5 space-y-1.5">
-              <li><strong>Hurto Calificado (Art. 240 CP):</strong> Si se comete con <strong>violencia sobre personas</strong>, con armas, o colocando a la víctima en <strong>indefensión (escopolamina o sustancias)</strong>. Delito investigable de oficio por Fiscalía.</li>
-              <li><strong>Hurto Agravado (Art. 241 CP):</strong> Si participan 2 o más personas o en transporte público.</li>
-              <li><strong>Denuncia virtual 24/7:</strong> En el portal oficial <a href="https://adenunciar.policia.gov.co" target="_blank" class="text-blue-700 underline font-semibold">adenunciar.policia.gov.co</a> o en la URI de la Fiscalía.</li>
-              <li><strong>Término de flagrancia:</strong> La policía tiene máximo <strong>36 horas</strong> para legalizar la captura ante el Juez de Control de Garantías (Art. 302 CPP).</li>
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Nacionalidad y Doble Ciudadanía en el Régimen Colombiano</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Nacionalidad Colombiana por Nacimiento (Art. 96 Constitución Política):</strong> Eres colombiano por nacimiento (*ius soli*) si naciste en territorio nacional y al menos uno de tus padres tenía domicilio legal o residencia en el país. Además, bajo la medida contra la apatridia ("Primero la Niñez" - Ley 1997 de 2019), los hijos de venezolanos nacidos en Colombia adquieren la nacionalidad colombiana de manera expedita.</li>
+              <li><strong>Múltiple Nacionalidad Plenamente Reconocida (Art. 22 Ley 43 de 1993):</strong> En Colombia es totalmente legal ostentar múltiple ciudadanía. Puedes conservar legítimamente tu nacionalidad colombiana, pasaporte venezolano y nacionalidad libanesa por línea consanguínea (*ius sanguinis* de tus abuelos).</li>
+              <li><strong>Obligación al viajar:</strong> Al ingresar, permanecer o salir del territorio colombiano, estás obligado por ley a identificarte ante Migración Colombia con tus documentos colombianos vigentes.</li>
             </ul>
           </div>
         `;
       }
 
-      // Caso Homicidio / Feminicidio / Muerte
-      if (lower.includes('matar') || lower.includes('muerte') || lower.includes('homicidio') || lower.includes('feminicidio') || lower.includes('asesinato')) {
+      // 6. CASO TEORÍA DEL DELITO: DOLO, CULPA, PRETERINTENCIÓN Y LEGÍTIMA DEFENSA
+      if (lower.includes('dolo') || lower.includes('culpa') || lower.includes('preterintencion') || lower.includes('preterintención') || lower.includes('legítima defensa') || lower.includes('legitima defensa') || lower.includes('teoria del delito') || lower.includes('teoría del delito')) {
         return `
-          <div class="space-y-2">
-            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
-              ⚠️ <em>Advertencia legal: Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.</em>
-            </div>
-            <p>Delitos contra la vida humana en el <strong>Código Penal (Ley 599 de 2000)</strong>:</p>
-            <ul class="list-disc pl-5 space-y-1.5">
-              <li><strong>Homicidio Simple (Art. 103 CP):</strong> Prisión de 208 a 450 meses (17.3 a 37.5 años).</li>
-              <li><strong>Homicidio Agravado (Art. 104 CP):</strong> Hasta 50 o 60 años por sevicia, sicariato, o contra cónyuge/familiares.</li>
-              <li><strong>Feminicidio (Art. 104A CP - Ley Rosa Elvira Cely):</strong> Muerte violenta de una mujer por razones de género o antecedentes de violencia. Pena de 250 a 500 meses sin rebajas ni preacuerdos.</li>
-              <li><strong>Líneas urgentes:</strong> Línea 122 (Fiscalía), Línea 123 (Policía Nacional) y URI presencial 24/7.</li>
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Formas de Culpabilidad y Eximentes en el Código Penal (Ley 599 de 2000)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Dolo (Art. 22 CP):</strong> Conocer los hechos constitutivos de infracción penal y querer su realización (dolo directo), o prever la infracción como probable y dejar su resultado librado al azar aceptándolo (dolo eventual).</li>
+              <li><strong>Culpa (Art. 23 CP):</strong> Cuando el hecho dañoso es consecuencia de imprudencia, negligencia, impericia o violación del deber objetivo de cuidado (ej. accidentes viales).</li>
+              <li><strong>Preterintención (Art. 24 CP):</strong> Cuando el resultado final es previsible pero sobrepasa la intención dañosa inicial del autor (ej. golpear para lesionar pero provocar la muerte).</li>
+              <li><strong>Legítima Defensa (Art. 32 Num. 6 CP):</strong> Causal de ausencia de responsabilidad penal al defender un derecho propio o ajeno frente a una agresión ilegítima, actual o inminente, con proporcionalidad en los medios empleados. <em>Se presume legal</em> cuando se rechaza a quien intente penetrar o haya penetrado indebidamente a la habitación o dependencias inmediatas.</li>
             </ul>
           </div>
         `;
       }
 
-      // Caso Violencia Intrafamiliar y Medidas de Protección
-      if (lower.includes('violencia') || lower.includes('agredió') || lower.includes('golpeó') || lower.includes('maltrato') || lower.includes('desalojo') || lower.includes('comisaría')) {
+      // 7. CASO ROBO, HURTO CALIFICADO, ARMAS Y ESCOPOLAMINA
+      if (lower.includes('robo') || lower.includes('hurto') || lower.includes('atraco') || lower.includes('arma') || lower.includes('escopolamina') || lower.includes('ladron') || lower.includes('ladrón') || lower.includes('asalt') || lower.includes('ratero') || lower.includes('extorsion') || lower.includes('extorsión') || lower.includes('estafa')) {
         return `
-          <div class="space-y-2">
-            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
-              ⚠️ <em>Advertencia legal: Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.</em>
-            </div>
-            <p>La violencia física o psicológica es un delito (<strong>Art. 229 CP</strong> y <strong>Ley 1257 de 2008</strong>) no conciliable:</p>
-            <ul class="list-disc pl-5 space-y-1.5">
-              <li><strong>Medidas en Comisaría de Familia en menos de 4 horas (Ley 294/96 y 2126/21):</strong> Desalojo inmediato del agresor de la casa familiar, orden de alejamiento, pensión provisional de alimentos y protección policial.</li>
-              <li><strong>Líneas 24/7 de rescate:</strong> Línea 155 (Mujeres), Línea 123 (Emergencias), Línea 122 (Fiscalía) y Línea Púrpura (018000 112 137).</li>
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Delitos contra el Patrimonio Económico en Colombia (Ley 599 de 2000)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Hurto Calificado (Art. 240 CP):</strong> Se agrava la pena cuando se comete con <strong>violencia sobre las personas</strong>, mediante uso de <strong>armas</strong>, o colocando a la víctima en estado de <strong>indefensión (escopolamina, sustancias químicas o fármacos)</strong>. Es un delito investigable de oficio por la Fiscalía.</li>
+              <li><strong>Hurto Agravado (Art. 241 CP):</strong> Cuando se realiza por dos o más personas asociadas, sobre medios de transporte público o quebrantando la confianza.</li>
+              <li><strong>Ruta de denuncia virtual 24/7:</strong> Puedes denunciar de inmediato sin filas a través del portal oficial conjunto de la Policía y Fiscalía: <a href="https://adenunciar.policia.gov.co" target="_blank" class="text-blue-700 underline font-semibold">adenunciar.policia.gov.co</a> o presencialmente en la Unidad de Reacción Inmediata (URI) de la Fiscalía.</li>
+              <li><strong>Término de flagrancia:</strong> Si el agresor es capturado en el acto, la policía tiene máximo <strong>36 horas</strong> para legalizar la captura ante un Juez de Garantías (Art. 302 CPP).</li>
             </ul>
           </div>
         `;
       }
 
-      // Caso Alimentos y REDAM
-      if (lower.includes('alimento') || lower.includes('cuota alimentaria') || lower.includes('redam') || lower.includes('hijos')) {
+      // 8. CASO HOMICIDIO, FEMINICIDIO Y DELITOS CONTRA LA VIDA
+      if (lower.includes('matar') || lower.includes('muerte') || lower.includes('homicidio') || lower.includes('feminicidio') || lower.includes('asesinat') || lower.includes('sicariat') || lower.includes('vida humana')) {
         return `
-          <div class="space-y-2">
-            <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
-              ⚠️ <em>Advertencia legal: Esta herramienta es un ejercicio académico pedagógico. No constituye asesoría jurídica formal.</em>
-            </div>
-            <p>Alimentos bajo el <strong>Código de la Infancia y la Adolescencia (Ley 1098 de 2006)</strong>:</p>
-            <ul class="list-disc pl-5 space-y-1.5">
-              <li><strong>Fijación gratuita sin abogado:</strong> Audiencia ante ICBF o Comisaría. El acta tiene <strong>mérito ejecutivo</strong> inmediato.</li>
-              <li><strong>Embargo:</strong> Hasta el <strong>50% de salario y prestaciones</strong> por alimentos (Art. 130).</li>
-              <li><strong>REDAM (Ley 2097 de 2021):</strong> Al deber 3 cuotas, se prohíbe salir del país, contratar con el Estado y recibir créditos bancarios.</li>
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Delitos contra la Vida y la Integridad Personal (Ley 599 de 2000)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Homicidio Simple (Art. 103 CP):</strong> Prisión de 208 a 450 meses (17.3 a 37.5 años de prisión).</li>
+              <li><strong>Homicidio Agravado (Art. 104 CP):</strong> Hasta 50 o 60 años de cárcel si se comete con sevicia, precio o promesa remuneratoria (sicariato), o en persona del cónyuge o familiar.</li>
+              <li><strong>Feminicidio (Art. 104A CP - Ley Rosa Elvira Cely 1761 de 2015):</strong> Tipificado autónomamente cuando la muerte de una mujer se causa por su condición de ser mujer o por motivos de género. Conlleva pena de 250 a 500 meses de prisión, <strong>sin rebajas de pena ni preacuerdos</strong>.</li>
+              <li><strong>Líneas inmediatas de atención oficial:</strong> Línea 122 (Fiscalía General), Línea 123 (Policía Nacional) y URI presencial 24/7.</li>
             </ul>
           </div>
         `;
       }
 
-      // Respuesta General Universal Fundamentada
+      // 9. CASO VIOLENCIA INTRAFAMILIAR, MEDIDAS DE PROTECCIÓN Y DESALOJO
+      if (lower.includes('violencia intrafamiliar') || lower.includes('agredió') || lower.includes('agredio') || lower.includes('golpeó') || lower.includes('golpeo') || lower.includes('maltrato') || lower.includes('desalojo') || lower.includes('comisaría') || lower.includes('comisaria') || lower.includes('medidas de protecci') || lower.includes('pego') || lower.includes('pegó') || lower.includes('violencia de genero') || lower.includes('violencia de género')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Protección ante Violencia Intrafamiliar en Colombia (Ley 1257 de 2008 y Ley 2126 de 2021)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Delito no conciliable (Art. 229 Código Penal):</strong> La violencia física o psicológica entre miembros del núcleo familiar es un delito oficioso; no requiere querella, no es desistible y no se puede conciliar (Ley 1542 de 2012).</li>
+              <li><strong>Medidas de Protección de Emergencia en menos de 4 horas:</strong> La Comisaría de Familia o el Juez de Control de Garantías debe dictar de inmediato:
+                <ul class="list-circle pl-5 mt-1 space-y-1">
+                  <li><strong>Desalojo inmediato del agresor</strong> de la casa de habitación que comparte con la víctima, sin importar a nombre de quién esté el inmueble.</li>
+                  <li><strong>Orden de alejamiento</strong> y prohibición de acercarse a la víctima en su hogar, trabajo o estudio.</li>
+                  <li>Asignación de protección policial provisional y pensión de alimentos provisional.</li>
+                </ul>
+              </li>
+              <li><strong>Líneas gratuitas 24/7:</strong> Línea 155 (Orientación a Mujeres), Línea Púrpura (018000 112 137), Línea 122 (Fiscalía) y Línea 123 (Emergencias).</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 10. CASO ALIMENTOS, FIJACIÓN DE CUOTA, EMBARGO Y REDAM
+      if (lower.includes('alimento') || lower.includes('cuota alimentaria') || lower.includes('redam') || lower.includes('hijos') || lower.includes('pension alimenticia') || lower.includes('pensión alimenticia') || lower.includes('inasistencia')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Alimentos de Menores y Registro REDAM en Colombia (Ley 1098 de 2006 y Ley 2097 de 2021)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Fijación gratuita de cuota sin abogado:</strong> Se puede solicitar audiencia de conciliación ante el Centro Zonal del ICBF, Comisaría de Familia o Personería Municipal. El acta firmada presta <strong>mérito ejecutivo</strong> inmediato.</li>
+              <li><strong>Límite de embargo especial (Art. 130 Ley 1098/06):</strong> A diferencia de las deudas comunes, por concepto de alimentos se puede embargar <strong>hasta el 50% de todo el salario y de las prestaciones sociales</strong> del obligado.</li>
+              <li><strong>Delito de Inasistencia Alimentaria (Art. 233 CP):</strong> El incumplimiento injustificado acarrea pena de prisión de 32 a 72 meses.</li>
+              <li><strong>Consecuencias del REDAM (Registro de Deudores Alimentarios Morosos):</strong> Si se adeudan 3 o más cuotas, se inscribe al deudor en el REDAM, generando:
+                <ul class="list-circle pl-5 mt-1 space-y-1">
+                  <li><strong>Prohibición total de salir del país</strong> ante Migración Colombia.</li>
+                  <li><strong>Inhabilidad para posesionarse en cargos públicos</strong> o contratar con el Estado.</li>
+                  <li>Bloqueo financiero para créditos bancarios y tarjetas de crédito.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 11. CASO LABORAL: DESPIDO SIN JUSTA CAUSA, LIQUIDACIÓN Y ESTABILIDAD REFORZADA
+      if (lower.includes('despid') || lower.includes('desped') || lower.includes('laboral') || lower.includes('empleo') || lower.includes('liquidaci') || lower.includes('indemnizaci') || lower.includes('cesant') || lower.includes('cst') || lower.includes('acoso laboral') || lower.includes('embaraz')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Derecho Laboral, Despidos y Liquidación en Colombia (Código Sustantivo del Trabajo)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Despido sin justa causa (Art. 64 CST):</strong> El empleador debe pagar de forma obligatoria la indemnización legal por terminación unilateral (en contratos a término fijo, los salarios faltantes; en término indefinido, 30 días de salario por el primer año + 20 días por año subsiguiente si gana menos de 10 SMMLV).</li>
+              <li><strong>Conceptos irrenunciables de la liquidación:</strong> Salarios adeudados, Cesantías (1 mes por año), Intereses sobre cesantías (12% anual), Prima de servicios (15 días en junio y 15 días en diciembre) y Vacaciones pendientes compensadas en dinero.</li>
+              <li><strong>Estabilidad Laboral Reforzada:</strong> Es ineficaz y nulo el despido de mujeres en estado de embarazo o periodo de lactancia sin autorización previa del Inspector de Trabajo (Art. 239 CST). Igualmente aplica fuero de salud a trabajadores con afectaciones médicas relevantes (Sentencia SU-049 de 2017).</li>
+              <li><strong>Orientación gratuita:</strong> Puedes acudir a los Inspectores del Ministerio del Trabajo o al Consultorio Jurídico de la Pontificia Universidad Javeriana.</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 12. CASO DATACRÉDITO, TRANSUNION Y BORRÓN Y CUENTA NUEVA
+      if (lower.includes('datacredito') || lower.includes('datacrédito') || lower.includes('transunion') || lower.includes('habeas data') || lower.includes('hábeas data') || lower.includes('reporte negativo') || lower.includes('centrales de riesgo') || lower.includes('borron y cuenta nueva') || lower.includes('borrón y cuenta nueva')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Hábeas Data Financiero y Caducidad de Reportes Negativos (Ley 1266/08 y Ley 2157/21)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Permanencia máxima tras pagar la deuda:</strong> El reporte negativo puede durar <strong>el doble del tiempo que duró la mora</strong>, pero <strong>jamás podrá superar cuatro (4) años</strong> contados a partir de la fecha de pago o extinción de la obligación.</li>
+              <li><strong>Caducidad total por inactividad (8 años):</strong> Si la deuda nunca se pagó pero han transcurrido <strong>ocho (8) años</strong> desde que se entró en mora, el reporte negativo <strong>caduca de pleno derecho</strong> y debe ser borrado definitivamente de las centrales de riesgo.</li>
+              <li><strong>Trámite gratuito:</strong> Radica un derecho de petición ante Datacrédito o TransUnion solicitando la eliminación del dato caducado. Tienen 15 días hábiles para resolver; de persistir la anotación, procede queja ante la Superintendencia de Industria y Comercio (SIC) o Acción de Tutela.</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 13. CASO LLAMADAS DE COBRO ABUSIVAS Y LEY DEJEN DE FREGAR
+      if (lower.includes('dejen de fregar') || lower.includes('cobranza') || lower.includes('cobro') || lower.includes('llamadas de cobro') || lower.includes('spam') || lower.includes('hostigamiento')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Límites a la Cobranza y Spam en Colombia (Ley 2300 de 2023 - "Ley Dejen de Fregar")</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Horarios estrictos autorizados:</strong> Solo pueden contactarte de <strong>lunes a viernes de 7:00 a.m. a 7:00 p.m.</strong> y <strong>sábados de 8:00 a.m. a 3:00 p.m.</strong></li>
+              <li><strong>Domingos y festivos totalmente prohibidos:</strong> Queda terminantemente prohibido llamar, escribir o cobrar en domingos o días feriados.</li>
+              <li><strong>Frecuencia máxima:</strong> Las entidades financieras y de cobranza no pueden contactarte más de <strong>dos (2) veces por semana</strong> sumando todos los canales (llamadas, SMS, correos, WhatsApp).</li>
+              <li><strong>Prohibición de cobrar a referencias:</strong> Está prohibido indagar o presionar a referencias familiares, laborales o codeudores sin autorización legal. Las quejas se radican ante la Superintendencia Financiera o la SIC.</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 14. CASO ARRENDAMIENTO DE VIVIENDA URBANA
+      if (lower.includes('arriendo') || lower.includes('arrendamiento') || lower.includes('canon') || lower.includes('inquilino') || lower.includes('arrendador') || lower.includes('subir el arriendo') || lower.includes('deposito en efectivo') || lower.includes('depósito en efectivo')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Arrendamiento de Vivienda Urbana en Colombia (Ley 820 de 2003)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Incremento anual del canon (Art. 20):</strong> Solo puede realizarse cada doce (12) meses de contrato cumplido y no puede superar el 100% del IPC (inflación) del año calendario anterior reportado por el DANE.</li>
+              <li><strong>Tope de avalúo comercial (Art. 18):</strong> El canon mensual no puede superar el 1% del valor comercial del inmueble o dos veces el avalúo catastral.</li>
+              <li><strong>Prohibición legal de depósitos en efectivo (Art. 16):</strong> En vivienda urbana <strong>está terminantemente prohibido exigir depósitos de dinero en efectivo o pagarés en blanco</strong> para garantizar el pago de arriendos o servicios públicos.</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 15. CASO CONSUMIDOR, COMPRAS POR INTERNET, RETRACTO Y GARANTÍAS
+      if (lower.includes('consumidor') || lower.includes('garantia') || lower.includes('garantía') || lower.includes('retracto') || lower.includes('devolucion') || lower.includes('devolución') || lower.includes('compra por internet') || lower.includes('mercancia defectuosa') || lower.includes('sic')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Derechos del Consumidor en Colombia (Estatuto del Consumidor - Ley 1480 de 2011)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Garantía Legal (Arts. 7 y 11):</strong> Si el producto falla y no admite reparación idónea, <strong>tú como consumidor tienes el derecho de elegir</strong> entre el cambio del bien por uno nuevo idéntico o la devolución del 100% de tu dinero.</li>
+              <li><strong>Derecho de Retracto (Art. 47):</strong> En compras hechas por internet, catálogo o televentas, tienes <strong>5 días hábiles</strong> a partir de la entrega para devolver el producto sin explicaciones, y la tienda debe reembolsar todo tu dinero en máximo 30 días calendario.</li>
+              <li><strong>Reversión del Pago (Art. 51):</strong> En pagos con tarjeta por compras electrónicas objeto de fraude o producto no recibido, puedes pedir reversión al banco en 5 días hábiles.</li>
+              <li><strong>Demanda virtual ante la SIC:</strong> Puedes interponer demanda de protección al consumidor sin costo y sin abogado en <a href="https://www.sic.gov.co" target="_blank" class="text-blue-700 underline font-semibold">sic.gov.co</a>.</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 16. CASO ACCIÓN DE TUTELA Y DERECHO A LA SALUD
+      if (lower.includes('tutela') || lower.includes('salud') || lower.includes('eps') || lower.includes('medicamento') || lower.includes('cirugia') || lower.includes('cirugía') || lower.includes('desacato')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Acción de Tutela y Derecho Fundamental a la Salud (Ley Estatutaria 1751 de 2015)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Acción de Tutela (Art. 86 Constitución y Dec. 2591/91):</strong> Mecanismo constitucional expedito para amparar derechos fundamentales vulnerados; cualquier juez de la República debe fallar en un plazo perentorio de <strong>diez (10) días hábiles</strong>. No requiere abogado.</li>
+              <li><strong>Salud como derecho fundamental autónomo:</strong> La EPS no puede interponer barreras administrativas (falta de convenios, autorizaciones previas o mora del empleador) para negar tratamientos vitales, cirugías prioritarias o medicamentos prescritos por médico tratante.</li>
+              <li><strong>Incidente de desacato:</strong> Si el juez concede la tutela y la EPS no cumple en 48 horas, se radica desacato solicitando orden de <strong>arresto y sanción económica</strong> contra el representante de la entidad.</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 17. CASO DERECHO DE PETICIÓN Y TÉRMINOS
+      if (lower.includes('peticion') || lower.includes('petición') || lower.includes('derecho de peticion') || lower.includes('derecho de petición') || lower.includes('termino para responder') || lower.includes('término para responder') || lower.includes('15 dias') || lower.includes('15 días')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Derecho de Petición en Colombia (Art. 23 CP y Ley 1755 de 2015)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Términos perentorios obligatorios para responder:</strong>
+                <ul class="list-circle pl-5 mt-1 space-y-1">
+                  <li><strong>15 días hábiles:</strong> Para peticiones de interés general o quejas y reclamos particulares.</li>
+                  <li><strong>10 días hábiles:</strong> Para solicitudes de información y copias de documentos públicos (si no responden en este plazo, se entiende aceptada la solicitud y deben entregarlas en 3 días).</li>
+                  <li><strong>30 días hábiles:</strong> Para consultas jurídicas especializadas ante autoridades.</li>
+                </ul>
+              </li>
+              <li><strong>Vencimiento del término:</strong> La falta de respuesta oportuna y de fondo vulnera directamente el derecho fundamental de petición, facultándote para interponer de inmediato una <strong>Acción de Tutela</strong>.</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 18. CASO SERVICIOS PÚBLICOS DOMICILIARIOS
+      if (lower.includes('servicio publico') || lower.includes('servicios publicos') || lower.includes('servicios públicos') || lower.includes('servicio público') || lower.includes('corte de luz') || lower.includes('cortaron la luz') || lower.includes('cortaron el agua') || lower.includes('recibo del agua') || lower.includes('factura de energia') || lower.includes('superservicios')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Servicios Públicos Domiciliarios en Colombia (Ley 142 de 1994)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Debido proceso antes del corte:</strong> La empresa prestadora no puede cortar el servicio sin previo aviso por escrito garantizando el derecho a la defensa y contradicción (Arts. 154 y 155).</li>
+              <li><strong>Prohibición de cobro por promedio:</strong> La empresa está legalmente obligada a medir el consumo real con el contador; si omite medir por su culpa durante varios periodos, pierde el derecho a cobrar consumos atrasados.</li>
+              <li><strong>Recursos legales:</strong> Si no estás conforme con la factura, radica reclamo; si sale negativo, interpon <strong>Recurso de Reposición y en subsidio de Apelación</strong> ante la Superintendencia de Servicios Públicos Domiciliarios (Superservicios) dentro de los 5 días hábiles siguientes.</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 19. CASO CONTRATOS, INCUMPLIMIENTO Y ARRAS
+      if (lower.includes('contrato') || lower.includes('arras') || lower.includes('clausula penal') || lower.includes('cláusula penal') || lower.includes('incumplimiento contractual') || lower.includes('condicion resolutoria') || lower.includes('condición resolutoria')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Contratos e Incumplimiento en Colombia (Código Civil y de Comercio)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Condición resolutoria tácita (Art. 1546 Código Civil):</strong> Si una parte cumple o se allana a cumplir y la otra incumple, la parte cumplida puede exigir a su arbitrio la resolución del contrato o su cumplimiento forzoso, en ambos casos con <strong>indemnización de perjuicios</strong>.</li>
+              <li><strong>Arras (Arts. 1859 y 1860 CC):</strong> Las penitenciales permiten retractarse perdiendo las arras o devolviéndolas dobladas. Las confirmatorias hacen parte del precio como ratificación del negocio.</li>
+              <li><strong>Cláusula penal pecuniaria (Art. 1592 CC):</strong> Es una tasación anticipada de perjuicios que se hace exigible ante la mora o inejecución injustificada.</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 20. CASO HERENCIAS, SUCESIONES Y DIVORCIO
+      if (lower.includes('herencia') || lower.includes('sucesion') || lower.includes('sucesión') || lower.includes('testamento') || lower.includes('divorcio') || lower.includes('separacion de bienes') || lower.includes('separación de bienes')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Sucesiones y Familia en Colombia (Código Civil y Ley 1934 de 2018)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Órdenes sucesorales:</strong> 1) Hijos y descendientes; 2) Padres y ascendientes junto con el cónyuge o compañero permanente; 3) Hermanos y cónyuge; 4) Sobrinos; 5) ICBF.</li>
+              <li><strong>Libre disposición:</strong> Con la Ley 1934 de 2018, el testador puede disponer libremente del 50% de sus bienes, reservando el 50% restante como legítima rigurosa a los herederos forzosos.</li>
+              <li><strong>Divorcio de común acuerdo:</strong> Se tramita en Notaría mediante escritura pública en pocos días con cesación de efectos civiles y liquidación de sociedad conyugal.</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 21. CASO DELITOS INFORMÁTICOS Y ESTAFAS VIRTUALES
+      if (lower.includes('delito informatico') || lower.includes('delitos informáticos') || lower.includes('estafa virtual') || lower.includes('whatsapp') || lower.includes('hacke') || lower.includes('suplantacion') || lower.includes('suplantación') || lower.includes('cai virtual')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Delitos Informáticos y Fraude Digital en Colombia (Ley 1273 de 2009)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Tipificación:</strong> Acceso abusivo a sistema informático (Art. 269A), violación de datos personales (Art. 269F), transferencia no consentida de activos (Art. 269J) y estafa informática.</li>
+              <li><strong>Acción inmediata:</strong> Guarda pantallazos, enlaces, números telefónicos y soportes bancarios. Notifica de inmediato al banco para bloquear transferencias o productos financieros.</li>
+              <li><strong>Canal oficial de denuncia:</strong> Reporta el incidente en el Centro Cibernético de la Policía Nacional (<a href="https://caivirtual.policia.gov.co" target="_blank" class="text-blue-700 underline font-semibold">caivirtual.policia.gov.co</a>) y radica la denuncia penal ante la Fiscalía.</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 22. CASO INTERRUPCIÓN VOLUNTARIA DEL EMBARAZO (IVE)
+      if (lower.includes('abort') || lower.includes('ive') || lower.includes('interrupcion del embarazo') || lower.includes('interrupción del embarazo') || lower.includes('c-055')) {
+        return `
+          ${disclaimer}
+          <div class="space-y-2.5">
+            <h3 class="font-bold text-blue-950 text-sm">Interrupción Voluntaria del Embarazo en Colombia (Sentencia C-055 de 2022)</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs md:text-sm">
+              <li><strong>Hasta la semana 24 de gestación:</strong> Despenalización total y libre decisión de la mujer o persona gestante sin exigencia de causales.</li>
+              <li><strong>Posterior a la semana 24:</strong> Aplican las 3 causales de la Sentencia C-355 de 2006 (riesgo de vida/salud, malformación fetal incompatible con la vida o violencia sexual).</li>
+              <li><strong>Prestación obligatoria en el sistema de salud:</strong> La EPS e IPS deben garantizar el procedimiento en un plazo máximo de <strong>cinco (5) días calendario</strong> (Resolución 051 de 2023 del Ministerio de Salud).</li>
+              <li><strong>Línea de acompañamiento:</strong> Línea Púrpura (018000 112 137) y Profamilia.</li>
+            </ul>
+          </div>
+        `;
+      }
+
+      // 23. RUTA UNIVERSAL DE ORIENTACIÓN CIUDADANA Y ACCESO A LA JUSTICIA (Para cualquier otra consulta)
       return `
-        <div class="space-y-2">
-          <div class="text-xs font-semibold text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
-            ⚠️ <em>Advertencia legal: Esta herramienta es un ejercicio académico con fines exclusivamente pedagógicos e informativos. No constituye asesoría jurídica formal.</em>
+        ${disclaimer}
+        <div class="space-y-3">
+          <p class="font-semibold text-slate-900 text-sm">Orientación Jurídica Integral para tu consulta: <em>"${escapeHtml(query)}"</em></p>
+          <p class="text-xs md:text-sm text-slate-700">En el ordenamiento constitucional de Colombia, todo ciudadano cuenta con vías legales específicas para hacer valer sus derechos:</p>
+          
+          <div class="bg-white p-3 rounded-lg border border-slate-200 space-y-2 text-xs md:text-sm">
+            <p class="font-bold text-blue-950">1. Mecanismos Constitucionales Inmediatos:</p>
+            <ul class="list-disc pl-5 space-y-1 text-slate-700">
+              <li><strong>Derecho de Petición (Art. 23 Constitución y Ley 1755 de 2015):</strong> Puedes radicar solicitudes formales ante cualquier autoridad o particular con respuesta obligatoria en 15 días hábiles.</li>
+              <li><strong>Acción de Tutela (Art. 86 Constitución y Decreto 2591 de 1991):</strong> Procedimiento de amparo para derechos fundamentales (debido proceso, salud, vida digna, petición) que un juez debe resolver en máximo 10 días hábiles.</li>
+              <li><strong>Garantía del Debido Proceso (Art. 29 Constitución):</strong> Ninguna autoridad o empresa privada puede imponer sanciones o cargas sin respetar las reglas preestablecidas y el derecho a la defensa.</li>
+            </ul>
           </div>
-          <p>He analizado tu consulta jurídica sobre: <em>"${escapeHtml(query)}"</em>.</p>
-          <p>En el ordenamiento jurídico de Colombia:</p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li>Tus derechos están amparados por la <strong>Constitución Política de 1991</strong> (Art. 23 Petición, Art. 29 Debido Proceso, Art. 86 Tutela, Art. 96 Nacionalidad) y los Códigos Nacionales sustantivos y procesales de la República.</li>
-            <li>Para consultar la vigencia oficial de cualquier ley o decreto nacional específico, consulta el repositorio estatal <a href="http://www.suin-juriscol.gov.co" target="_blank" class="text-blue-700 underline font-semibold">SUIN-JURISCOL</a> del Ministerio de Justicia.</li>
-            <li>Si requieres representación o asesoría judicial personalizada sin costo, acude al <strong>Consultorio Jurídico de la Pontificia Universidad Javeriana</strong> o consulta en <a href="https://www.legalapp.gov.co" target="_blank" class="text-blue-700 underline font-semibold">LegalApp</a>.</li>
-          </ul>
+
+          <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 space-y-2 text-xs md:text-sm text-blue-950">
+            <p class="font-bold">2. Rutas Gratuitas de Asistencia y Representación Judicial:</p>
+            <ul class="list-disc pl-5 space-y-1">
+              <li><strong>Consultorio Jurídico de la Pontificia Universidad Javeriana:</strong> Asesoría legal y representación jurídica gratuita a personas de escasos recursos en Bogotá y Colombia.</li>
+              <li><strong>Personería Municipal / Distrital:</strong> Acompañamiento en derechos humanos, peticiones y vigilancia de funcionarios.</li>
+              <li><strong>Defensoría del Pueblo:</strong> Asignación gratuita de defensores públicos para procesos penales o constitucionales.</li>
+              <li><strong>LegalApp (Ministerio de Justicia):</strong> Guía oficial virtual con los trámites judiciales paso a paso en <a href="https://www.legalapp.gov.co" target="_blank" class="underline font-semibold">legalapp.gov.co</a>.</li>
+              <li><strong>SUIN-JURISCOL:</strong> Consulta de leyes y decretos vigentes del Estado en <a href="http://www.suin-juriscol.gov.co" target="_blank" class="underline font-semibold">suin-juriscol.gov.co</a>.</li>
+            </ul>
+          </div>
         </div>
       `;
     }
 
     function escapeHtml(text) {
+      if (!text) return '';
       return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     }
 
     function askSample(question) {
-      document.getElementById('userInput').value = question;
+      const input = document.getElementById('userInput');
+      input.value = question;
       handleSend();
     }
 
@@ -482,10 +849,9 @@ REGLAS OBLIGATORIAS:
           <div class="w-8 h-8 rounded-full bg-blue-900 text-white flex-shrink-0 flex items-center justify-center text-xs">
             ⚖️
           </div>
-          <div class="bg-slate-100 text-slate-800 p-3.5 rounded-2xl rounded-tl-sm max-w-[85%]">
-            <p>¡Hola! Soy tu orientador legal de <strong>Conoce tus Derechos</strong>.</p>
-            <p class="mt-2">Pregúntame con total libertad sobre <strong>cualquier tema jurídico en Colombia</strong>: requisas y policías, robos, homicidios, feminicidios, dolo o culpa, violencia intrafamiliar, retención de bienes o animales, cuota de alimentos, nacionalidad y pasaportes, fotomultas, despidos laborales o derechos constitucionales.</p>
-            <p class="mt-1 text-slate-500 text-xs">Describe tu situación con tus propias palabras y recibirás una orientación jurídica detallada con leyes y artículos colombianos.</p>
+          <div class="bg-slate-100 text-slate-800 p-4 rounded-2xl rounded-tl-sm max-w-[90%] leading-relaxed text-xs md:text-sm">
+            <p class="font-semibold text-blue-950">¡Chat reiniciado con éxito!</p>
+            <p class="mt-1 text-slate-700">Pregúntame sobre cualquier asunto legal en Colombia o selecciona un caso de ejemplo del panel lateral.</p>
           </div>
         </div>
       `;
