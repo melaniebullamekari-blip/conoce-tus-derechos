@@ -1,492 +1,1144 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-tema="claro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conoce tus Derechos — Asistente Jurídico Integral de Colombia</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Conoce tus Derechos · Orientador jurídico ciudadano</title>
+  <meta name="description" content="Orientador jurídico ciudadano de Colombia. Explica tus derechos en lenguaje claro, con las normas aplicables y los canales oficiales gratuitos." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖️</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Utilidades que usa el motor jurídico local -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-    body { font-family: 'Inter', sans-serif; }
-    .chat-bubble { animation: fadeIn 0.25s ease-in-out; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(5px); }
-      to { opacity: 1; transform: translateY(0); }
+    :root {
+      color-scheme: light;
+      --fondo: #fff7fa;
+      --fondo-2: #ffe9f1;
+      --superficie: #ffffff;
+      --superficie-2: #fff2f7;
+      --tinta: #3d2430;
+      --tinta-suave: #8b6b78;
+      --borde: #f6d7e2;
+      --acento: #e8799f;
+      --acento-2: #c94d78;
+      --acento-suave: #ffe3ec;
+      --ok: #2f9e6f;
+      --alerta: #c98a3c;
+      --sombra: 0 24px 60px -34px rgba(201, 77, 120, 0.55);
+      --topbar: rgba(255, 247, 250, 0.82);
+      --radio: 24px;
     }
-    .markdown-body h1, .markdown-body h2, .markdown-body h3 {
+
+    [data-tema="oscuro"] {
+      color-scheme: dark;
+      --fondo: #150f13;
+      --fondo-2: #231520;
+      --superficie: #201720;
+      --superficie-2: #2a1e28;
+      --tinta: #f7e7ee;
+      --tinta-suave: #b99aa7;
+      --borde: #3b2833;
+      --acento: #f2a0bc;
+      --acento-2: #ffc2d5;
+      --acento-suave: #3a2230;
+      --ok: #5fd3a0;
+      --alerta: #e0ad63;
+      --sombra: 0 24px 60px -30px rgba(0, 0, 0, 0.85);
+      --topbar: rgba(21, 15, 19, 0.82);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--tinta);
+      background:
+        radial-gradient(900px 500px at 8% -8%, var(--fondo-2), transparent 70%),
+        radial-gradient(700px 420px at 100% 0%, var(--acento-suave), transparent 65%),
+        var(--fondo);
+      background-attachment: fixed;
+      min-height: 100dvh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .serif { font-family: "Fraunces", Georgia, serif; }
+
+    button { font-family: inherit; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px clamp(14px, 4vw, 34px);
+      background: var(--topbar);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--borde);
+    }
+
+    .marca { display: flex; align-items: center; gap: 12px; min-width: 0; }
+
+    .logo {
+      width: 44px; height: 44px; flex: none;
+      display: grid; place-items: center;
+      border-radius: 15px;
+      color: #fff;
+      background: linear-gradient(140deg, #f7a8c4, #d4557f);
+      box-shadow: 0 10px 22px -12px rgba(212, 85, 127, 0.9);
+    }
+
+    .logo svg { width: 22px; height: 22px; }
+
+    .marca h1 {
+      margin: 0;
+      font-size: 1.12rem;
       font-weight: 700;
-      color: #0f172a;
-      margin-top: 0.75rem;
-      margin-bottom: 0.35rem;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
     }
-    .markdown-body h2 { font-size: 1.05rem; }
-    .markdown-body h3 { font-size: 0.95rem; }
-    .markdown-body ul, .markdown-body ol {
-      margin-left: 1.25rem;
-      margin-top: 0.35rem;
-      margin-bottom: 0.5rem;
+
+    .marca p {
+      margin: 1px 0 0;
+      font-size: 0.74rem;
+      color: var(--tinta-suave);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-    .markdown-body ul { list-style-type: disc; }
-    .markdown-body ol { list-style-type: decimal; }
-    .markdown-body li { margin-bottom: 0.25rem; }
-    .markdown-body p { margin-bottom: 0.5rem; }
-    .markdown-body strong { font-weight: 600; color: #0f172a; }
+
+    .barra-acciones { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+
+    .pastilla {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 7px 12px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border: 1px solid var(--borde);
+      border-radius: 999px;
+      background: var(--superficie);
+      color: var(--tinta-suave);
+      white-space: nowrap;
+    }
+
+    .punto { width: 7px; height: 7px; border-radius: 50%; background: var(--tinta-suave); }
+    .pastilla--ok .punto { background: var(--ok); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ok) 18%, transparent); }
+    .pastilla--local .punto { background: var(--alerta); box-shadow: 0 0 0 3px color-mix(in srgb, var(--alerta) 18%, transparent); }
+
+    .boton {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 9px 13px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--tinta);
+      background: var(--superficie);
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: border-color 0.18s, background 0.18s, transform 0.18s;
+    }
+
+    .boton:hover { border-color: var(--acento); background: var(--acento-suave); }
+    .boton:active { transform: scale(0.97); }
+    .boton svg { width: 15px; height: 15px; }
+    .boton--icono { padding: 9px; }
+    .boton--icono span { display: none; }
+
+    @media (min-width: 780px) {
+      .boton--icono span { display: inline; }
+    }
+
+    .contenedor {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: clamp(14px, 2.4vw, 26px) clamp(12px, 3vw, 24px) 46px;
+      display: grid;
+      grid-template-columns: 296px minmax(0, 1fr);
+      gap: clamp(14px, 2vw, 24px);
+      align-items: start;
+    }
+
+    .lateral { display: grid; gap: 14px; position: sticky; top: 84px; }
+
+    .panel {
+      background: var(--superficie);
+      border: 1px solid var(--borde);
+      border-radius: 20px;
+      padding: 16px 16px 14px;
+    }
+
+    .panel h2 {
+      margin: 0 0 10px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .panel p { margin: 0 0 10px; font-size: 0.8rem; line-height: 1.55; color: var(--tinta-suave); }
+
+    .categorias { display: grid; gap: 2px; }
+
+    .categoria {
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      width: 100%;
+      padding: 7px 9px;
+      font-size: 0.83rem;
+      text-align: left;
+      color: var(--tinta);
+      background: transparent;
+      border: 0;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: background 0.16s, color 0.16s;
+    }
+
+    .categoria:hover { background: var(--acento-suave); color: var(--acento-2); }
+    .categoria small { color: var(--tinta-suave); font-size: 0.7rem; }
+
+    .fuentes { display: grid; gap: 7px; margin: 0; padding: 0; list-style: none; }
+
+    .fuentes a {
+      font-size: 0.79rem;
+      color: var(--tinta-suave);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 7px;
+    }
+
+    .fuentes a:hover { color: var(--acento-2); text-decoration: underline; }
+    .fuentes svg { width: 12px; height: 12px; flex: none; opacity: 0.7; }
+
+    .sello {
+      display: inline-block;
+      padding: 3px 8px;
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--acento-2);
+      background: var(--acento-suave);
+      border-radius: 999px;
+    }
+
+    .chat {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      height: calc(100dvh - 190px);
+      min-height: 540px;
+      background: var(--superficie);
+      border: 1px solid var(--borde);
+      border-radius: var(--radio);
+      box-shadow: var(--sombra);
+      overflow: hidden;
+    }
+
+    .chat__cabecera {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--borde);
+      background: linear-gradient(180deg, var(--superficie-2), var(--superficie));
+    }
+
+    .chat__cabecera strong { font-size: 0.85rem; font-weight: 600; }
+    .chat__cabecera span { font-size: 0.72rem; color: var(--tinta-suave); }
+
+    .mensajes {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 22px clamp(14px, 3vw, 26px);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      scroll-behavior: smooth;
+    }
+
+    .mensajes::-webkit-scrollbar { width: 9px; }
+    .mensajes::-webkit-scrollbar-thumb { background: var(--borde); border-radius: 99px; }
+    .mensajes::-webkit-scrollbar-thumb:hover { background: var(--acento); }
+
+    .bienvenida { margin: auto 0; text-align: center; padding: 14px 6px 6px; }
+
+    .bienvenida h2 {
+      margin: 14px 0 6px;
+      font-size: clamp(1.35rem, 3.4vw, 1.7rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .bienvenida p {
+      margin: 0 auto 18px;
+      max-width: 44ch;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--tinta-suave);
+    }
+
+    .bienvenida__icono {
+      width: 62px; height: 62px;
+      margin: 0 auto;
+      display: grid; place-items: center;
+      border-radius: 20px;
+      color: var(--acento-2);
+      background: var(--acento-suave);
+    }
+
+    .bienvenida__icono svg { width: 30px; height: 30px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 620px; margin: 0 auto; }
+
+    .chip {
+      padding: 9px 13px;
+      font-size: 0.8rem;
+      color: var(--tinta);
+      background: var(--superficie);
+      border: 1px solid var(--borde);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: border-color 0.16s, background 0.16s, transform 0.16s;
+    }
+
+    .chip:hover { border-color: var(--acento); background: var(--acento-suave); transform: translateY(-1px); }
+
+    .mensaje { display: flex; gap: 10px; align-items: flex-start; animation: aparecer 0.28s ease both; }
+    .mensaje--usuario { justify-content: flex-end; }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    .avatar {
+      width: 32px; height: 32px; flex: none;
+      display: grid; place-items: center;
+      border-radius: 11px;
+      color: #fff;
+      font-size: 0.85rem;
+      background: linear-gradient(140deg, #f7a8c4, #d4557f);
+      box-shadow: 0 6px 14px -8px rgba(212, 85, 127, 0.9);
+    }
+
+    .avatar svg { width: 16px; height: 16px; }
+
+    .cuerpo { min-width: 0; max-width: 82%; }
+    .mensaje--usuario .cuerpo { max-width: 76%; }
+
+    .burbuja {
+      padding: 12px 15px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      border-radius: 17px;
+      overflow-wrap: anywhere;
+    }
+
+    .mensaje--usuario .burbuja {
+      color: #fff;
+      background: linear-gradient(135deg, #f28fb2, #d4557f);
+      border-bottom-right-radius: 5px;
+      box-shadow: 0 12px 26px -18px rgba(212, 85, 127, 0.95);
+    }
+
+    .mensaje--ia .burbuja {
+      background: var(--superficie-2);
+      border: 1px solid var(--borde);
+      border-bottom-left-radius: 5px;
+    }
+
+    .acciones { display: flex; gap: 4px; margin-top: 7px; opacity: 0; transition: opacity 0.18s; }
+    .mensaje:hover .acciones, .mensaje:focus-within .acciones { opacity: 1; }
+    @media (hover: none) { .acciones { opacity: 1; } }
+
+    .mini {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 4px 8px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--tinta-suave);
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .mini:hover { color: var(--acento-2); border-color: var(--borde); background: var(--superficie); }
+    .mini svg { width: 12px; height: 12px; }
+
+    /* Markdown dentro de las respuestas */
+    .md > :first-child { margin-top: 0; }
+    .md > :last-child { margin-bottom: 0; }
+    .md h3 { margin: 13px 0 6px; font-size: 0.95rem; font-weight: 600; letter-spacing: -0.01em; }
+    .md p { margin: 7px 0; }
+    .md ul, .md ol { margin: 6px 0; padding-left: 1.2rem; }
+    .md li { margin: 4px 0; }
+    .md strong { font-weight: 600; color: var(--tinta); }
+    .md a { color: var(--acento-2); text-decoration: underline; text-underline-offset: 2px; }
+    .md blockquote { margin: 8px 0; padding: 2px 0 2px 12px; border-left: 3px solid var(--acento); color: var(--tinta-suave); }
+    .md hr { border: 0; border-top: 1px solid var(--borde); margin: 12px 0; }
+    .md code { font-size: 0.85em; padding: 1px 5px; border-radius: 5px; background: var(--acento-suave); }
+
+    /* El motor local trae clases azules: las alineamos con el tema rosa */
+    .md .text-blue-950, .md .text-blue-900, .md .text-slate-900 { color: var(--tinta) !important; }
+    .md .text-slate-700, .md .text-slate-500 { color: var(--tinta-suave) !important; }
+    .md .bg-blue-50, .md .bg-slate-50, .md .bg-white { background: var(--superficie) !important; }
+    .md .border-blue-200, .md .border-slate-200 { border-color: var(--borde) !important; }
+    .md .text-blue-700, .md .text-blue-800 { color: var(--acento-2) !important; }
+    .md .bg-amber-50 { background: color-mix(in srgb, var(--alerta) 12%, var(--superficie)) !important; }
+    .md .border-amber-200 { border-color: color-mix(in srgb, var(--alerta) 45%, var(--borde)) !important; }
+    .md .text-amber-700 { color: var(--alerta) !important; }
+
+    .cursor {
+      display: inline-block;
+      width: 7px; height: 1.05em;
+      margin-left: 2px;
+      vertical-align: -2px;
+      border-radius: 2px;
+      background: var(--acento);
+      animation: parpadeo 1s steps(2, start) infinite;
+    }
+
+    @keyframes parpadeo { 50% { opacity: 0; } }
+
+    .escribiendo { display: inline-flex; gap: 4px; padding: 4px 0; }
+    .escribiendo i {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--acento);
+      animation: saltar 1.1s infinite ease-in-out;
+    }
+    .escribiendo i:nth-child(2) { animation-delay: 0.15s; }
+    .escribiendo i:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes saltar { 0%, 60%, 100% { transform: none; opacity: 0.45; } 30% { transform: translateY(-4px); opacity: 1; } }
+
+    .redactor {
+      padding: 12px 16px 10px;
+      border-top: 1px solid var(--borde);
+      background: var(--superficie);
+    }
+
+    .redactor__caja {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      padding: 7px 7px 7px 14px;
+      background: var(--superficie-2);
+      border: 1px solid var(--borde);
+      border-radius: 18px;
+      transition: border-color 0.16s, box-shadow 0.16s;
+    }
+
+    .redactor__caja:focus-within {
+      border-color: var(--acento);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--acento) 16%, transparent);
+    }
+
+    textarea {
+      flex: 1;
+      min-height: 24px;
+      max-height: 150px;
+      padding: 8px 0;
+      font: inherit;
+      font-size: 0.92rem;
+      line-height: 1.45;
+      color: var(--tinta);
+      background: transparent;
+      border: 0;
+      outline: none;
+      resize: none;
+    }
+
+    textarea::placeholder { color: var(--tinta-suave); opacity: 0.8; }
+
+    .enviar {
+      width: 40px; height: 40px; flex: none;
+      display: grid; place-items: center;
+      color: #fff;
+      border: 0;
+      border-radius: 13px;
+      cursor: pointer;
+      background: linear-gradient(140deg, #f28fb2, #d4557f);
+      transition: transform 0.16s, opacity 0.16s;
+    }
+
+    .enviar:hover { transform: scale(1.04); }
+    .enviar:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+    .enviar svg { width: 17px; height: 17px; }
+
+    .pista {
+      margin: 7px 4px 0;
+      font-size: 0.7rem;
+      color: var(--tinta-suave);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .pie {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 clamp(16px, 4vw, 30px) 30px;
+      font-size: 0.72rem;
+      line-height: 1.6;
+      color: var(--tinta-suave);
+      text-align: center;
+    }
+
+    .pie a { color: var(--acento-2); text-decoration: none; }
+    .pie a:hover { text-decoration: underline; }
+
+    .aviso {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      z-index: 80;
+      transform: translate(-50%, 16px);
+      max-width: min(92vw, 460px);
+      padding: 11px 16px;
+      font-size: 0.8rem;
+      color: var(--fondo);
+      background: var(--tinta);
+      border-radius: 999px;
+      box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .aviso--visible { opacity: 1; transform: translate(-50%, 0); }
+
+    @media (max-width: 1000px) {
+      .contenedor { grid-template-columns: minmax(0, 1fr); }
+      .lateral { display: none; }
+      .chat { height: calc(100dvh - 156px); }
+    }
+
+    @media (max-width: 560px) {
+      .marca p { display: none; }
+      .marca h1 { font-size: 1rem; }
+      .cuerpo { max-width: 100%; }
+      .mensaje--usuario .cuerpo { max-width: 88%; }
+      .pista span:last-child { display: none; }
+      .chat__cabecera span { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+    }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
 
-  <!-- Encabezado Principal -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-20 shadow-sm">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-xl bg-blue-900 text-white flex items-center justify-center font-bold text-xl shadow-md">
-          ⚖️
-        </div>
-        <div>
-          <h1 class="text-lg md:text-xl font-bold text-blue-950 leading-tight">Conoce tus Derechos</h1>
-          <p class="text-xs text-slate-500">Pontificia Universidad Javeriana · Asistente Jurídico Integral de Colombia</p>
-        </div>
+<body>
+  <header class="topbar">
+    <div class="marca">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3v18M7 21h10M5 7h14M5 7l-3 6a3.5 3.5 0 0 0 6 0L5 7zm14 0l-3 6a3.5 3.5 0 0 0 6 0l-3-6z"/>
+        </svg>
       </div>
-      
-      <div class="flex items-center gap-3">
-        <!-- Botón para configurar API Key opcional -->
-        <button onclick="toggleConfigModal(true)" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-2.5 py-1.5 rounded-lg border border-slate-300 transition flex items-center gap-1.5 font-medium shadow-sm">
-          <i class="fa-solid fa-gear text-slate-500"></i>
-          <span class="hidden sm:inline">Configurar</span> IA
-        </button>
+      <div>
+        <h1>Conoce tus Derechos</h1>
+        <p>Tu orientador jurídico ciudadano · Colombia</p>
+      </div>
+    </div>
 
-        <div class="text-right hidden md:block">
-          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 mr-1.5 animate-pulse"></span> Sistema Activo · Colombia 🇨🇴
-          </span>
-          <p class="text-[11px] text-slate-400 mt-0.5">Melanie Bulla & Valeria Suarez</p>
-        </div>
-      </div>
+    <div class="barra-acciones">
+      <span class="pastilla" id="estadoIA" title="Estado del motor de respuestas">
+        <span class="punto"></span><span id="estadoTexto">Comprobando IA…</span>
+      </span>
+
+      <button class="boton boton--icono" id="btnExportar" type="button" title="Exportar conversación">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+        <span>Exportar</span>
+      </button>
+
+      <button class="boton boton--icono" id="btnTema" type="button" title="Cambiar tema">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"/></svg>
+        <span>Tema</span>
+      </button>
+
+      <button class="boton boton--icono" id="btnNueva" type="button" title="Nueva consulta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+        <span>Nueva</span>
+      </button>
     </div>
   </header>
 
-  <!-- Contenedor Central -->
-  <main class="max-w-6xl mx-auto px-4 py-4 flex-1 w-full flex flex-col gap-4">
-
-    <!-- Advertencia Legal Visible Obligatoria (Parte 6 de la Rúbrica) -->
-    <div class="bg-amber-50 border-l-4 border-amber-500 p-3.5 rounded-r-lg shadow-sm flex items-start gap-3">
-      <i class="fa-solid fa-triangle-exclamation text-amber-600 text-lg mt-0.5"></i>
-      <div class="text-xs md:text-sm text-amber-900 leading-relaxed">
-        <strong class="font-semibold">Advertencia legal visible obligatoria:</strong> Esta herramienta es un ejercicio académico con fines exclusivamente pedagógicos e informativos. 
-        <strong>No constituye asesoría jurídica formal ni sustituye la consulta con un profesional del derecho.</strong>
-      </div>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 flex-1">
-      
-      <!-- Columna Lateral: Consultas Frecuentes y Marco Normativo -->
-      <aside class="space-y-4 lg:col-span-1 order-2 lg:order-1">
-        
-        <!-- Consultas Rápidas -->
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm max-h-[480px] overflow-y-auto">
-          <h2 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2.5 flex items-center justify-between">
-            <span class="flex items-center gap-2"><i class="fa-regular fa-lightbulb text-amber-500"></i> Casos y Preguntas Frecuentes</span>
-            <span class="text-[10px] text-blue-800 bg-blue-50 px-2 py-0.5 rounded-full">Clic para consultar</span>
-          </h2>
-          <div class="space-y-1.5 text-xs">
-            <button onclick="askSample('¿Es legal que me bajen del carro para requisarme en Colombia?')" class="w-full text-left p-2 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-950 transition border border-blue-200">
-              👮 ¿Es legal que me bajen del carro para requisarme?
-            </button>
-            <button onclick="askSample('Si tengo un caballo que costó 80 millones y debo 7 meses de mantenimiento, ¿el club o entrenador se vuelve dueño?')" class="w-full text-left p-2 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-950 transition border border-emerald-200">
-              🐴 Deuda de mantenimiento y retención de un caballo
-            </button>
-            <button onclick="askSample('Si nací en Colombia, mi mamá es de Venezuela y tiene nacionalidad libanesa, ¿qué nacionalidad tengo y qué leyes aplican?')" class="w-full text-left p-2 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-950 transition border border-indigo-200">
-              🇨🇴 Nacionalidad, ius solis, ius sanguinis y doble ciudadanía
-            </button>
-            <button onclick="askSample('Me robaron el celular en la calle a mano armada, ¿cómo denuncio y qué delito es?')" class="w-full text-left p-2 rounded-lg bg-red-50 hover:bg-red-100 text-red-950 transition border border-red-200">
-              🚨 Robo a mano armada / Hurto calificado
-            </button>
-            <button onclick="askSample('¿Cuánto tiempo tiene la policía para legalizar una captura en flagrancia ante el juez?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
-              🚔 Término de flagrancia y 36 horas (Art. 302 CPP)
-            </button>
-            <button onclick="askSample('Mi pareja me agredió físicamente, ¿cómo solicito el desalojo en Comisaría de Familia?')" class="w-full text-left p-2 rounded-lg bg-purple-50 hover:bg-purple-100 text-purple-950 transition border border-purple-200">
-              🛡️ Violencia intrafamiliar y medidas de desalojo
-            </button>
-            <button onclick="askSample('¿Cuál es la diferencia entre dolo, culpa, preterintención y legítima defensa en el Código Penal?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
-              ⚖️ Dolo, culpa, preterintención y legítima defensa
-            </button>
-            <button onclick="askSample('¿Cómo fijo la cuota de alimentos de mis hijos y qué sanciones tiene el reporte en el REDAM?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
-              👨‍👩‍👧 Cuota de alimentos, embargo y REDAM
-            </button>
-            <button onclick="askSample('¿Cómo impugno una fotomulta si yo no iba conduciendo según la Sentencia C-038 de 2020?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
-              🚗 Fotomultas y Sentencia C-038/20
-            </button>
-            <button onclick="askSample('Me despidieron sin justa causa de mi trabajo, ¿qué liquidación e indemnización me deben pagar?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
-              💼 Despido sin justa causa y liquidación (CST)
-            </button>
-            <button onclick="askSample('¿Cuánto tiempo puede durar un reporte negativo en Datacrédito y cómo aplica borrón y cuenta nueva?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
-              💳 Datacrédito y caducidad de reportes negativos
-            </button>
-            <button onclick="askSample('Me llaman a cobrar en domingo y festivos, ¿qué dice la Ley Dejen de Fregar (Ley 2300 de 2023)?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
-              📞 Cobranza abusiva y Ley Dejen de Fregar
-            </button>
-            <button onclick="askSample('¿Cuánto me pueden subir el arriendo este año y es legal que me pidan depósito en efectivo?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
-              🏠 Arrendamiento: IPC y prohibición de depósitos
-            </button>
-            <button onclick="askSample('Compré por internet y el producto salió defectuoso, ¿cómo ejerzo la garantía o el derecho de retracto?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
-              🛍️ Garantía legal y derecho de retracto (Ley 1480/11)
-            </button>
-            <button onclick="askSample('¿Cuánto tiempo tiene una entidad para responder un derecho de petición en Colombia?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
-              📝 Términos del Derecho de Petición (Ley 1755/15)
-            </button>
-            <button onclick="askSample('La EPS me negó un medicamento o cirugía urgente, ¿cómo interpongo una Acción de Tutela?')" class="w-full text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-800 transition border border-slate-200">
-              🏥 Tutela en salud y desacato (Ley 1751/15)
-            </button>
-          </div>
-        </div>
-
-        <!-- Marco Jurídico Oficial -->
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm text-xs max-h-[260px] overflow-y-auto">
-          <h2 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 flex items-center gap-2">
-            <i class="fa-solid fa-book-bookmark text-blue-700"></i> Corpus Jurídico Integrado (20+ Fuentes)
-          </h2>
-          <ul class="space-y-1.5 text-[11px] text-slate-600">
-            <li><a href="./constitucion_politica_colombia_completa.md" target="_blank" class="text-blue-700 hover:underline">🏛️ Constitución Política de 1991 (380 Artículos)</a></li>
-            <li><a href="./codigo_penal_delitos_vida_patrimonio.md" target="_blank" class="text-blue-700 hover:underline">⚖️ Código Penal (Dolo, Homicidio, Hurto, Feminicidio)</a></li>
-            <li><a href="./ley_906_2004_procedimiento_penal_denuncia.md" target="_blank" class="text-blue-700 hover:underline">🚔 CPP Ley 906/04 (Denuncia, Flagrancia y Término 36h)</a></li>
-            <li><a href="./compendio_codigos_nacionales_colombia.md" target="_blank" class="text-blue-700 hover:underline">📚 Códigos Civil, Comercio, CGP, CPACA</a></li>
-            <li><a href="./sentencias_hito_corte_constitucional.md" target="_blank" class="text-blue-700 hover:underline">⚖️ Sentencias Hito de la Corte Constitucional</a></li>
-            <li><a href="./ley_1257_2008_violencia_genero_intrafamiliar.md" target="_blank" class="text-blue-700 hover:underline">🛡️ Ley 1257/08 (Violencia Intrafamiliar y Desalojo)</a></li>
-            <li><a href="./codigo_infancia_adolescencia_familia.md" target="_blank" class="text-blue-700 hover:underline">👨‍👩‍👧 Ley 1098/06 y REDAM (Alimentos y Embargos)</a></li>
-            <li><a href="./ley_769_2002_transito_fotomultas_accidentes.md" target="_blank" class="text-blue-700 hover:underline">🚗 Código de Tránsito (Fotomultas y Choques)</a></li>
-            <li><a href="./codigo_sustantivo_trabajo.md" target="_blank" class="text-blue-700 hover:underline">💼 CST (Derecho Laboral y Despidos)</a></li>
-            <li><a href="./guia_suin_juriscol_fuentes_oficiales.md" target="_blank" class="text-blue-700 hover:underline">🌐 SUIN-JURISCOL (Leyes y Decretos Oficiales)</a></li>
-          </ul>
-        </div>
-
-      </aside>
-
-      <!-- Columna Principal: Chat Interactivo con Asistente Jurídico -->
-      <section class="lg:col-span-2 order-1 lg:order-2 flex flex-col bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden min-h-[620px]">
-        
-        <!-- Barra de herramientas del chat -->
-        <div class="px-4 py-3 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
-          <div class="flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span class="text-xs font-semibold text-slate-700">Orientador Legal Inteligente · Cobertura Total de Colombia</span>
-          </div>
-          <button onclick="clearChat()" class="text-xs text-slate-500 hover:text-slate-800 flex items-center gap-1 transition">
-            <i class="fa-solid fa-arrow-rotate-right"></i> Reiniciar
-          </button>
-        </div>
-
-        <!-- Área de mensajes -->
-        <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-4 text-sm leading-relaxed max-h-[540px]">
-          
-          <!-- Mensaje de bienvenida inicial -->
-          <div class="flex items-start gap-3 chat-bubble">
-            <div class="w-8 h-8 rounded-full bg-blue-900 text-white flex-shrink-0 flex items-center justify-center text-xs">
-              ⚖️
-            </div>
-            <div class="bg-slate-100 text-slate-800 p-4 rounded-2xl rounded-tl-sm max-w-[90%] leading-relaxed">
-              <p class="font-semibold text-blue-950">¡Bienvenido a Conoce tus Derechos!</p>
-              <p class="mt-2 text-xs md:text-sm">Soy tu orientador jurídico integral para el ordenamiento de <strong>Colombia</strong>. Puedes consultarme con total libertad sobre <strong>cualquier tema legal o situación cotidiana</strong>, por ejemplo:</p>
-              <ul class="list-disc pl-5 mt-2 space-y-1 text-xs text-slate-700">
-                <li><strong>Tránsito y Policía:</strong> Requisas en vehículos, guardas vs policía, derecho a filmar con celular y fotomultas.</li>
-                <li><strong>Penal:</strong> Robos, armas, escopolamina, flagrancia de 36 horas, dolo, culpa, homicidios y feminicidios.</li>
-                <li><strong>Familia y Género:</strong> Violencia intrafamiliar, medidas de desalojo inmediato, cuota de alimentos y REDAM.</li>
-                <li><strong>Civil y Bienes:</strong> Derecho de retención, animales como seres sintientes, contrato de mantenimiento y deudas.</li>
-                <li><strong>Constitucional y Laboral:</strong> Doble nacionalidad, pasaportes, despidos injustificados, tutela y derechos de petición.</li>
-              </ul>
-              <p class="mt-2.5 text-xs text-slate-500">Escribe tu situación abajo con tus propias palabras o pulsa cualquier botón de ejemplo a la izquierda.</p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Barra de entrada de texto -->
-        <div class="p-3 border-t border-slate-200 bg-white">
-          <form id="chatForm" onsubmit="handleSend(event)" class="flex gap-2">
-            <input 
-              type="text" 
-              id="userInput" 
-              placeholder="Escribe tu consulta jurídica o describe tu situación en Colombia..." 
-              autocomplete="off"
-              class="flex-1 border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-transparent transition"
-            />
-            <button 
-              type="submit" 
-              id="sendBtn"
-              class="bg-blue-900 hover:bg-blue-800 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition flex items-center gap-2 shadow-sm"
-            >
-              <span>Consultar</span>
-              <i class="fa-solid fa-paper-plane text-xs"></i>
-            </button>
-          </form>
-          <div class="mt-2 text-[11px] text-slate-400 text-center">
-            Orientación pedagógica basada en leyes colombianas vigentes. Consulta a un abogado para trámites judiciales formales.
-          </div>
-        </div>
-
+  <main class="contenedor">
+    <aside class="lateral">
+      <section class="panel">
+        <h2>Consultas frecuentes</h2>
+        <div class="categorias" id="categorias"></div>
       </section>
 
-    </div>
+      <section class="panel">
+        <h2>Fuentes oficiales</h2>
+        <ul class="fuentes">
+          <li><a href="http://www.suin-juriscol.gov.co" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>SUIN-JURISCOL</a></li>
+          <li><a href="https://www.corteconstitucional.gov.co/relatoria/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>Relatoría Corte Constitucional</a></li>
+          <li><a href="https://www.legalapp.gov.co" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>LegalApp</a></li>
+          <li><a href="https://adenunciar.policia.gov.co" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>A Denunciar (24/7)</a></li>
+        </ul>
+      </section>
 
+      <section class="panel">
+        <h2>Proyecto académico</h2>
+        <p>Pontificia Universidad Javeriana · 2026-II<br />Docente: Pedro Ardila<br />Melanie Bulla &amp; Valeria Suarez</p>
+        <span class="sello">Ejercicio pedagógico</span>
+      </section>
+    </aside>
+
+    <section class="chat" aria-label="Chat de orientación jurídica">
+      <div class="chat__cabecera">
+        <strong>Consulta jurídica</strong>
+        <span>Respuestas con IA sobre el compendio normativo colombiano</span>
+      </div>
+
+      <div class="mensajes" id="mensajes" aria-live="polite">
+        <div class="bienvenida" id="bienvenida">
+          <div class="bienvenida__icono">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.4 9.4 0 0 1-3.4-.6L4 21l1.7-4.1A8.4 8.4 0 0 1 3 11.5a8.4 8.4 0 0 1 9-8.4 8.4 8.4 0 0 1 9 8.4z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01"/></svg>
+          </div>
+          <h2>Cuéntame qué te pasó</h2>
+          <p>Describe tu situación en tus palabras. Te explico qué derechos te amparan, qué normas aplican y qué pasos puedes seguir, sin lenguaje complicado.</p>
+          <div class="chips" id="chipsBienvenida"></div>
+        </div>
+      </div>
+
+      <div class="redactor">
+        <form id="formChat" autocomplete="off">
+          <div class="redactor__caja">
+            <textarea id="entrada" rows="1" placeholder="Ej: mi arrendador me quiere subir el arriendo sin avisar…" aria-label="Escribe tu consulta"></textarea>
+            <button class="enviar" id="btnEnviar" type="submit" aria-label="Enviar consulta">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            </button>
+          </div>
+        </form>
+        <p class="pista">
+          <span>Enter envía · Shift + Enter salto de línea</span>
+          <span id="contador">0 caracteres</span>
+        </p>
+      </div>
+    </section>
   </main>
 
-  <!-- Modal de Configuración de API Key (Opcional) -->
-  <div id="configModal" class="fixed inset-0 bg-slate-900/60 z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200">
-      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
-        <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
-          <i class="fa-solid fa-sliders text-blue-900"></i> Configuración del Asistente IA
-        </h3>
-        <button onclick="toggleConfigModal(false)" class="text-slate-400 hover:text-slate-600 text-lg">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-      
-      <div class="mt-4 space-y-3 text-xs text-slate-600">
-        <p>El asistente responde con <strong>inteligencia artificial</strong> cuando el sitio tiene una clave configurada en el servidor. Si no la tiene, usa el <strong>motor jurídico integrado de Colombia</strong>, que funciona al 100% sin claves externas.</p>
-        <p>Solo si quieres usar <em>tu propia</em> clave de OpenRouter (opcional), puedes ingresarla aquí. Se guarda únicamente en tu navegador:</p>
-        
-        <div>
-          <label class="block font-semibold text-slate-700 mb-1">Clave de API OpenRouter (opcional):</label>
-          <input 
-            type="password" 
-            id="apiKeyInput" 
-            placeholder="sk-or-v1-..."
-            class="w-full border border-slate-300 rounded-lg p-2.5 font-mono text-xs focus:ring-2 focus:ring-blue-900 focus:outline-none"
-          />
-          <p class="text-[11px] text-slate-400 mt-1">Puedes obtener una clave gratuita en <a href="https://openrouter.ai/keys" target="_blank" class="text-blue-700 underline font-medium">openrouter.ai/keys</a>.</p>
-        </div>
-
-        <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 text-[11px]">
-          <strong>Estado actual:</strong> <span id="apiKeyStatus" class="font-semibold text-emerald-700">Motor Jurídico Integrado Activo</span>
-        </div>
-      </div>
-
-      <div class="mt-5 flex gap-2 justify-end">
-        <button onclick="clearCustomApiKey()" class="px-3 py-2 text-xs text-red-600 hover:bg-red-50 rounded-lg font-medium transition">
-          Borrar Clave
-        </button>
-        <button onclick="saveCustomApiKey()" class="px-4 py-2 text-xs bg-blue-900 hover:bg-blue-800 text-white rounded-lg font-semibold transition">
-          Guardar Cambios
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer Institucional -->
-  <footer class="bg-white border-t border-slate-200 py-3.5 text-center text-xs text-slate-500">
-    <div class="max-w-6xl mx-auto px-4">
-      Proyecto Final — Derecho e Inteligencia Artificial · Pontificia Universidad Javeriana 2026-II · Docente: Pedro Ardila · Estudiantes: Melanie Bulla & Valeria Suarez
-    </div>
+  <footer class="pie">
+    Herramienta académica de la Pontificia Universidad Javeriana. No sustituye la asesoría de un abogado.
+    Verifica siempre la vigencia de las normas en <a href="http://www.suin-juriscol.gov.co" target="_blank" rel="noopener">SUIN-JURISCOL</a>.
   </footer>
 
-  <!-- Lógica Inteligente del Asistente Jurídico de Colombia -->
+  <div class="aviso" id="aviso" role="status"></div>
+
   <script>
-    const chatContainer = document.getElementById('chatMessages');
-    const historialConversacion = []; // contexto que se envia a la IA
+    /* ==================== estado y utilidades ==================== */
+    const CLAVE_CHAT = 'ctd_chat_v3';
+    const CLAVE_TEMA = 'ctd_tema_v3';
+    const MAX_GUARDADOS = 40;
+    const MAX_HISTORIAL_ENVIO = 6;
 
-    // Manejo de Clave de API en localStorage
-    function getStoredApiKey() {
-      return localStorage.getItem('conoce_derechos_openrouter_key') || '';
+    const $mensajes = document.getElementById('mensajes');
+    const $bienvenida = document.getElementById('bienvenida');
+    const $entrada = document.getElementById('entrada');
+    const $form = document.getElementById('formChat');
+    const $btnEnviar = document.getElementById('btnEnviar');
+    const $estado = document.getElementById('estadoIA');
+    const $estadoTexto = document.getElementById('estadoTexto');
+    const $aviso = document.getElementById('aviso');
+    const $contador = document.getElementById('contador');
+
+    const estado = {
+      mensajes: [],
+      enviando: false,
+      servidorIA: null,
+      primerToken: false
+    };
+
+    const SUGERENCIAS = [
+      'Me robaron el celular en el bus',
+      'Mi arrendador me quiere subir el arriendo',
+      'Me despidieron sin justa causa',
+      'La EPS no me autoriza una cirugía',
+      'Me llegan llamadas de cobro todos los días',
+      'Quiero poner una tutela por mi salud',
+      'Mi ex no paga la cuota alimentaria',
+      'Me hicieron un cobro que no reconozco'
+    ];
+
+    function icono(nombre) {
+      const trazos = {
+        copiar: '<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/>',
+        texto: '<path d="M4 6h16M4 12h16M4 18h10"/>'
+      };
+      return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + (trazos[nombre] || '') + '</svg>';
     }
 
-    function toggleConfigModal(show) {
-      const modal = document.getElementById('configModal');
-      if (show) {
-        modal.classList.remove('hidden');
-        document.getElementById('apiKeyInput').value = getStoredApiKey();
-        updateApiKeyStatus();
-      } else {
-        modal.classList.add('hidden');
-      }
+    function escaparHtml(texto) {
+      const div = document.createElement('div');
+      div.textContent = texto;
+      return div.innerHTML;
     }
 
-    function updateApiKeyStatus() {
-      const key = getStoredApiKey();
-      const statusEl = document.getElementById('apiKeyStatus');
-      if (servidorIA === true) {
-        statusEl.textContent = 'IA del servidor activa (no necesitas clave)';
-        statusEl.className = 'font-semibold text-blue-800';
-      } else if (key && key.trim().length > 10) {
-        statusEl.textContent = 'IA en la nube (OpenRouter) configurada';
-        statusEl.className = 'font-semibold text-blue-800';
-      } else {
-        statusEl.textContent = 'Motor Jurídico Integrado Autónomo (Sin API Externa)';
-        statusEl.className = 'font-semibold text-emerald-700';
-      }
+    function avisar(mensaje) {
+      $aviso.textContent = mensaje;
+      $aviso.classList.add('aviso--visible');
+      clearTimeout(avisar._t);
+      avisar._t = setTimeout(() => $aviso.classList.remove('aviso--visible'), 4200);
     }
 
-    // Comprueba al cargar si el servidor ya tiene IA configurada.
-    fetch('/api/chat')
-      .then((r) => (r.ok ? r.json() : null))
-      .then((d) => { if (d && d.estado === 'ok') servidorIA = true; })
-      .catch(() => {});
-
-    function saveCustomApiKey() {
-      const key = document.getElementById('apiKeyInput').value.trim();
-      if (key) {
-        localStorage.setItem('conoce_derechos_openrouter_key', key);
-      } else {
-        localStorage.removeItem('conoce_derechos_openrouter_key');
-      }
-      toggleConfigModal(false);
-      updateApiKeyStatus();
+    /* ==================== tema ==================== */
+    function aplicarTema(tema) {
+      document.documentElement.dataset.tema = tema;
+      try { localStorage.setItem(CLAVE_TEMA, tema); } catch (e) {}
+      const boton = document.getElementById('btnTema');
+      boton.title = tema === 'oscuro' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro';
     }
 
-    function clearCustomApiKey() {
-      localStorage.removeItem('conoce_derechos_openrouter_key');
-      document.getElementById('apiKeyInput').value = '';
-      updateApiKeyStatus();
+    function iniciarTema() {
+      let guardado = null;
+      try { guardado = localStorage.getItem(CLAVE_TEMA); } catch (e) {}
+      const prefiereOscuro = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      aplicarTema(guardado || (prefiereOscuro ? 'oscuro' : 'claro'));
     }
 
-    // IA del servidor (Vercel /api/chat). La key vive en el servidor, no aqui.
-    let servidorIA = null; // null = sin comprobar, true/false = comprobado
-    async function fetchServerAI(query, historial) {
-      if (servidorIA === false) return null;
+    document.getElementById('btnTema').addEventListener('click', () => {
+      aplicarTema(document.documentElement.dataset.tema === 'oscuro' ? 'claro' : 'oscuro');
+    });
+
+    /* ==================== estado del servidor ==================== */
+    async function comprobarIA() {
       try {
-        const response = await fetch('/api/chat', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ query: query, historial: historial })
-        });
-        if (!response.ok) {
-          servidorIA = false;
-          return null;
+        const respuesta = await fetch('/api/chat', { headers: { Accept: 'application/json' } });
+        if (!respuesta.ok) throw new Error('sin respuesta');
+        const datos = await respuesta.json();
+        if (datos.estado === 'ok') {
+          estado.servidorIA = true;
+          $estado.className = 'pastilla pastilla--ok';
+          $estadoTexto.textContent = 'IA conectada';
+          $estado.title = 'Modelo: ' + (datos.proveedor || '') + ' · ' + (datos.modelo || '');
+        } else {
+          estado.servidorIA = false;
+          $estado.className = 'pastilla pastilla--local';
+          $estadoTexto.textContent = 'Modo compendio';
         }
-        const data = await response.json();
-        if (data && data.respuesta) {
-          servidorIA = true;
-          return data.respuesta;
-        }
-        servidorIA = false;
-        return null;
-      } catch (err) {
-        servidorIA = false;
-        return null;
+      } catch (e) {
+        estado.servidorIA = false;
+        $estado.className = 'pastilla pastilla--local';
+        $estadoTexto.textContent = 'Modo compendio';
       }
     }
 
-    function appendMessage(role, htmlContent) {
-      const isUser = role === 'user';
-      const wrapper = document.createElement('div');
-      wrapper.className = `flex items-start gap-3 chat-bubble ${isUser ? 'flex-row-reverse' : ''}`;
-
-      const avatar = document.createElement('div');
-      avatar.className = `w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold ${
-        isUser ? 'bg-slate-700 text-white' : 'bg-blue-900 text-white'
-      }`;
-      avatar.innerHTML = isUser ? '👤' : '⚖️';
-
-      const bubble = document.createElement('div');
-      bubble.className = `p-4 rounded-2xl max-w-[88%] leading-relaxed ${
-        isUser 
-          ? 'bg-blue-900 text-white rounded-tr-sm text-sm' 
-          : 'bg-slate-100 text-slate-800 rounded-tl-sm markdown-body text-xs md:text-sm'
-      }`;
-      bubble.innerHTML = htmlContent;
-
-      wrapper.appendChild(avatar);
-      wrapper.appendChild(bubble);
-      chatContainer.appendChild(wrapper);
-      chatContainer.scrollTop = chatContainer.scrollHeight;
-      return bubble;
+    /* ==================== historial persistente ==================== */
+    function guardarHistorial() {
+      try {
+        const recorte = estado.mensajes.slice(-MAX_GUARDADOS);
+        localStorage.setItem(CLAVE_CHAT, JSON.stringify(recorte));
+      } catch (e) {}
     }
 
-    async function handleSend(event) {
-      if (event) event.preventDefault();
-      const input = document.getElementById('userInput');
-      const text = (input.value || '').trim();
-      if (!text) {
-        input.focus();
-        return;
+    function cargarHistorial() {
+      try {
+        const crudo = localStorage.getItem(CLAVE_CHAT);
+        if (!crudo) return [];
+        const datos = JSON.parse(crudo);
+        return Array.isArray(datos) ? datos : [];
+      } catch (e) {
+        return [];
       }
-
-      // Publicar mensaje del usuario
-      appendMessage('user', escapeHtml(text));
-      input.value = '';
-
-      // Indicador de análisis jurídico
-      const loadingBubble = appendMessage('assistant', `
-        <div class="flex items-center gap-2 text-slate-500 text-xs py-1">
-          <i class="fa-solid fa-spinner fa-spin text-blue-900"></i>
-          <span>Analizando el marco jurídico colombiano aplicable...</span>
-        </div>
-      `);
-
-      // 1. IA del servidor: si el despliegue tiene una API key configurada,
-      //    el navegador no necesita ninguna clave.
-      historialConversacion.push({ role: 'user', content: text });
-      const serverResponse = await fetchServerAI(text, historialConversacion.slice(0, -1));
-      if (serverResponse) {
-        loadingBubble.innerHTML = marked.parse(serverResponse);
-        historialConversacion.push({ role: 'assistant', content: serverResponse });
-        chatContainer.scrollTop = chatContainer.scrollHeight;
-        return;
-      }
-
-      // 2. Si existe clave de API configurada en localStorage, intentar llamada dinámica a OpenRouter
-      const customKey = getStoredApiKey();
-      if (customKey && customKey.trim().length > 15) {
-        try {
-          const aiResponse = await fetchOpenRouterAPI(text, customKey.trim());
-          if (aiResponse) {
-            loadingBubble.innerHTML = marked.parse(aiResponse);
-            historialConversacion.push({ role: 'assistant', content: aiResponse });
-            chatContainer.scrollTop = chatContainer.scrollHeight;
-            return;
-          }
-        } catch (err) {
-          console.warn("API de nube no disponible, activando motor jurídico integrado:", err);
-        }
-      }
-
-      // 3. Respuesta instantánea del Motor Jurídico Integrado de Colombia
-      setTimeout(() => {
-        const localResponse = getLocalLegalResponse(text);
-        loadingBubble.innerHTML = localResponse;
-        chatContainer.scrollTop = chatContainer.scrollHeight;
-      }, 250);
     }
 
-    async function fetchOpenRouterAPI(query, apiKey) {
-      const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${apiKey}`,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          model: "nvidia/nemotron-3.5-lightning:free",
-          messages: [
-            {
-              role: "system",
-              content: `Eres "Conoce tus Derechos", asistente jurídico pedagógico de la Pontificia Universidad Javeriana.
-REGLAS OBLIGATORIAS:
-1. Incluye siempre la advertencia legal pedagógica al inicio.
-2. Cita leyes, decretos y artículos vigentes de Colombia.
-3. Brinda una explicación clara y el paso a paso de lo que el ciudadano puede hacer.`
-            },
-            { role: "user", content: query }
-          ]
-        })
+    /* ==================== render ==================== */
+    function pintarMarkdown(elemento, texto) {
+      const html = window.marked ? marked.parse(texto) : escaparHtml(texto).replace(/\n/g, '<br>');
+      elemento.innerHTML = window.DOMPurify ? DOMPurify.sanitize(html) : html;
+    }
+
+    function ocultarBienvenida() {
+      if ($bienvenida && $bienvenida.parentNode) $bienvenida.remove();
+    }
+
+    function agregarBotonCopiar(cuerpo, burbuja) {
+      const acciones = document.createElement('div');
+      acciones.className = 'acciones';
+
+      const copiar = document.createElement('button');
+      copiar.type = 'button';
+      copiar.className = 'mini';
+      copiar.innerHTML = icono('copiar') + '<span>Copiar</span>';
+      copiar.addEventListener('click', () => {
+        const texto = burbuja.innerText;
+        navigator.clipboard.writeText(texto).then(
+          () => avisar('Respuesta copiada'),
+          () => avisar('No se pudo copiar')
+        );
       });
 
-      if (!response.ok) {
-        throw new Error(`OpenRouter HTTP ${response.status}`);
-      }
-
-      const data = await response.json();
-      if (data.choices && data.choices[0] && data.choices[0].message) {
-        return data.choices[0].message.content;
-      }
-      return null;
+      acciones.appendChild(copiar);
+      cuerpo.appendChild(acciones);
+      return acciones;
     }
 
-    // =========================================================================
-    // MOTOR JURÍDICO INTEGRADO DE COLOMBIA (RESPUESTAS COMPLETAS Y RIGUROSAS)
-    // =========================================================================
-    function getLocalLegalResponse(query) {
+    function crearMensaje(rol, contenido, opciones) {
+      opciones = opciones || {};
+
+      const fila = document.createElement('div');
+      fila.className = 'mensaje ' + (rol === 'user' ? 'mensaje--usuario' : 'mensaje--ia');
+
+      const cuerpo = document.createElement('div');
+      cuerpo.className = 'cuerpo';
+
+      const burbuja = document.createElement('div');
+      burbuja.className = 'burbuja md';
+
+      if (rol === 'user') {
+        burbuja.textContent = contenido;
+      } else if (opciones.html) {
+        burbuja.innerHTML = contenido;
+      } else if (opciones.pendiente) {
+        burbuja.innerHTML = '<span class="escribiendo"><i></i><i></i><i></i></span>';
+      } else {
+        pintarMarkdown(burbuja, contenido);
+      }
+
+      cuerpo.appendChild(burbuja);
+
+      if (rol === 'assistant' && !opciones.pendiente) {
+        agregarBotonCopiar(cuerpo, burbuja);
+      }
+
+      if (rol === 'assistant') {
+        const avatar = document.createElement('div');
+        avatar.className = 'avatar';
+        avatar.setAttribute('aria-hidden', 'true');
+        avatar.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 21h10M5 7h14M5 7l-3 6a3.5 3.5 0 0 0 6 0L5 7zm14 0l-3 6a3.5 3.5 0 0 0 6 0l-3-6z"/></svg>';
+        fila.appendChild(avatar);
+      }
+
+      fila.appendChild(cuerpo);
+      $mensajes.appendChild(fila);
+
+      return { fila: fila, burbuja: burbuja, cuerpo: cuerpo };
+    }
+
+    function cercaDelFondo() {
+      return $mensajes.scrollHeight - $mensajes.scrollTop - $mensajes.clientHeight < 140;
+    }
+
+    function bajar(force) {
+      if (force || cercaDelFondo()) {
+        $mensajes.scrollTop = $mensajes.scrollHeight;
+      }
+    }
+
+    function reconstruir() {
+      $mensajes.querySelectorAll('.mensaje').forEach((n) => n.remove());
+      if (estado.mensajes.length === 0) {
+        if ($bienvenida && !$bienvenida.parentNode) $mensajes.appendChild($bienvenida);
+        return;
+      }
+      ocultarBienvenida();
+      estado.mensajes.forEach((m) => {
+        crearMensaje(m.rol, m.html || m.texto, { html: Boolean(m.html) });
+      });
+      bajar(true);
+    }
+
+    /* ==================== enviar ==================== */
+    function historialParaEnviar() {
+      return estado.mensajes
+        .filter((m) => m.texto && m.rol)
+        .slice(-MAX_HISTORIAL_ENVIO)
+        .map((m) => ({ role: m.rol === 'user' ? 'user' : 'assistant', content: m.texto }));
+    }
+
+    async function transmitir(texto, objetivo, historial) {
+      const controlador = new AbortController();
+      const temporizador = setTimeout(() => controlador.abort(), 65000);
+
+      try {
+        const respuesta = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query: texto, historial: historial || [], stream: true }),
+          signal: controlador.signal
+        });
+
+        if (!respuesta.ok) return false;
+
+        const tipo = respuesta.headers.get('content-type') || '';
+
+        if (!tipo.includes('text/event-stream') || !respuesta.body) {
+          const datos = await respuesta.json();
+          if (!datos.respuesta) return false;
+          pintarMarkdown(objetivo.burbuja, datos.respuesta);
+          objetivo.texto = datos.respuesta;
+          return true;
+        }
+
+        const lector = respuesta.body.getReader();
+        const decodificador = new TextDecoder();
+        let buffer = '';
+        let acumulado = '';
+        let error = null;
+        let pendiente = false;
+
+        const refrescar = () => {
+          pendiente = false;
+          pintarMarkdown(objetivo.burbuja, acumulado);
+          objetivo.burbuja.insertAdjacentHTML('beforeend', '<span class="cursor"></span>');
+          bajar(false);
+        };
+
+        while (true) {
+          const { value, done } = await lector.read();
+          if (done) break;
+          buffer += decodificador.decode(value, { stream: true });
+
+          let corte;
+          while ((corte = buffer.indexOf('\n\n')) >= 0) {
+            const bloque = buffer.slice(0, corte);
+            buffer = buffer.slice(corte + 2);
+
+            for (const linea of bloque.split('\n')) {
+              if (!linea.startsWith('data:')) continue;
+              const carga = linea.slice(5).trim();
+              if (!carga || carga === '[DONE]') continue;
+
+              let evento;
+              try { evento = JSON.parse(carga); } catch (e) { continue; }
+
+              if (evento.delta) {
+                if (!estado.primerToken) estado.primerToken = true;
+                acumulado += evento.delta;
+                if (!pendiente) {
+                  pendiente = true;
+                  requestAnimationFrame(refrescar);
+                }
+              }
+              if (evento.error) error = evento.error;
+            }
+          }
+        }
+
+        if (error && !acumulado) throw new Error(error);
+
+        if (!acumulado) return false;
+
+        objetivo.burbuja.innerHTML = '';
+        pintarMarkdown(objetivo.burbuja, acumulado);
+        objetivo.texto = acumulado;
+        bajar(false);
+        return true;
+      } finally {
+        clearTimeout(temporizador);
+      }
+    }
+
+    async function enviar(texto) {
+      texto = (texto || '').trim();
+      if (!texto || estado.enviando) return;
+
+      estado.enviando = true;
+      estado.primerToken = false;
+      $btnEnviar.disabled = true;
+      $entrada.value = '';
+      ajustarAltura();
+      actualizarContador();
+      ocultarBienvenida();
+
+      // El historial se toma ANTES de agregar la consulta actual,
+      // para no enviarla dos veces al servidor.
+      const historial = historialParaEnviar();
+
+      crearMensaje('user', texto);
+      estado.mensajes.push({ rol: 'user', texto: texto });
+      bajar(true);
+
+      const objetivo = crearMensaje('assistant', '', { pendiente: true });
+      $mensajes.setAttribute('aria-busy', 'true');
+      bajar(true);
+
+      let respuestaIA = false;
+
+      try {
+        estado.enviando = true;
+        respuestaIA = await transmitir(texto, objetivo, historial);
+
+        if (!respuestaIA) throw new Error('sin respuesta');
+
+        estado.servidorIA = true;
+        $estado.className = 'pastilla pastilla--ok';
+        $estadoTexto.textContent = 'IA conectada';
+        estado.mensajes.push({ rol: 'assistant', texto: objetivo.texto });
+        agregarBotonCopiar(objetivo.cuerpo, objetivo.burbuja);
+      } catch (error) {
+        const html = getLocalLegalResponse(texto);
+        objetivo.burbuja.innerHTML = html;
+
+        const nota = document.createElement('div');
+        nota.className = 'acciones';
+        nota.innerHTML = '<span class="mini" style="cursor:default">Compendio local · IA no disponible</span>';
+        objetivo.cuerpo.appendChild(nota);
+
+        estado.mensajes.push({ rol: 'assistant', html: html });
+
+        if (estado.servidorIA !== false) {
+          avisar('La IA no respondió; usé el compendio local.');
+          estado.servidorIA = false;
+          $estado.className = 'pastilla pastilla--local';
+          $estadoTexto.textContent = 'Modo compendio';
+        }
+        if (estado.mensajes.length <= 2) {
+          avisar('No pude conectar con la IA. Revisa la clave en Vercel.');
+        }
+      } finally {
+        guardarHistorial();
+        estado.enviando = false;
+        $btnEnviar.disabled = false;
+        $mensajes.removeAttribute('aria-busy');
+        $entrada.focus();
+        bajar(false);
+      }
+    }
+
+    /* ==================== entrada ==================== */
+    function ajustarAltura() {
+      $entrada.style.height = 'auto';
+      $entrada.style.height = Math.min($entrada.scrollHeight, 150) + 'px';
+    }
+
+    function actualizarContador() {
+      const n = $entrada.value.length;
+      $contador.textContent = n + (n === 1 ? ' carácter' : ' caracteres');
+    }
+
+    $entrada.addEventListener('input', () => {
+      ajustarAltura();
+      actualizarContador();
+    });
+
+    $entrada.addEventListener('keydown', (evento) => {
+      if (evento.key === 'Enter' && !evento.shiftKey && !evento.isComposing) {
+        evento.preventDefault();
+        $form.requestSubmit();
+      }
+    });
+
+    $form.addEventListener('submit', (evento) => {
+      evento.preventDefault();
+      enviar($entrada.value);
+    });
+
+    /* ==================== acciones de la cabecera ==================== */
+    document.getElementById('btnNueva').addEventListener('click', () => {
+      if (estado.mensajes.length && !confirm('¿Empezar una consulta nueva y borrar esta conversación?')) return;
+      estado.mensajes = [];
+      try { localStorage.removeItem(CLAVE_CHAT); } catch (e) {}
+      reconstruir();
+      $mensajes.appendChild($bienvenida);
+      $entrada.value = '';
+      ajustarAltura();
+      actualizarContador();
+      $entrada.focus();
+      avisar('Conversación nueva');
+    });
+
+    document.getElementById('btnExportar').addEventListener('click', () => {
+      if (!estado.mensajes.length) {
+        avisar('Todavía no hay conversación para exportar');
+        return;
+      }
+      const lineas = ['# Conoce tus Derechos — Consulta jurídica', '', 'Fecha: ' + new Date().toLocaleString('es-CO'), ''];
+      estado.mensajes.forEach((m) => {
+        lineas.push(m.rol === 'user' ? '## Consulta' : '## Orientación');
+        lineas.push('');
+        if (m.html) {
+          const div = document.createElement('div');
+          div.innerHTML = m.html;
+          lineas.push(div.innerText.trim());
+        } else {
+          lineas.push((m.texto || '').trim());
+        }
+        lineas.push('');
+      });
+      lineas.push('---');
+      lineas.push('Herramienta académica (Pontificia Universidad Javeriana). No constituye asesoría jurídica formal.');
+
+      const blob = new Blob([lineas.join('\n')], { type: 'text/markdown;charset=utf-8' });
+      const enlace = document.createElement('a');
+      enlace.href = URL.createObjectURL(blob);
+      enlace.download = 'consulta-conoce-tus-derechos.md';
+      document.body.appendChild(enlace);
+      enlace.click();
+      enlace.remove();
+      setTimeout(() => URL.revokeObjectURL(enlace.href), 2000);
+      avisar('Conversación exportada');
+    });
+
+    /* ==================== categorías ==================== */
+    const CATEGORIAS = [
+      ['Constitución y tutela', '¿Cómo funciona una acción de tutela?'],
+      ['Arrendamiento', 'Mi arrendador me quiere subir el arriendo'],
+      ['Trabajo y despidos', 'Me despidieron sin justa causa'],
+      ['Consumidor y garantías', 'No me quieren hacer efectiva la garantía'],
+      ['Salud y EPS', 'La EPS no me autoriza un medicamento'],
+      ['Tránsito y fotomultas', 'Me llegó una fotomulta que no era mía'],
+      ['Familia y alimentos', 'Mi ex no paga la cuota alimentaria'],
+      ['Penal y denuncias', 'Me robaron el celular en el bus'],
+      ['Servicios públicos', 'Me cobraron de más en el recibo de la luz'],
+      ['Datos personales', 'Estoy reportado en Datacrédito sin deber'],
+      ['Violencia intrafamiliar', 'Mi pareja me agrede, ¿qué puedo hacer?']
+    ];
+
+    function construirCategorias() {
+      const contenedor = document.getElementById('categorias');
+      CATEGORIAS.forEach(([nombre, consulta]) => {
+        const boton = document.createElement('button');
+        boton.type = 'button';
+        boton.className = 'categoria';
+        boton.innerHTML = '<span>' + escaparHtml(nombre) + '</span><small>›</small>';
+        boton.addEventListener('click', () => enviar(consulta));
+        contenedor.appendChild(boton);
+      });
+    }
+
+    function construirChips() {
+      const contenedor = document.getElementById('chipsBienvenida');
+      SUGERENCIAS.slice(0, 6).forEach((texto) => {
+        const boton = document.createElement('button');
+        boton.type = 'button';
+        boton.className = 'chip';
+        boton.textContent = texto;
+        boton.addEventListener('click', () => enviar(texto));
+        contenedor.appendChild(boton);
+      });
+    }
+
+    /* ==================== arranque ==================== */
+    iniciarTema();
+    construirCategorias();
+    construirChips();
+    comprobarIA();
+
+    estado.mensajes = cargarHistorial();
+    reconstruir();
+    actualizarContador();
+    ajustarAltura();
+    $entrada.focus();
+
+    /* ==================== motor juridico local (respaldo) ==================== */
+function getLocalLegalResponse(query) {
       // Normaliza la consulta: minusculas y sin tildes, para que
       // "me robaron" o "ROBARON" coincidan con las mismas palabras clave.
       const lower = query.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -991,26 +1643,6 @@ REGLAS OBLIGATORIAS:
     function escapeHtml(text) {
       if (!text) return '';
       return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    }
-
-    function askSample(question) {
-      const input = document.getElementById('userInput');
-      input.value = question;
-      handleSend();
-    }
-
-    function clearChat() {
-      chatContainer.innerHTML = `
-        <div class="flex items-start gap-3 chat-bubble">
-          <div class="w-8 h-8 rounded-full bg-blue-900 text-white flex-shrink-0 flex items-center justify-center text-xs">
-            ⚖️
-          </div>
-          <div class="bg-slate-100 text-slate-800 p-4 rounded-2xl rounded-tl-sm max-w-[90%] leading-relaxed text-xs md:text-sm">
-            <p class="font-semibold text-blue-950">¡Chat reiniciado con éxito!</p>
-            <p class="mt-1 text-slate-700">Pregúntame sobre cualquier asunto legal en Colombia o selecciona un caso de ejemplo del panel lateral.</p>
-          </div>
-        </div>
-      `;
     }
   </script>
 </body>
